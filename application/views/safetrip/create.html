@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe Trip</title>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="<?php echo(CSS.'bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo(CSS.'bootstrap-datetimepicker.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo(CSS.'font-awesome.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo(CSS.'webapps.css'); ?>">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-maincolor navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Safe Trip</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav pull-right pull-left-mobile">
+            <li><a href ="/statistics">Statistics</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#contact">FAQs</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="file-report-page">
+      <div class="container">
+        <h1>Filing a Report</h1>
+        <div class="well">
+          <form role="form">
+            <div class="form-group form-narrow">
+              <label for="report">Report</label>
+              <textarea id="report" class="form-control" rows="3" placeholder="Describe the incident"></textarea>
+            </div>
+            <div class="form-group form-narrower">
+              <label for="platenumber">Plate Number</label>
+              <input type="text" class="form-control" id="platenumber" placeholder="Example: TXI-123">
+            </div>
+            <div class="form-group form-narrow">
+              <label>Type of Vehicle</label>
+              <div class="row">
+                <div class="col-xs-5">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" value=""> Bus
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-5">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" value=""> Taxi
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-narrower">
+              <label for="datetime">Date and Time of Incident</label>
+              <div class="form-group">
+                <div class='input-group date' id='datetimepickerincident'>
+                  <!-- DateTimePicker plugin: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+                  <!-- Documentation: http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+                  <input type='text' class="form-control" id="datetime" placeholder="Select the Date and Time" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-narrower">
+              <label for="location">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="Example: Quezon City">
+            </div>
+            <div class="form-group form-narrow">
+              <label>Categories</label>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Overcharging
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Contracting
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Rude Behavior
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Sexual Harassment
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Kidnapping
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Attempted Murder
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Left Behind Items
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Refused Boarding
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Choosing Passengers
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Reckless Behavior
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-narrow">
+              <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOtherDetails">
+                        Other Details
+                      </a>
+                      <a class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#collapseOtherDetails">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOtherDetails" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div class="form-group form-narrower">
+                        <label for="driver">Driver Name</label>
+                        <input type="text" class="form-control" id="driver" placeholder="Example: Manong Juan">
+                      </div>
+                      <div class="form-group form-narrower">
+                        <label for="company">Company</label>
+                        <input type="text" class="form-control" id="company" placeholder="Example: Bus Co.">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group  form-narrow">
+              <label for="attachment">File input</label>
+              <input type="file" id="attachment">
+              <p class="help-block">Attach a photo related to the incident.</p>
+            </div>
+            <a class="btn btn-primary btn-md" href="view" role="button">File Report</a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo(JS.'bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo(JS.'moment-2.4.0.js'); ?>"></script>
+    <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
+    <script type="text/javascript">
+        function redir() {
+          windows.location.href = "http://localhost/safetrip/index.php/view";
+        }
+        /*$(function () {
+            $('#datetimepickerincident').datetimepicker();
+        });*/
+    </script>
+  </body>
+</html>

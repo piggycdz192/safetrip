@@ -1,0 +1,104 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  width: auto;
+  min-width: 320px;
+}
+
+.navbar {
+  width: 100%;
+}
+
+body {
+  padding-top: 50px;
+  background-color: #EBEFF0;
+}
+
+.navbar-maincolor {
+  background-color: #2d3e50;
+  border-color: #2d3e50;
+}
+
+@media (max-width: 767px) {
+  .pull-none-mobile {
+    float: none!important;
+  }
+
+  .pull-left-mobile {
+    float: left!important;
+  }
+
+  .jumbotron-title-mobile {
+    font-size: 20px!important;
+  }
+}
+
+.search-page {
+  min-height: 100%;
+  padding-top: 157px;
+  padding-bottom: 157px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/search-page-bg.jpg");
+}
+
+.jumbotron.transparent {
+  background-color: rgba(238, 238, 238, 0.5);
+}
+
+.jumbotron .jumbotron-title {
+  font-size: 2em;
+}
+
+.search-jumbotron {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-narrow {
+  max-width: 500px;
+}
+
+.form-narrower {
+  max-width: 300px;
+}
+
+.icon-yellow {
+  color: darkorange;
+}
+
+.td-widest {
+  width: 100%;
+}
+
+.table.table-borderless th,
+.table.table-borderless td {
+  border-top: transparent; 
+}
+
+.table th.no-border,
+.table td.no-border {
+  border-top: transparent; 
+}
+
+.progress-dark {
+  background-color: lightgrey;
+}
+
+.progress-bar-text-left {
+  text-align: left;
+  padding-left: 4px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0;
+}
+
+.attachment-small {
+  width: 100px;
+}

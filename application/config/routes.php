@@ -38,6 +38,10 @@
 |
 */
 
+$route['create'] = "welcome/create";
+$route['view'] = "welcome/view";
+$route['statistics'] = "welcome/statistics";
+$route['index'] = "welcome/index";
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 

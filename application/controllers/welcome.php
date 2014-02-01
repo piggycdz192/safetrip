@@ -19,7 +19,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('safetrip/index.html');
+	}
+	public function create()
+	{
+		$this->load->view('safetrip/create.html');
+	}
+	public function statistics()
+	{
+		$this->load->view('safetrip/statistics.html');
+	}
+	public function view()
+	{
+		$this->load->view('safetrip/view.html');
 	}
 }
 
