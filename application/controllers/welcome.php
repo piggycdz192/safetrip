@@ -33,6 +33,12 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('safetrip/view.html');
 	}
+
+	public function validate(){
+		$this->load->library("form_validation");
+
+		$this->form_validation->set_rules();
+	}
 }
 
 /* End of file welcome.php */

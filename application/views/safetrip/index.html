@@ -20,7 +20,6 @@
     <![endif]-->
   </head>
   <body>
-
     <div class="navbar navbar-inverse navbar-maincolor navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -42,18 +41,12 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
+    
     <div class="search-page">
       <div class="container">
         <div class="jumbotron transparent search-jumbotron">
           <p class="jumbotron-title jumbotron-title-mobile text-center">Enter the plate number, driver name or company you want to search or report:</p>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Examples: TXI-123 or Manong Juan or Bus Co.">
-            </div>
-          <p class="text-center">
-            <a class="btn btn-primary btn-lg" href="index.php/create" role="button"><span class="glyphicon glyphicon-exclamation-sign"></span> Report</a>
-            <a class="btn btn-primary btn-lg" href="index.php/view" role="button"><span class="glyphicon glyphicon-search"></span> Search</a>
-          </p>
+          <?php $this->load->view("safetrip/homepageform.php"); ?>
         </div>
       </div>
     </div>
