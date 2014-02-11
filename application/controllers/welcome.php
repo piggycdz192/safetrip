@@ -37,7 +37,22 @@ class Welcome extends CI_Controller {
 	public function validate(){
 		$this->load->library("form_validation");
 
-		$this->form_validation->set_rules();
+		$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
+
+
+		if (!empty($this->input->post("report")))
+		{
+		     echo $this->input->post('plateNum');
+		}
+		else if (!empty($this->input->post("search")))
+		{
+		     echo "search";
+		}
+
+		if(!$this->form_validation->run())
+			$this->index();
+
+			
 	}
 }
 

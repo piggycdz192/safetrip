@@ -3,13 +3,13 @@
 		$this->load->helper("form");
 
 		echo validation_errors();
-		echo form_open("index.php/validate");
+		echo form_open("welcome/validate");
 		
 		$data = array(
 			'type' => 'text',
-			'id' => 'plateNum',
+			'name' => 'plateNum',
 			'class' => "form-control",
-			'placeholder' => "Examples: TXI-123 or Manong Juan or Bus Co.",
+			'placeholder' => "Examples: TXI-123 or Manong Juan or Bus Co."
 		);
 
 		echo form_input($data);
@@ -20,17 +20,17 @@
 	<?php
 		$data = array(
 			'class' => "btn btn-primary btn-lg",
-			'id' => "btnReport",
-			'role' => "button",
+			'name' => 'report'
 			);
-		echo anchor("create", '<span class="glyphicon glyphicon-exclamation-sign"></span> Report', $data);
+		echo '<span class="glyphicon glyphicon-exclamation-sign"></span> ';
+		echo form_submit($data, 'Report');
 		
 		$data = array(
 			'class'=>"btn btn-primary btn-lg",
-			'id' => "btnSearch",
-			'role'=> "button",
+			'name' => "search"
 			);
-		echo anchor("view",'<span class="glyphicon glyphicon-search"></span> Search',$data);
+
+		echo anchor("",'<span class="glyphicon glyphicon-search"></span> Search',$data);
 
 		echo form_close();
 
