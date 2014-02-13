@@ -25,7 +25,7 @@ class Report extends CI_Controller {
 		}
 		else
 		{
-			$this->report_model->set_report();
+			$this->report_model->add_report();
 			$this->load->view('safetrip/success');
 		}
 

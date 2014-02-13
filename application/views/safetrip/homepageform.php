@@ -3,7 +3,7 @@
 		$this->load->helper("form");
 
 		echo validation_errors();
-		echo form_open("welcome/validate");
+		echo form_open("home/validate");
 		
 		$data = array(
 			'type' => 'text',

@@ -12,7 +12,7 @@ class Report_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function set_report()
+	public function add_report()
 	{
 		$this->load->helper('url');
 
@@ -25,9 +25,9 @@ class Report_model extends CI_Model {
 			'platenumber' => $this->input->post('platenumber'),
 			'idvehicletype' => $this->input->post('vehicletype'),
 		);
-		$this->db->insert('vehicle', $data2);
 
-		return $this->db->insert('report', $data);
+		$this->db->insert('vehicle', $data2);
+		$this->db->insert('report', $data);
 	}
 
 }

@@ -38,11 +38,11 @@
 |
 */
 
-$route['create'] = "welcome/create";
-$route['view'] = "welcome/view";
-$route['statistics'] = "welcome/statistics";
-$route['index'] = "welcome/index";
-$route['default_controller'] = "welcome";
+$route['create'] = "home/create";
+$route['view'] = "home/view";
+$route['statistics'] = "home/statistics";
+$route['index'] = "home/index";
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
 
