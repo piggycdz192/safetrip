@@ -21,8 +21,9 @@
 		$data = array(
 			'class' => "btn btn-primary btn-lg",
 			'name' => 'report',
+			'onclick' => "this.form.submit()"
 			);
-		echo anchor('create','Report', $data);
+		echo form_button($data,'<span class="glyphicon glyphicon-exclamation-sign"></span> Report');
 		
 		$data = array(
 			'class'=>"btn btn-primary btn-lg",

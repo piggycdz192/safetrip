@@ -57,54 +57,54 @@
                 <div class="col-xs-6">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Overcharging"> Overcharging
+                      <input type="checkbox" name ="category[]" value="Overcharging"> Overcharging
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Contracting"> Contracting
+                      <input type="checkbox" name ="category[]" value="Contracting"> Contracting
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Rude Behavior"> Rude Behavior
+                      <input type="checkbox" name ="category[]" value="Rude Behavior"> Rude Behavior
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Sexual Harassment"> Sexual Harassment
+                      <input type="checkbox" name ="category[]" value="Sexual Harassment"> Sexual Harassment
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="category" value="Kidnapping"> Kidnapping
+                      <input type="checkbox" name="category[]" value="Kidnapping"> Kidnapping
                     </label>
                   </div>
                 </div>
                 <div class="col-xs-6">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Attempted Murder"> Attempted Murder
+                      <input type="checkbox" name ="category[]" value="Attempted Murder"> Attempted Murder
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Left Behind Items"> Left Behind Items
+                      <input type="checkbox" name ="category[]" value="Left Behind Items"> Left Behind Items
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Refused Boarding"> Refused Boarding
+                      <input type="checkbox" name ="category[]" value="Refused Boarding"> Refused Boarding
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Choosing Passengers"> Choosing Passengers
+                      <input type="checkbox" name ="category[]" value="Choosing Passengers"> Choosing Passengers
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category" value="Reckless Behavior"> Reckless Behavior
+                      <input type="checkbox" name ="category[]" value="Reckless Behavior"> Reckless Behavior
                     </label>
                   </div>
                 </div>
