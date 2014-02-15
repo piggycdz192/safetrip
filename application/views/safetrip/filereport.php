@@ -127,11 +127,11 @@
                     <div class="panel-body">
                       <div class="form-group form-narrower">
                         <label for="driver">Driver Name</label>
-                        <input type="text" class="form-control" id="driver" placeholder="Example: Manong Juan">
+                        <input type="text" class="form-control" name ="driver" placeholder="Example: Manong Juan">
                       </div>
                       <div class="form-group form-narrower">
                         <label for="company">Company</label>
-                        <input type="text" class="form-control" id="company" placeholder="Example: Bus Co.">
+                        <input type="text" class="form-control" name ="company" placeholder="Example: Bus Co.">
                       </div>
                     </div>
                   </div>

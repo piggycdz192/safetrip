@@ -20,10 +20,9 @@
 	<?php
 		$data = array(
 			'class' => "btn btn-primary btn-lg",
-			'name' => 'report'
+			'name' => 'report',
 			);
-		echo '<span class="glyphicon glyphicon-exclamation-sign"></span> ';
-		echo form_submit($data, 'Report');
+		echo anchor('create','Report', $data);
 		
 		$data = array(
 			'class'=>"btn btn-primary btn-lg",

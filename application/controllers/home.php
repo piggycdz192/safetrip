@@ -44,9 +44,9 @@ class Home extends CI_Controller {
 		{
 		     echo $this->input->post('plateNum');
 		}
-		else if (!empty($this->input->post("search")))
+		else
 		{
-		     echo "search";
+		     echo 'search ay '.$this->input->post('plateNum');;
 		}
 
 		if(!$this->form_validation->run())
