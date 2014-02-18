@@ -21,7 +21,7 @@ class Report extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('safetrip/create.html');
+			$this->load->view('safetrip/filereport');
 		}
 		else
 		{
