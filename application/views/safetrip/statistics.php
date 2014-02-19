@@ -28,12 +28,14 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Safe Trip</a>
+          <a class="navbar-brand" href="/safetrip">Safe Trip</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right pull-left-mobile">
-            <li><a href ="/statistics">Statistics</a></li>
+            <li class = "active"><a href ="#">Statistics</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact Us</a></li>
             <li><a href="#contact">FAQs</a></li>
@@ -46,7 +48,7 @@
       <div class="container">
         <ul class="list-inline">
           <li><h1>Statistics</h1></li>
-          <li>
+          <li class="pull-right violate-dropdown">
             <select class="form-control">
               <option>By taxi violations</option>
               <option>2</option>
@@ -111,11 +113,11 @@
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
+    <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/moment-2.4.0.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<?php echo(JS.'bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo(JS.'moment-2.4.0.js'); ?>"></script>
+    <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
     <script type="text/javascript">
         $(function () {
             $('#datetimepickerincident').datetimepicker();

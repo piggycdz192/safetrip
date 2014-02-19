@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Safe Trip</a>
+          <a class="navbar-brand" href="/safetrip">Safe Trip</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right pull-left-mobile">
@@ -44,58 +44,64 @@
     
     <div class="search-page">
       <div class="container">
-        <div class="jumbotron transparent search-jumbotron">
-          <p class="jumbotron-title jumbotron-title-mobile text-center">Enter the plate number, driver name or company you want to search or report:</p>
+        <div class="jumbotron transparent narrow-container">
+          <p class="jumbotron-title jumbotron-title-mobile text-center">Is this taxi/bus SAFE?</p>
           <div class="form-group">
-	<?php
-		$this->load->helper("form");
+          	<?php
+          		$this->load->helper("form");
 
-		echo validation_errors();
-		echo form_open("home/validate");
-		
-		$data = array(
-			'type' => 'text',
-			'name' => 'plateNum',
-			'class' => "form-control",
-			'placeholder' => "Examples: TXI-123 or Manong Juan or Bus Co."
-		);
+          		echo validation_errors();
+          		echo form_open("home/validate");
+          		
+          		$data = array(
+          			'type' => 'text',
+          			'name' => 'plateNum',
+          			'class' => "form-control",
+          			'placeholder' => "Examples: TXI-123 or Manong Juan or Bus Co."
+          		);
 
-		echo form_input($data);
-	?>
-		 <p class="text-center">
-		 <br>
-		 <!-- creates two buttons -->
-	<?php
-		$data = array(
-			'class' => "btn btn-primary btn-lg",
-			'name' => 'report',
-			'onclick' => "this.form.submit()"
-			);
+          		echo form_input($data);
+          	?>
+          		 <p class="text-center">
+          		 <br>
+          		 <!-- creates two buttons -->
+              	<?php
+              		$data = array(
+              			'class'=>"btn btn-primary btn-lg",
+              			'name' => "search"
+              			);
 
-		echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> Report',$data);
-		$data = array(
-			'class'=>"btn btn-primary btn-lg",
-			'name' => "search"
-			);
+                  echo form_button($data,'<span class="glyphicon glyphicon-search"></span> Search');
 
-    echo form_button($data,'<span class="glyphicon glyphicon-search"></span> Search');
+              		echo form_close();
 
-		echo form_close();
-
-	?>	
-
-		</p>
-</div>
+              	?>
+              </p>
+          </div>
         </div>
+        <div class="narrow-container">
+        <?php
+          $data = array(
+            'class' => "btn btn-primary btn-lg pull-right",
+            'name' => 'report',
+            'onclick' => "this.form.submit()"
+            );
+
+          echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
+
+          echo form_close();
+
+        ?>
+      </div>
       </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
+    <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/moment-2.4.0.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<?php echo(JS.'bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo(JS.'moment-2.4.0.js'); ?>"></script>
+    <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
     <script type="text/javascript">
         $(function () {
             $('#datetimepickerincident').datetimepicker();

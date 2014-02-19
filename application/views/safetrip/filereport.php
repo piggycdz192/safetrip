@@ -1,7 +1,5 @@
 <?php $this->load->helper("form"); ?>
 
-<?php echo validation_errors(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Safe Trip</a>
+          <a class="navbar-brand" href="/safetrip">Safe Trip</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right pull-left-mobile">
@@ -53,6 +51,9 @@
   <div class="file-report-page">
       <div class="container">
         <h1>Filing a Report</h1>
+        <div class="alert alert-danger">
+        <?php echo validation_errors(); ?>
+        </div>
         <div class="well">
           <form role="form">
             <div class="form-group form-narrow">
