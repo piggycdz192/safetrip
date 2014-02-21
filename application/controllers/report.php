@@ -17,7 +17,8 @@ class Report extends CI_Controller {
 		$this->form_validation->set_rules('vehicletype', 'Vehicle Type', 'required');
 		$this->form_validation->set_rules('datetime', 'Date and Time', 'required');
 		$this->form_validation->set_rules('location', 'Location', 'required');
-		$this->form_validation->set_rules('category', 'Category', 'required');
+		$this->form_validation->set_rules('category[]', 'Violations', 'required');
+
 
 		if ($this->form_validation->run() === FALSE)
 		{

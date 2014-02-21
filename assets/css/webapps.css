@@ -106,3 +106,7 @@ body {
 .violate-dropdown {
 margin-top: 20px;
 }
+
+.error {
+    color: red;
+}

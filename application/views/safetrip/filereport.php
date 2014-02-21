@@ -51,18 +51,18 @@
   <div class="file-report-page">
       <div class="container">
         <h1>Filing a Report</h1>
-        <div class="alert alert-danger">
-        <?php echo validation_errors(); ?>
-        </div>
+
         <div class="well">
           <form role="form">
             <div class="form-group form-narrow">
               <label for="report">Report</label>
-              <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident"></textarea>
+              <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ><?php echo set_value('report');?></textarea>
+              <?php echo form_error('report','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrower">
               <label for="platenumber">Plate Number</label>
-              <input type="text" class="form-control" name="platenumber" placeholder="Example: TXI-123">
+              <input type="text" class="form-control" name="platenumber" placeholder="Example: TXI-123" value="<?php echo set_value('platenumber');?>">
+              <?php echo form_error('platenumber','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrow">
               <label>Type of Vehicle</label>
@@ -70,18 +70,19 @@
                 <div class="col-xs-5">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="vehicletype" value="1"> Bus
+                      <input type="radio" name="vehicletype" value="1" <?php echo set_radio('vehicletype', '1'); ?>> Bus
                     </label>
                   </div>
                 </div>
                 <div class="col-xs-5">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="vehicletype" value="2"> Taxi
+                      <input type="radio" name="vehicletype" value="2" <?php echo set_radio('vehicletype', '2'); ?>> Taxi
                     </label>
                   </div>
                 </div>
               </div>
+              <?php echo form_error('vehicletype','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrower">
               <label for="datetime">Date and Time of Incident</label>
@@ -89,74 +90,78 @@
                 <div class='input-group date' id='datetimepickerincident'>
                   <!-- DateTimePicker plugin: https://github.com/Eonasdan/bootstrap-datetimepicker -->
                   <!-- Documentation: http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-                  <input type='text' class="form-control" name="datetime" placeholder="Select the Date and Time" />
+                  <input type='text' class="form-control" name="datetime" placeholder="Select the Date and Time" value="<?php echo set_value('datetime');?>"/>
                   <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
+                <?php echo form_error('datetime','<div class="error">', '</div>') ?>
               </div>
             </div>
             <div class="form-group form-narrower">
-              <label for="location">Location</label>
-              <input type="text" class="form-control" name="location" placeholder="Example: Quezon City">
+              <label for="location">Location of Incident</label>
+              <input type="text" class="form-control" name="location" placeholder="Example: Quezon City" value="<?php echo set_value('location');?>">
+              <?php echo form_error('location','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrow">
-              <label>Categories</label>
+              <label>Violations</label>
               <div class="row">
                 <div class="col-xs-6">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Overcharging"> Overcharging
+                      <input type="checkbox" name ="category[]" value="Overcharging" <?php echo set_checkbox("category[]", "Overcharging") ?> > Overcharging
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Contracting"> Contracting
+                      <input type="checkbox" name ="category[]" value="Contracting" <?php echo set_checkbox("category[]", "Contracting") ?> > Contracting
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Rude Behavior"> Rude Behavior
+                      <input type="checkbox" name ="category[]" value="Rude Behavior" <?php echo set_checkbox("category[]", "Rude Behavior") ?> > Rude Behavior
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Sexual Harassment"> Sexual Harassment
+                      <input type="checkbox" name ="category[]" value="Sexual Harassment" <?php echo set_checkbox("category[]", "Sexual Harassment") ?> > Sexual Harassment
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="category[]" value="Kidnapping"> Kidnapping
+                      <input type="checkbox" name="category[]" value="Kidnapping" <?php echo set_checkbox("category[]", "Kidnapping") ?> > Kidnapping
                     </label>
                   </div>
                 </div>
                 <div class="col-xs-6">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Attempted Murder"> Attempted Murder
+                      <input type="checkbox" name ="category[]" value="Attempted Murder" <?php echo set_checkbox("category[]", "Attempted Murder") ?> > Attempted Murder
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Left Behind Items"> Left Behind Items
+                      <input type="checkbox" name ="category[]" value="Left Behind Items" <?php echo set_checkbox("category[]", "Left Behind Items") ?> > Left Behind Items
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Refused Boarding"> Refused Boarding
+                      <input type="checkbox" name ="category[]" value="Refused Boarding" <?php echo set_checkbox("category[]", "Refused Boarding") ?> > Refused Boarding
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Choosing Passengers"> Choosing Passengers
+                      <input type="checkbox" name ="category[]" value="Choosing Passengers" <?php echo set_checkbox("category[]", "Choosing Passengers") ?> > Choosing Passengers
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name ="category[]" value="Reckless Behavior"> Reckless Behavior
+                      <input type="checkbox" name ="category[]" value="Reckless Behavior" <?php echo set_checkbox("category[]", "Reckless Behavior") ?> > Reckless Behavior
                     </label>
                   </div>
                 </div>
               </div>
+              <?php echo form_error('category[]','<div class="error">', '</div>') ?>
             </div>
+            
             <div class="form-group form-narrow">
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
@@ -174,11 +179,11 @@
                     <div class="panel-body">
                       <div class="form-group form-narrower">
                         <label for="driver">Driver Name</label>
-                        <input type="text" class="form-control" name ="driver" placeholder="Example: Manong Juan">
+                        <input type="text" class="form-control" name ="driver" placeholder="Example: Manong Juan" value="<?php echo set_value('driver');?>">
                       </div>
                       <div class="form-group form-narrower">
                         <label for="company">Company</label>
-                        <input type="text" class="form-control" name ="company" placeholder="Example: Bus Co.">
+                        <input type="text" class="form-control" name ="company" placeholder="Example: Bus Co." value="<?php echo set_value('company');?>">
                       </div>
                     </div>
                   </div>
