@@ -67,10 +67,10 @@
             <div class="form-group form-narrower">
               <label for="datetime">Date and Time of Incident</label>
               <div class="form-group">
-                <div class='input-group date' id='datetimepickerincident'>
+                <div class='input-group date' id='datetimepickerincident' >
                   <!-- DateTimePicker plugin: https://github.com/Eonasdan/bootstrap-datetimepicker -->
                   <!-- Documentation: http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-                  <input type='text' class="form-control" name="datetime" placeholder="Select the Date and Time" value="<?php echo set_value('datetime');?>"/>
+                  <input type='text' data-format="YYYY-MM-DD HH:mm:ss" class="form-control" name="datetime" placeholder="Select the Date and Time" value="<?php echo set_value('datetime');?>"/>
                   <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
                 <?php echo form_error('datetime','<div class="error">', '</div>') ?>
