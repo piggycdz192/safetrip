@@ -4,7 +4,7 @@ USE `safetrip`;
 --
 -- Host: 127.0.0.1    Database: safetrip
 -- ------------------------------------------------------
--- Server version	5.5.29
+-- Server version 5.5.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,8 +27,11 @@ DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `categoryname` varchar(45) NOT NULL,
+  `idrisk` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `categoryname_UNIQUE` (`categoryname`)
+  UNIQUE KEY `categoryname_UNIQUE` (`categoryname`),
+  KEY `id_risk_idx` (`idrisk`),
+  CONSTRAINT `id_risk` FOREIGN KEY (`idrisk`) REFERENCES `risk` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -185,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-18 11:39:29
+-- Dump completed on 2014-02-24 19:25:22
