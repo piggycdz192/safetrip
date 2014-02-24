@@ -171,17 +171,14 @@
               </div>
             </div>
             <div class="form-group  form-narrow">
-              <label for="attachment">File input</label>
-              <input type="file" id="attachment">
-              <p class="help-block">Attach a photo related to the incident.</p>
-            </div>
-            <input type="submit" name="submit" value="File Report" />
-          </form>
+             <form action="upload_file.php" method="post" enctype="multipart/form-data">
+              <label for="file">Attach a Photo of the Incident</label>
+              <input type="file" name="file" id="file" accept='image/*'><br>
+              <input type="submit" name="submit" value="File Report">
+            </form>
         </div>
       </div>
-
-    </div>
-    
+    </div>    
 </form>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
