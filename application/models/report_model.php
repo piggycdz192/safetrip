@@ -12,7 +12,7 @@ class Report_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function add_report()
+	public function add_report($picture_full_path)
 	{
 		$this->load->helper('url');
 
@@ -26,12 +26,17 @@ class Report_model extends CI_Model {
 		else if(!empty($this->input->post('company')))
 			$company = $this->input->post('company');
 
+		$fp = fopen($picture_full_path, 'r');
+		$image = fread($fp, filesize($picture_full_path));
+		fclose($fp);
+
 		$data = array(
 			'report' => $this->input->post('report'),
 			'platenumber' => $this->input->post('platenumber'),
 			'datetime' => $this->input->post('datetime'),
 			'drivername' => $driver,
-			'company' => $company
+			'company' => $company,
+			'picture' => $picture_full_path
 		);
 
 		$data2 = array(

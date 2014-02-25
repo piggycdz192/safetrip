@@ -61,7 +61,7 @@ CREATE TABLE `report` (
   `location` varchar(45) DEFAULT NULL,
   `drivername` varchar(50) DEFAULT NULL,
   `company` varchar(75) DEFAULT NULL,
-  `picture` blob,
+  `picture` varchar(200),
   PRIMARY KEY (`id`),
   KEY `platenumber_idx` (`platenumber`),
   CONSTRAINT `platenumber` FOREIGN KEY (`platenumber`) REFERENCES `vehicle` (`platenumber`) ON DELETE NO ACTION ON UPDATE CASCADE

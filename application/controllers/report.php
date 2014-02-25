@@ -9,9 +9,13 @@ class Report extends CI_Controller {
 
 	public function create()
 	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-
+		$this->load->library('upload', $config);
+ 
 		$this->form_validation->set_rules('report', 'Report', 'required');
 		$this->form_validation->set_rules('platenumber', 'Plate Number', 'required');
 		$this->form_validation->set_rules('vehicletype', 'Vehicle Type', 'required');
@@ -26,9 +30,16 @@ class Report extends CI_Controller {
 		}
 		else
 		{
-			$this->report_model->add_report();
+			if (!$this->upload->do_upload("picture")) {
+				$this->load->view('safetrip/filereport');
+			}
+
+			$upload_data = $this->upload->data();
+			$this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
 			$this->load->view('safetrip/success');
 		}
 
 	}
+
+
 }

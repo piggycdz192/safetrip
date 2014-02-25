@@ -26,14 +26,14 @@
 
   <?php include 'header.php'; ?>
 
-    <?php echo form_open('report/create') ?>
+    
 
   <div class="file-report-page">
       <div class="container">
         <h1>Filing a Report</h1>
 
         <div class="well">
-          <form role="form">
+          <?php echo form_open_multipart('report/create') ?>
             <div class="form-group form-narrow">
               <label for="report">Report</label>
               <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ><?php echo set_value('report');?></textarea>
@@ -171,12 +171,18 @@
               </div>
             </div>
             <div class="form-group  form-narrow">
-             <form action="upload_file.php" method="post" enctype="multipart/form-data">
+             <!-- <form action="upload_file.php" method="post" enctype="multipart/form-data"> -->
               <label for="file">Attach a Photo of the Incident</label>
-              <input type="file" name="file" id="file" accept='image/*'><br>
+              <!-- <input type="file" name="file" id="file" accept='image/*'> --><br>
+              <input id="file" placeholder="  Choose Photo" disabled="disabled"/>
+              <div class="fileUpload btn btn-info">
+                  <span>Upload</span>
+                  <input name="picture" id="uploadBtn" type="file" class="upload" accept='image/*'/>
+              </div>
+              <br>
               <input type="submit" name="submit" value="File Report">
-            </form>
-        </div>
+            </div>
+          <?php echo form_close(); ?>
       </div>
     </div>    
 </form>
@@ -194,6 +200,13 @@
         $(function () {
             $('#datetimepickerincident').datetimepicker();
         });
+    </script>
+    <script>
+      $(document).ready(function() {
+        document.getElementById("uploadBtn").onchange = function () {
+            document.getElementById("file").value = this.value;
+        };
+      });
     </script>
   </body>
 </html>
