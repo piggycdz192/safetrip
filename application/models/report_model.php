@@ -26,9 +26,15 @@ class Report_model extends CI_Model {
 		else if(!empty($this->input->post('company')))
 			$company = $this->input->post('company');
 
-		$fp = fopen($picture_full_path, 'r');
-		$image = fread($fp, filesize($picture_full_path));
-		fclose($fp);
+		// if there is picture uploaded
+
+		    if($picture_full_path != null)
+		    {
+		    	$fp = fopen($picture_full_path, 'r');
+				$image = fread($fp, filesize($picture_full_path));
+				fclose($fp);	
+			}
+		
 
 		$data = array(
 			'report' => $this->input->post('report'),

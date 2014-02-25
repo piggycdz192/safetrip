@@ -35,7 +35,9 @@ class Report extends CI_Controller {
 			}
 
 			$upload_data = $this->upload->data();
-			$this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
+			if(strlen($upload_data['file_name']) == 0)
+				$this->report_model->add_report(null);
+			else $this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
 			$this->load->view('safetrip/success');
 		}
 
