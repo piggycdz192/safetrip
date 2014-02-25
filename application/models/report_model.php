@@ -50,7 +50,10 @@ class Report_model extends CI_Model {
 			'idvehicletype' => $this->input->post('vehicletype'),
 		);
 
-		$this->db->insert('vehicle', $data2);
+		// don't insert into vehicle table if it already exists
+		$insert_query = $this->db->insert_string('vehicle', $data2);
+		$insert_query = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $insert_query);
+		$this->db->query($insert_query);
 		$this->db->insert('report', $data);
 	}
 
