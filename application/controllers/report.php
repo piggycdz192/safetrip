@@ -31,14 +31,14 @@ class Report extends CI_Controller {
 		else
 		{
 			if (!$this->upload->do_upload("picture")) {
-				$this->load->view('safetrip/filereport');
+				$this->load->view('safetrip/success');
 			}
 
 			$upload_data = $this->upload->data();
 			if(strlen($upload_data['file_name']) == 0)
 				$this->report_model->add_report(null);
 			else $this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
-			$this->load->view('safetrip/success');
+			// $this->load->view('safetrip/success');
 		}
 
 	}
