@@ -35,8 +35,22 @@ class Report_model extends CI_Model {
 				fclose($fp);	
 			}
 		
-
+		// insert vehicle 
+		
 		$data = array(
+			'platenumber' => $this->input->post('platenumber'),
+			'idvehicletype' => $this->input->post('vehicletype'),
+		);
+
+		// don't insert into vehicle table if it already exists
+		$insert_query = $this->db->insert_string('vehicle', $data);
+		$insert_query = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $insert_query);
+		$this->db->query($insert_query);
+
+
+		//insert report
+		
+		$data1 = array(
 			'report' => $this->input->post('report'),
 			'platenumber' => $this->input->post('platenumber'),
 			'datetime' => $this->input->post('datetime'),
@@ -44,17 +58,31 @@ class Report_model extends CI_Model {
 			'company' => $company,
 			'picture' => $picture_full_path
 		);
+		$this->db->insert('report', $data1);
 
-		$data2 = array(
-			'platenumber' => $this->input->post('platenumber'),
-			'idvehicletype' => $this->input->post('vehicletype'),
-		);
 
-		// don't insert into vehicle table if it already exists
-		$insert_query = $this->db->insert_string('vehicle', $data2);
-		$insert_query = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $insert_query);
-		$this->db->query($insert_query);
-		$this->db->insert('report', $data);
+
+		//insert report category
+		$reportID = $this->db->insert_id();
+
+		$violations = $this->input->post("category");
+
+		$data2 = array();
+
+		for($i = 0; $i < sizeof($violations); $i++)
+		{
+
+			//get category id from db
+			$query = $this->db->query("SELECT id FROM category WHERE categoryname = '".$violations[$i]."'");
+	        $result = $query->row()->id;
+			$data2[$i] = array(
+	           'idreport' => $reportID,
+	           'idcategory' => $result
+	        );
+		}
+
+		$this->db->insert_batch('report_category', $data2);
+
 	}
 
 }
