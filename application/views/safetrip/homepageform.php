@@ -43,37 +43,36 @@
           		echo form_input($data);
           	?>
           		 <p class="text-center">
-          		 <br>
           		 <!-- creates two buttons -->
-              	<?php
-              		$data = array(
-              			'class'=>"btn btn-primary btn-lg",
-              			'name' => "search"
-              			);
+              	<br>
+                <?php
+
+                $data = array(
+                    'class'=>"btn btn-primary btn-lg",
+                    'name' => "search"
+                    );
 
                   echo form_button($data,'<span class="glyphicon glyphicon-search"></span> Search');
 
-              		echo form_close();
+                  $data = array(
+                    'class' => "btn btn-danger btn-lg btnSize",
+                    'name' => 'report',
+                    'onclick' => "this.form.submit()"
+                    );
 
-              	?>
+                  echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
+
+                  
+
+                  echo form_close();
+
+                ?>
+
               </p>
           </div>
+          </p>
+          </div>
         </div>
-        <div class="narrow-container">
-          <br>
-        <?php
-          $data = array(
-            'class' => "btn btn-primary btn-lg pull-right",
-            'name' => 'report',
-            'onclick' => "this.form.submit()"
-            );
-
-          echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
-
-          echo form_close();
-
-        ?> </br>
-      </div>
       </div>
     </div>
 
