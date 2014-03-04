@@ -25,7 +25,7 @@
     <div class="search-page">
       <div class="container">
         <div class="jumbotron transparent narrow-container">
-          <p class="jumbotron-title jumbotron-title-mobile text-center">Is this taxi/bus SAFE?</p>
+          <p class="jumbotron-title jumbotron-title-mobile text-center">Search or report a plate number:</p>
           <div class="form-group">
           	<?php
           		$this->load->helper("form");
@@ -37,7 +37,7 @@
           			'type' => 'text',
           			'name' => 'plateNum',
           			'class' => "form-control",
-          			'placeholder' => "Examples: TXI-123 or Manong Juan or Bus Co."
+          			'placeholder' => "Example: TXI123"
           		);
 
           		echo form_input($data);
