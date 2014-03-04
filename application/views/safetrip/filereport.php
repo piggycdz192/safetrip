@@ -49,7 +49,7 @@
             </div>
             <div class="form-group form-narrower">
               <label for="platenumber">Plate Number <span class="required">*</span></label>
-              <input type="text" class="form-control" name="platenumber" placeholder="Example: TXI-123" value="<?php echo set_value('platenumber');?>">
+              <input type="text" class="form-control" name="platenumber" placeholder="Example: TXI123" value="<?php echo set_value('platenumber');?>">
               <?php echo form_error('platenumber','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrow">
