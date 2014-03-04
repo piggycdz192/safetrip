@@ -171,16 +171,16 @@
               </div>
             </div>
             <div class="form-group  form-narrow">
-             <!-- <form action="upload_file.php" method="post" enctype="multipart/form-data"> -->
-              <label for="file">Attach a Photo of the Incident</label>
-              <!-- <input type="file" name="file" id="file" accept='image/*'> --><br>
+             <label for="file">Attach a Photo of the Incident</label>
+              <br>
               <input id="file" placeholder="  Choose Photo" disabled="disabled"/>
               <div class="fileUpload btn btn-info">
-                  <span>Upload</span>
+                  <span>Browse</span>
                   <input name="picture" id="uploadBtn" type="file" class="upload" accept='image/*'/>
               </div>
               <br>
-              <input type="submit" name="submit" value="File Report">
+              <br>
+              <input type="submit" class="btn btn-danger" name="submit" value="File Report">
             </div>
           <?php echo form_close(); ?>
       </div>

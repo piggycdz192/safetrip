@@ -35,6 +35,18 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+INSERT INTO `category` VALUES(1, 'Overcharging ', 2);
+INSERT INTO `category` VALUES(2, 'Contracting', 2);
+INSERT INTO `category` VALUES(3, 'Rude Behavior',2);
+INSERT INTO `category` VALUES(4, 'Sexual Harassment', 1);
+INSERT INTO `category` VALUES(5, 'Kidnapping', 1);
+INSERT INTO `category` VALUES(6, 'Attempted Murder', 1);
+INSERT INTO `category` VALUES(7, 'Left Behind Items ', 3);
+INSERT INTO `category` VALUES(8, 'Refused Boarding', 2);
+INSERT INTO `category` VALUES(9, 'Choosing Passengers ', 3);
+INSERT INTO `category` VALUES(10, 'Reckless Behavior', 2);
+
+
 --
 -- Dumping data for table `category`
 --
