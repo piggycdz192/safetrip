@@ -1,0 +1,691 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fib",
+				"fib_r"
+			],
+			[
+				"start_e",
+				"start_end_r"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"TRUE",
+				"TRUE"
+			],
+			[
+				"id",
+				"id_list"
+			],
+			[
+				"semico",
+				"semicolon_item"
+			],
+			[
+				"semic",
+				"semicolon_item"
+			],
+			[
+				"array_ke",
+				"array_key_exists"
+			],
+			[
+				"retrieve",
+				"retrieve"
+			],
+			[
+				"data",
+				"data2"
+			],
+			[
+				"subcateg",
+				"subcategory_item"
+			],
+			[
+				"String",
+				"String"
+			],
+			[
+				"color",
+				"color"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 265.0,
+		"selected_items":
+		[
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"ru",
+				"Set Syntax: Ruby"
+			],
+			[
+				"rub",
+				"Set Syntax: Ruby"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"intall pa",
+				"Package Control: Install Package"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"tab",
+				"View: Toggle Tabs"
+			],
+			[
+				"toggle",
+				"View: Toggle Tabs"
+			],
+			[
+				"fold",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"set",
+				"Set Syntax: Java"
+			],
+			[
+				"set ja",
+				"Set Syntax: Java"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Amanda/Dropbox/Education/RESUME (Jan. 17, 2013, Ida Din~o).txt",
+		"/C/xampp/htdocs/safetrip/application/config/database.php",
+		"/C/xampp/htdocs/safetrip/application/models/safetripdb.sql",
+		"/C/Users/Amanda/Documents/dumps/SafeTrip 2014-02-18 11.39.sql",
+		"/C/xampp/htdocs/safetrip/application/config/config.php",
+		"/C/Users/Amanda/Documents/dumps/SafeTrip 2014-02-01 14.16.sql",
+		"/C/xampp/htdocs/safetrip/application/config/routes.php",
+		"/C/xampp/htdocs/safetrip/application/views/safetrip/index.php",
+		"/C/xampp/htdocs/safetrip/application/controllers/welcome.php",
+		"/C/xampp/htdocs/safetrip/application/controllers/index.html",
+		"/C/xampp/htdocs/safetrip/index.php",
+		"/C/Users/Amanda/Dropbox/Education/FUNIMALS COMPETITION ANALYSIS",
+		"/C/Users/Amanda/Dropbox/Education/TO DO (Pre-Deployment)",
+		"/C/Users/Amanda/Dropbox/Education/School/CSC755M/CSC755M - Homework 01 - Fibonacci/index.html",
+		"/C/Users/Amanda/Dropbox/Education/School/gpa.html",
+		"/C/Users/Amanda/Dropbox/Education/Web/Javascript_4Arrays.html",
+		"/C/Users/Amanda/Dropbox/Education/School/CSC755M/CSC755M - Homework 01 - Fibonacci/fibonacci.js",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/index.html",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/css/foundation.css",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/css/foundation.min.css",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS - Homework 01/WEBAPPS - Homework 01/index.html",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/js/addcourse.js",
+		"/D/Downloads/Chrome Downloads/oli.html",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/index2.html",
+		"/D/Downloads/Chrome Downloads/index.html",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/animosys.css",
+		"/C/Users/Amanda/Dropbox/Education/School/WEBAPPS/WEBAPPS - Homework 01/animosys.html",
+		"/C/Users/Amanda/Dropbox/animosys.css",
+		"/C/Users/Amanda/Dropbox/animosys.html",
+		"/D/Files/Documents/Websites/My Layouts/2009-04-17 Spotty/style.css",
+		"/D/Files/Documents/Websites/My Layouts/2009-04-17 Spotty/index.html",
+		"/D/Downloads/Chrome Downloads/PictureEditorActivity.java",
+		"/C/Users/Amanda/Documents/index.html",
+		"/C/Users/Amanda/Dropbox/workspace/adt_eclipse/PKDF/assets/pkdf.sql",
+		"/C/Users/Amanda/AppData/Local/Temp/Rar$DR02.719/Design Patterns/src/factory/DBConnectionFactory.java",
+		"/C/Users/Amanda/AppData/Local/Temp/Rar$DR01.950/Design Patterns/src/factory/DBConnectionFactoryImpl.java",
+		"/C/Users/Amanda/Desktop/ADT/sdk/tools/pkdf.db",
+		"/C/Users/Amanda/Dropbox/workspace/adt_eclipse/PKDF/.gitignore",
+		"/C/Users/Amanda/Dropbox/workspace/adt_eclipse/Funimals/.gitignore",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/src/self/edu/workshop/simpleui/view/MainActivity.java",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/res/layout/fragment_new.xml",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/src/self/edu/workshop/simpleui/view/AddEntryFragment.java",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/src/self/edu/workshop/simpleui/view/NewFragment.java",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/res/layout/activity_container.xml",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/src/self/edu/workshop/simpleui/model/EmailListAdapter.java",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/src/self/edu/workshop/simpleui/model/EmailEntry.java",
+		"/C/Users/Amanda/Downloads/Android Workshop Materials/SimpleUI-Part3/src/self/edu/workshop/simpleui/view/DetailFragment.java",
+		"/C/xampp/htdocs/test.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/account/create.php",
+		"/C/Users/Amanda/Dropbox/workspace/eclipse/ADVSTAT_Proj1/src/model/GenerationModel.java",
+		"/C/xampp/htdocs/taxi/taxi/application/models/password_hash.php",
+		"/C/xampp/htdocs/taxi/taxi/application/models/database.sql",
+		"/C/xampp/htdocs/test.html",
+		"/C/xampp/htdocs/taxi/taxi/application/models/references/level_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/account/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/config/database.php",
+		"/C/xampp/htdocs/taxi/taxi/application/db_config.txt",
+		"/C/xampp/htdocs/taxi/taxi/application/views/taxi/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/account/update.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/taxi.php",
+		"/C/xampp/htdocs/taxi/taxi/application/models/taxi_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/account.php",
+		"/C/xampp/htdocs/taxi/taxi/application/models/account_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/config/autoload.php",
+		"/C/xampp/htdocs/taxi/taxi/application/config/config.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/report.php",
+		"/C/xampp/htdocs/taxi/taxi/.gitignore",
+		"/C/xampp/htdocs/taxi/taxi/application/file.txt",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/comment.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/file.php",
+		"/C/xampp/htdocs/taxi/taxi/application/config/routes.php",
+		"/C/xampp/htdocs/taxi.sublime-project",
+		"/C/xampp/htdocs/taxi/taxi/application/models/references/category_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/models/references/subcategory_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/references/category.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/references/level.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/references/subcategory.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/taxi/create.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/taxi/update.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/level/update.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/level/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/subcategory/update.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/subcategory/create.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/category/update.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/category/create.php",
+		"/C/xampp/htdocs/ci/.gitignore",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/welcome.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/welcome_message.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/subcategory/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/home/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/level/create.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/references/category/index.php",
+		"/C/xampp/htdocs/ci/app_news/controllers/news.php",
+		"/C/xampp/htdocs/ci/app_news/views/news/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/models/report_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/templates/header.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/templates/footer.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/report/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/views/comment/index.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/index.html",
+		"/C/xampp/htdocs/taxi/taxi/application/models/comment_model.php",
+		"/C/xampp/htdocs/ci/app_news/models/news_model.php",
+		"/C/xampp/htdocs/taxi/taxi/application/controllers/home.php",
+		"/C/xampp/htdocs/taxi/taxi/index.php",
+		"/C/xampp/htdocs/ci/index.php",
+		"/C/xampp/htdocs/ci/app_news/views/pages/home.php",
+		"/C/xampp/htdocs/ci/app_news/views/templates/footer.php",
+		"/C/xampp/htdocs/ci/taxi/taxi/.htaccess",
+		"/C/xampp/htdocs/ci/taxi/application/views/home/index.php",
+		"/C/xampp/htdocs/ci/taxi/.htaccess",
+		"/C/xampp/htdocs/ci/taxi/application/views/account/index.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/home.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/references/category.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/references/subcategory.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/report.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/index.html",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/comment.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/account.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/taxi.php",
+		"/C/xampp/htdocs/ci/taxi/application/controllers/welcome.php",
+		"/C/xampp/htdocs/ci/news/application/views/news/create.php",
+		"/C/xampp/htdocs/ci/news/application/views/news/index.php",
+		"/C/xampp/htdocs/ci/taxi.sublime-project",
+		"/C/xampp/htdocs/ci/news/application/models/news_model.php",
+		"/C/xampp/htdocs/ci/news/application/controllers/news.php",
+		"/C/xampp/htdocs/ci/taxi/application/config/routes.php",
+		"/C/xampp/htdocs/ci/news/application/config/routes.php",
+		"/C/Users/Amanda/Dropbox/workspace/File Distribution"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"button",
+			"tr",
+			"active",
+			"button",
+			"button:hover",
+			"button:",
+			"h1",
+			" = ",
+			">",
+			"BODY",
+			"TITLE",
+			"HEAD",
+			"HTML",
+			">>>>>",
+			"merge",
+			"tts",
+			"Tts",
+			"'",
+			"16",
+			"15",
+			"14",
+			"12",
+			"11",
+			"10",
+			"9",
+			"8",
+			"7",
+			"6",
+			"5",
+			"4",
+			"3",
+			"2",
+			"1",
+			"subcategoryId",
+			"addService",
+			"\"",
+			"subcategoryId",
+			"Routine Chemistry",
+			"taxi",
+			"$data",
+			"$database",
+			"taxi_reporting_ph",
+			"plateNumber",
+			"idL",
+			"driverN",
+			"idS",
+			"idT",
+			"endTimestamp",
+			"startTimestamp",
+			"idF",
+			"account_type",
+			"accountType",
+			"isBanned",
+			"isPasswordChanged",
+			"isDel",
+			"nFlagged",
+			"idC",
+			"idR",
+			"idA",
+			"category",
+			"level",
+			"subcategory",
+			"id",
+			"$",
+			"Setting",
+			"Settings",
+			"settings",
+			",",
+			"_",
+			"<ontology (.*)\\n[ |\\t]*(definition.*)\\n[ |\\t]*([a-zA-Z0-9].*)</ontology>",
+			"<ontology (.*)\\n[ |\\t]*definition(.*)\\n[ |\\t]*([a-zA-Z0-9].*)</ontology>",
+			"<ontology (.*)\\n[ |\\t]*([a-zA-Z0-9].*)</ontology>",
+			"<ontology (.*)\\n.*([a-zA-Z0-9].*)</ontology>",
+			"<ontology (.*)\\n(.*)</ontology>",
+			"\\n.*</ontology",
+			"double",
+			"sql",
+			"rails/",
+			"jtable",
+			"savages",
+			"n",
+			"cs",
+			"ID_Asset",
+			"[Abstract]",
+			"-",
+			"	",
+			"type",
+			"get",
+			"set",
+			"insertActivity",
+			"throw",
+			"s[1",
+			" 40,",
+			"s[",
+			"lbl1",
+			"lbl0",
+			"260",
+			"[4][",
+			"_03",
+			"lbl05_",
+			"Integer",
+			"size",
+			"updateremark",
+			"Filed",
+			"mainView.addActivityView.panel2.",
+			"this. ",
+			"return",
+			"AdviserEvaluation",
+			"	",
+			"actionListener",
+			"getAvailable",
+			"updateStock",
+			"forName",
+			": List of Strings",
+			": int",
+			"-"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"=",
+			"body",
+			"title",
+			"head",
+			"html",
+			"\"",
+			"`",
+			"17",
+			"16",
+			"15",
+			"14",
+			"13",
+			"12",
+			"11",
+			"10",
+			"9",
+			"8",
+			"7",
+			"6",
+			"5",
+			"4",
+			"3",
+			"2",
+			"1",
+			"INSERT INTO services (name, subcategoryid, price) VALUES",
+			"'",
+			"1",
+			"",
+			"account",
+			"plate_number",
+			"id_l",
+			"driver_n",
+			"id_s",
+			"id_t",
+			"end_timestamp",
+			"start_timestamp",
+			"id_f",
+			"type_account",
+			"account_type",
+			"is_banned",
+			"is_password_changed",
+			"is_del",
+			"n_flagged",
+			"id_c",
+			"id_C",
+			"id_r",
+			"id_a",
+			"taxi",
+			"category",
+			"account",
+			"comment",
+			"report",
+			"taxi",
+			"data",
+			", ",
+			"<ontology \\1 \\2 \\3</ontology>",
+			"<ontology \\1 \\2</ontology>",
+			"</ontology",
+			"float",
+			"waiting_savages",
+			"s_savages",
+			"mutex",
+			"<Abstract>",
+			"[ ]",
+			"    ",
+			"s[2",
+			" 615,",
+			"s[1",
+			"lbl2",
+			"lbl1",
+			"315",
+			"[5][",
+			"_05",
+			"_04",
+			"lbl06_",
+			"String",
+			"",
+			"this.",
+			"return this.",
+			"Organization",
+			"OrganizationEvaluation",
+			"CurriculumParticipant",
+			"CurriculumActivity",
+			"BeneficiaryEvaluation",
+			"Participant",
+			"",
+			"private"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"conf",
+				"application/config/config.php"
+			],
+			[
+				"route",
+				"application/config/routes.php"
+			],
+			[
+				"index",
+				"application/views/safetrip/index.html"
+			],
+			[
+				"welcom",
+				"application/controllers/welcome.php"
+			],
+			[
+				"account",
+				"application/views/account/update.php"
+			],
+			[
+				"taxi",
+				"application/controllers/taxi.php"
+			],
+			[
+				"database",
+				"application/models/database.sql"
+			],
+			[
+				"level",
+				"application/models/references/level_model.php"
+			],
+			[
+				"create",
+				"application/views/account/create.php"
+			],
+			[
+				"update",
+				"application/views/account/update.php"
+			],
+			[
+				"databsql",
+				"application/models/database.sql"
+			],
+			[
+				"db",
+				"application/db_config.txt"
+			],
+			[
+				"taxi_",
+				"application/models/taxi_model.php"
+			],
+			[
+				"auto",
+				"application/config/autoload.php"
+			],
+			[
+				"config",
+				"application/config/config.php"
+			],
+			[
+				"controllertaxi",
+				"application/controllers/taxi.php"
+			],
+			[
+				"contr",
+				"application/controllers/report.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 204.0,
+	"status_bar_visible": true
+}
