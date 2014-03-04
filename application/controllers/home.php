@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('safetrip/homepageform');
+		$this->load->view('safetrip/home');
 	}
 	public function create()
 	{
