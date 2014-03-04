@@ -21,6 +21,12 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      .required {
+        color: #ff0000;
+      }
+    </style>
   </head>
   <body>
 
@@ -30,22 +36,24 @@
 
   <div class="file-report-page">
       <div class="container">
-        <h1>Filing a Report</h1>
+        <h1>File a Report</h1>
 
         <div class="well">
+          <p class="required">* Required</p><hr />
+
           <?php echo form_open_multipart('report/create') ?>
             <div class="form-group form-narrow">
-              <label for="report">Report</label>
+              <label for="report">Report <span class="required">*</span></label>
               <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ><?php echo set_value('report');?></textarea>
               <?php echo form_error('report','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrower">
-              <label for="platenumber">Plate Number</label>
+              <label for="platenumber">Plate Number <span class="required">*</span></label>
               <input type="text" class="form-control" name="platenumber" placeholder="Example: TXI-123" value="<?php echo set_value('platenumber');?>">
               <?php echo form_error('platenumber','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrow">
-              <label>Type of Vehicle</label>
+              <label>Type of Vehicle <span class="required">*</span></label>
               <div class="row">
                 <div class="col-xs-5">
                   <div class="radio">
@@ -65,7 +73,7 @@
               <?php echo form_error('vehicletype','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrower">
-              <label for="datetime">Date and Time of Incident</label>
+              <label for="datetime">Date and Time of Incident <span class="required">*</span></label>
               <div class="form-group">
                 <div class='input-group date' id='datetimepickerincident' >
                   <!-- DateTimePicker plugin: https://github.com/Eonasdan/bootstrap-datetimepicker -->
@@ -77,12 +85,12 @@
               </div>
             </div>
             <div class="form-group form-narrower">
-              <label for="location">Location of Incident</label>
+              <label for="location">Location of Incident <span class="required">*</span></label>
               <input type="text" class="form-control" name="location" placeholder="Example: Quezon City" value="<?php echo set_value('location');?>">
               <?php echo form_error('location','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrow">
-              <label>Violations</label>
+              <label>Violations <span class="required">*</span></label>
               <div class="row">
                 <div class="col-xs-6">
                   <div class="checkbox">
