@@ -51,8 +51,8 @@
                     'class'=>"btn btn-primary btn-lg",
                     'name' => "search"
                     );
-
-                  echo form_button($data,'<span class="glyphicon glyphicon-search"></span> Search');
+                  //<span class="glyphicon glyphicon-search"></span>
+                  echo form_submit($data,'Search');
 
                   $data = array(
                     'class' => "btn btn-danger btn-lg btnSize",

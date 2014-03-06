@@ -6,9 +6,25 @@ class Report_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function get_report()
+	public function get_violation_count($data){
+		$this->db->SELECT('categoryname, COUNT(*) AS count');
+		$this->db->FROM('category');
+		$this->db->join('report_category', 'report_category.idcategory = category.id');
+		$this->db->join('report', 'report_category.idreport = report.id');
+		$this->db->where('platenumber', $data);
+		$this->db->group_by('categoryname');
+
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
+
+	public function get_report($data)
 	{
-		$query = $this->db->get('report');
+		$this->db->SELECT('datetime, report, drivername, company, location, picture');
+		$this->db->FROM('report');
+		$this->db->where('platenumber', $data);
+		$query = $this->db->get();
 		return $query->result_array();
 	}
 
@@ -54,6 +70,7 @@ class Report_model extends CI_Model {
 			'report' => $this->input->post('report'),
 			'platenumber' => $this->input->post('platenumber'),
 			'datetime' => $this->input->post('datetime'),
+			'location' => $this->input->post('location'),
 			'drivername' => $driver,
 			'company' => $company,
 			'picture' => $picture_full_path

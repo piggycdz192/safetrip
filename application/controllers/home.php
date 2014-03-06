@@ -40,10 +40,46 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
 
 
-		if (!empty($this->input->post("report")))
+		if ($this->input->post("search"))
 		{
-		     echo $this->input->post('plateNum');
+			$this->load->model("report_model");
+			$data = $this->input->post('plateNum');
+
+		// get violations	
+			$violations = $this->report_model->get_violation_count($data);
+			$totalViolation = 0;
+			foreach ($violations as $value)
+			{
+				//echo $value['categoryname'];
+				$totalViolation += $value['count'];
+				
+			}
+			$data = array('violations' => $violations,
+				'total' => $totalViolation);
+			$this->load->view('safetrip/view', $data);
+		//	echo $totalViolation;
+			
+		
+
+		//  get report detail 
+			/*
+			$result = $this->report_model->get_report($data);
+			if($result != null)
+			{
+				foreach ($result as $value) {
+					echo $value['report']. '<br>';
+					echo $value['datetime']. '<br>';
+					echo $value['drivername']. '<br>';
+					echo $value['company']. '<br>';
+					echo $value['location']. '<br>';
+					echo $value['picture'];
+				}
+			}
+			else
+				echo "The specific vehicle has no record.";
+			*/
 		}
+			
 		else
 		{
 		     echo 'search ay '.$this->input->post('plateNum');;

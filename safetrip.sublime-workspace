@@ -179,7 +179,11 @@
 	},
 	"console":
 	{
-		"height": 125.0
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
 	},
 	"distraction_free":
 	{
@@ -192,6 +196,7 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/safetrip/application/config/constants.php",
 		"/C/Users/Amanda/Dropbox/Education/RESUME (Jan. 17, 2013, Ida Din~o).txt",
 		"/C/xampp/htdocs/safetrip/application/config/database.php",
 		"/C/xampp/htdocs/safetrip/application/models/safetripdb.sql",
@@ -318,8 +323,7 @@
 		"/C/xampp/htdocs/ci/news/application/models/news_model.php",
 		"/C/xampp/htdocs/ci/news/application/controllers/news.php",
 		"/C/xampp/htdocs/ci/taxi/application/config/routes.php",
-		"/C/xampp/htdocs/ci/news/application/config/routes.php",
-		"/C/Users/Amanda/Dropbox/workspace/File Distribution"
+		"/C/xampp/htdocs/ci/news/application/config/routes.php"
 	],
 	"find":
 	{
@@ -593,6 +597,11 @@
 		]
 	},
 	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "safetrip.sublime-project",
 	"replace":
 	{
 		"height": 62.0
@@ -603,6 +612,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"application\\config\\constants.php"
+			],
 			[
 				"conf",
 				"application/config/config.php"
@@ -682,10 +695,24 @@
 		],
 		"width": 380.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 204.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }
