@@ -6,12 +6,21 @@ class Report_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function get_violation_count($data){
+	public function generate_risk($violation){
+
+	}
+
+	public function get_most_frequence_location($platenum){
+
+	}
+
+	public function get_violation_count($condition){
 		$this->db->SELECT('categoryname, COUNT(*) AS count');
 		$this->db->FROM('category');
-		$this->db->join('report_category', 'report_category.idcategory = category.id');
-		$this->db->join('report', 'report_category.idreport = report.id');
-		$this->db->where('platenumber', $data);
+		$this->db->JOIN('report_category', 'report_category.idcategory = category.id');
+		$this->db->JOIN('report', 'report_category.idreport = report.id');
+		$this->db->WHERE('platenumber', $condition);
+		$this->db->order_by('count', 'desc');
 		$this->db->group_by('categoryname');
 
 		$query = $this->db->get();
@@ -19,11 +28,29 @@ class Report_model extends CI_Model {
 
 	}
 
-	public function get_report($data)
-	{
-		$this->db->SELECT('datetime, report, drivername, company, location, picture');
+	public function getTotalReport($condition){
+		$this->db->SELECT('count(*) AS count');
 		$this->db->FROM('report');
-		$this->db->where('platenumber', $data);
+		$this->db->WHERE('platenumber', $condition);
+		$query = $this->db->get();
+		return $query->row()->count;
+	}
+
+	public function get_violation_detail($reportID){
+		$this->db->SELECT('categoryname');
+		$this->db->FROM('category');
+		$this->db->JOIN('report_category', 'report_category.idcategory = category.id');
+		$this->db->JOIN('report', 'report_category.idreport = report.id');
+		$this->db->WHERE('report.id', $reportID);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function get_report($condition)
+	{
+		$this->db->SELECT('id, report, drivername, company, location, datetime, picture');
+		$this->db->FROM('report');
+		$this->db->WHERE('platenumber', $condition);
 		$query = $this->db->get();
 		return $query->result_array();
 	}

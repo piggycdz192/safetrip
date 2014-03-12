@@ -26,7 +26,7 @@
 
     <div class="results-page">
       <div class="container">
-        <h1>TXI-123 <small>(Red Company)</small></h1>
+        <h1><?php echo $platenum; ?> <small>(Red Company)</small></h1>
         <div class="well well-sm form-narrow">
           <table class="table table-borderless no-bottom-margin">
             <thead>
@@ -39,18 +39,17 @@
             </thead>
             <tbody>
 
+            <!-- summary of violations -->
             <?php foreach ($violations as $value):?>
                 <tr>
                   <td class="nowrap"><strong><?php echo $value['categoryname'];?></strong></td>
                   <td>
                     <div class="progress progress-dark no-bottom-margin">
-                      <div class="progress-bar progress-bar-danger progress-bar-text-left" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=<?php echo "'width:".$value['count']/$total*100 ."%'"?>> <?php echo $value['count'];?></div>
+                      <div class="progress-bar progress-bar-danger progress-bar-text-left" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=<?php echo "'width:".$value['count']/$nViolation*100 ."%'"?>> <?php echo $value['count'];?></div>
                     </div>
                   </td>
                 </tr>
             <?php endforeach;?>
-                
-              
 
               <tr>
                 <td colspan="2">
@@ -67,103 +66,65 @@
             </tfoot>
           </table>
         </div>
+
+
+        <!-- total report -->
         <table class="table">
           <thead>
             <tr>
-              <th colspan="2" class="text-center">3 reports found</th>
+              <th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td colspan="2">
-                <div>
-                  <small>1 minute ago (Saturday, 6pm)</small>
-                </div>
-                <div>
-                  <span class="label label-danger">Overcharging</span> <span class="label label-danger">Contracting</span>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-widest no-border">
-                <p>
-                  He added P50 to my fare.
-                </p>
-              </td>
-              <td class="no-border">
-                <img class="attachment-small" src="<?php echo(IMG.'taxi1.jpg'); ?>" />
-              </td>
-            </tr>
-            <tr>
-              <td class="no-border">
-                <p class="no-bottom-margin"><small><strong>Driver:</strong> Juan</small></p>
-                <p class="no-bottom-margin"><small><strong>Location:</strong> Quezon City</small></p>
-              </td>
-              <td class="no-border">
-                <button type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <div>
-                  <small>4 days ago (Tuesday, 1pm)</small>
-                </div>
-                <div>
-                  <span class="label label-danger">Overcharging</span> <span class="label label-danger">Contracting</span> <span class="label label-danger">Rude Behavior</span>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-widest no-border">
-                <p>
-                  This taxi charged me P50 extra for non-existent traffic and then shouted at me and called me names when I called him out.
-                </p>
-              </td>
-              <td class="no-border">
-                <img class="attachment-small" src="<?php echo(IMG.'taxi2.jpg'); ?>"/>
-              </td>
-            </tr>
-            <tr>
-              <td class="no-border">
-                <p class="no-bottom-margin"><small><strong>Driver:</strong> Manong Juan</small></p>
-                <p class="no-bottom-margin"><small><strong>Location:</strong> Quezon City</small></p>
-              </td>
-              <td class="no-border">
-                <button type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <div>
-                  <small>4 days ago (Tuesday, 9am)</small>
-                </div>
-                <div>
-                  <span class="label label-danger">Overcharging</span>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-widest no-border">
-                <p>
-                  Dinagdagan ng P50 ung bayad ko. :-(
-                </p>
-              </td>
-              <td class="no-border">
-                <img class="attachment-small" src="<?php echo(IMG.'taxi3.jpg'); ?>" />
-              </td>
-            </tr>
-            <tr>
-              <td class="no-border">
-                <p class="no-bottom-margin"><small><strong>Driver:</strong> Juan dela Cruz</small></p>
-                <p class="no-bottom-margin"><small><strong>Location:</strong> Quezon City</small></p>
-              </td>
-              <td class="no-border">
-                <button type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
-              </td>
-            </tr>
+            <!-- reports start -->
+            <?php if($reports != null): ?>
+
+              <?php foreach ($reports as $value): ?>
+                   
+                  <tr>
+                    <td colspan="2">
+                      <div>
+                      <!-- time  -->
+                        <small><?php $value['datetime']; ?></small>
+                      </div>
+                      <div>
+                      <!-- violation -->
+                      <!-- remove ul -->
+                        <?php foreach($value['violations'] as $item): ?>
+                            <span class="label label-danger"><?php echo $item."&nbsp;"; ?></span>
+                        <?php endforeach; ?>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-widest no-border">
+                      <p>
+                      <!-- report -->
+                        <?php echo $value['report']; ?>
+                      </p>
+                    </td>
+                    <td class="no-border">
+                      <!--  image -->
+                      <img class="attachment-small" src="<?php echo(IMG.$value['picture']); ?>" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="no-border">
+                      <!-- driver name -->
+                      <!-- location -->
+                      <p class="no-bottom-margin"><small><strong>Driver:</strong> <?php echo $value['drivername']; ?></small></p>
+                      <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['company']; ?></small></p>
+                    </td>
+                    <td class="no-border">
+                      <button type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
+                    </td>
+                  </tr>
+            <?php endforeach; ?>
+            <!-- report end -->
+            <?php else: ?>
+
+              <!-- need other page -->
+          <?php endif; ?>
           </tbody>
         </table>
       </div>

@@ -43,28 +43,51 @@ class Home extends CI_Controller {
 		if ($this->input->post("search"))
 		{
 			$this->load->model("report_model");
-			$data = $this->input->post('plateNum');
+			$platenum = $this->input->post('plateNum');
 
 		// get violations	
-			$violations = $this->report_model->get_violation_count($data);
+			$violations = $this->report_model->get_violation_count($platenum);
 			$totalViolation = 0;
+
+			// get total violations of a vehicle
 			foreach ($violations as $value)
-			{
-				//echo $value['categoryname'];
 				$totalViolation += $value['count'];
 				
-			}
-			$data = array('violations' => $violations,
-				'total' => $totalViolation);
-			$this->load->view('safetrip/view', $data);
-		//	echo $totalViolation;
-			
-		
+			// get total reports of a vehicle
+			$nReport = $this->report_model->getTotalReport($platenum);
 
-		//  get report detail 
+			
+			//  get report detail of a vehicle
+			$reports = $this->report_model->get_report($platenum);
+
+			//	get violation detail of each report
+			$count = 0;
+			foreach ($reports as $value) 
+			{
+				$temp[$count] = $this->report_model->get_violation_detail($value['id']);
+				$reports[$count]['violations'] = array();
+				
+				// store violations in format
+				foreach ($temp[$count] as $violate)
+				{
+					$reports[$count]['violations'][] = $violate['categoryname'];
+				}
+
+				$count++;
+			}
+
+			//print
 			/*
-			$result = $this->report_model->get_report($data);
-			if($result != null)
+			foreach ($reports as $report) {
+				foreach ($report['violations'] as $value) {
+					echo $value."<br>";
+				}
+				echo "<br>";
+			}
+			*/
+
+			/*
+			if($report != null)
 			{
 				foreach ($result as $value) {
 					echo $value['report']. '<br>';
@@ -74,10 +97,15 @@ class Home extends CI_Controller {
 					echo $value['location']. '<br>';
 					echo $value['picture'];
 				}
-			}
-			else
-				echo "The specific vehicle has no record.";
-			*/
+			}*/
+			
+			$array = array('platenum' => $platenum,
+				'violations' => $violations,
+				'nViolation' => $totalViolation,
+				'nReport' => $nReport,
+				'reports' => $reports);
+
+			$this->load->view('safetrip/view', $array);
 		}
 			
 		else
