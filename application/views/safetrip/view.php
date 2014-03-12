@@ -21,6 +21,25 @@
     <![endif]-->
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '428020470667575',
+          status     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
 
     <?php include 'header.php'; ?>
 
@@ -60,7 +79,7 @@
             <tfoot>
               <tr>
                 <td>
-                  <button type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
+                  <button onclick="post('<?php echo $platenum ?>','Quezon City (dummy location)');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
                 </td>
               </tr>
             </tfoot>
@@ -105,7 +124,7 @@
                     </td>
                     <td class="no-border">
                       <!--  image -->
-                      <img class="attachment-small" src="<?php echo(IMG.$value['picture']); ?>" />
+                      <img class="attachment-small" src="<?php echo(UPLOAD.$value['picture']); ?>" />
                     </td>
                   </tr>
                   <tr>
@@ -116,7 +135,10 @@
                       <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['company']; ?></small></p>
                     </td>
                     <td class="no-border">
-                      <button type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
+                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo $value['report'] ?>', 
+                        '<?php echo $value['drivername']; ?>', '<?php echo $value['company']; ?>',
+                        '<?php echo(UPLOAD.$value['picture']); ?>');" 
+                        type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
                     </td>
                   </tr>
             <?php endforeach; ?>
@@ -136,10 +158,42 @@
     <script src="<?php echo(JS.'bootstrap.min.js'); ?>"></script>
     <script src="<?php echo(JS.'moment-2.4.0.js'); ?>"></script>
     <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
+
     <script type="text/javascript">
         $(function () {
             $('#datetimepickerincident').datetimepicker();
         });
     </script>
+
+    <script type="text/javascript">
+
+            function post(platenum, location) {
+                  FB.ui(
+                      {
+                        method: 'feed',
+                        name: platenum,
+                        link: 'http://localhost',
+                        picture: 'http://localhost',
+                        caption: 'Most Frequent Location: ' + location,
+                        description: 'This vehicle has commited a number of violations.',
+                        message: ''
+                      });
+            }
+
+            function postit(platenum, report, driver, company, photo) {
+                  FB.ui(
+                      {
+                        method: 'feed',
+                        name: platenum,
+                        link: 'http://localhost',
+                        picture: photo,
+                        caption: 'Driver: ' + driver + ' Company: ' + company,
+                        description: report,
+                        message: ''
+                      });
+            }
+
+    </script>
+    
   </body>
 </html>

@@ -44,3 +44,4 @@ define('URL','http://localhost/safetrip/');
 define('IMG',URL.'assets/images/');
 define('CSS',URL.'assets/css/');
 define('JS',URL.'assets/js/');
+define('UPLOAD',URL.'');
