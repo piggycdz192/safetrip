@@ -45,7 +45,8 @@ class Home extends CI_Controller {
 			$this->load->model("report_model");
 			$platenum = $this->input->post('plateNum');
 
-		// get violations	
+		/*  get violations	*/
+
 			$violations = $this->report_model->get_violation_count($platenum);
 			$totalViolation = 0;
 
@@ -75,16 +76,11 @@ class Home extends CI_Controller {
 
 				$count++;
 			}
+			// generate vehicle risk
+			$risk = $this->report_model->generate_risk($reports);
 
-			//print
-			/*
-			foreach ($reports as $report) {
-				foreach ($report['violations'] as $value) {
-					echo $value."<br>";
-				}
-				echo "<br>";
-			}
-			*/
+			//get most frequent location
+			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
 
 			/*
 			if($report != null)
@@ -103,8 +99,9 @@ class Home extends CI_Controller {
 				'violations' => $violations,
 				'nViolation' => $totalViolation,
 				'nReport' => $nReport,
-				'reports' => $reports);
-
+				'reports' => $reports,
+				'risk' => $risk,
+				'frequentLocation' => $frequentLocation);
 			$this->load->view('safetrip/view', $array);
 		}
 			

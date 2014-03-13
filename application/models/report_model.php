@@ -6,12 +6,41 @@ class Report_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function generate_risk($violation){
+	public function generate_risk($reports){
+		$mid = FALSE;
+		$high = FALSE;
+		foreach ($reports as $value)
+		{
+			if (in_array('Sexual Harassment', $value['violations']) || in_array('Kidnapping', $value['violations']) || in_array('Attempted Murder', $value['violations'])) 
+			{
+				    $high = TRUE;
+				    break;
+			}
+
+			else if(in_array('Rude Behavior', $value['violations']) || in_array('Refused Boarding', $value['violations']) || in_array('Contracting', $value['violations']))
+					$mid = TRUE;
+		}
+
+		if($high)
+			return 'High Risk';
+
+		else if($mid)
+			return 'Mid Risk';
+
+		else
+			return 'Low Risk';
 
 	}
 
 	public function get_most_frequence_location($platenum){
-
+		$this->db->SELECT('upper(max(location)) as location');
+		$this->db->FROM('report');
+		$this->db->WHERE('platenumber', $platenum);
+		$query = $this->db->get();
+		$location = $query->row()->location;
+		if($location == null)
+			$location = 'UNKNOWN';
+		return $location;
 	}
 
 	public function get_violation_count($condition){

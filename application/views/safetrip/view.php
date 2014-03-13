@@ -52,7 +52,7 @@
               <tr>
                 <th colspan="2">
                   <span class="glyphicon glyphicon-warning-sign icon-yellow"></span>
-                  Low Risk
+                  <?php echo $risk; ?>
                 </th>
               </tr>
             </thead>
@@ -72,7 +72,7 @@
 
               <tr>
                 <td colspan="2">
-                  <strong>Most Frequent Location:</strong> Quezon City
+                  <strong>Most Frequent Location:</strong> <?php echo $frequentLocation; ?>
                 </td>
               </tr>
             </tbody>
