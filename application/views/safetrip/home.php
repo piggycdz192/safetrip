@@ -32,7 +32,7 @@
 
           		echo validation_errors();
           		echo form_open("home/validate");
-          		
+              
           		$data = array(
           			'type' => 'text',
           			'name' => 'plateNum',
@@ -50,9 +50,16 @@
                 $data = array(
                     'class'=>"btn btn-primary btn-lg",
                     'name' => "search"
+                    // 'class'=>"button",
+                    // 'name' => "search",
+                    // 'button type' => "button",
+                    // 'data-dismiss' => "alert",
+                    // 'aria-hidden' => "true"
                     );
                   //<span class="glyphicon glyphicon-search"></span>
                   echo form_submit($data,'Search');
+
+                    
 
                   $data = array(
                     'class' => "btn btn-danger btn-lg btnSize",
