@@ -42,17 +42,19 @@ class Home extends CI_Controller {
 	}
 
 	public function validate(){
-		$this->load->library("form_validation");
-
-		$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
-
-
+		
 		if ($this->input->post("search"))
 		{
 			$this->load->model("report_model");
 			$platenum = strtoupper($this->input->post('plateNum'));
 			
 		/*  get violations	*/
+
+			 // if the plate num is in the database, do this
+
+			$this->load->library("form_validation");
+
+			$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
 
 			$violations = $this->report_model->get_violation_count($platenum);
 			$totalViolation = 0;
@@ -64,51 +66,66 @@ class Home extends CI_Controller {
 			// get total reports of a vehicle
 			$nReport = $this->report_model->getTotalReport($platenum);
 
-			
-			//  get report detail of a vehicle
-			$reports = $this->report_model->get_report($platenum);
-
-			//	get violation detail of each report
-			$count = 0;
-			foreach ($reports as $value) 
+			if($nReport > 0)
 			{
-				$temp[$count] = $this->report_model->get_violation_detail($value['id']);
-				$reports[$count]['violations'] = array();
 				
-				// store violations in format
-				foreach ($temp[$count] as $violate)
+				//  get report detail of a vehicle
+				$reports = $this->report_model->get_report($platenum);
+
+				//	get violation detail of each report
+				$count = 0;
+				foreach ($reports as $value) 
 				{
-					$reports[$count]['violations'][] = $violate['categoryname'];
+					$temp[$count] = $this->report_model->get_violation_detail($value['id']);
+					$reports[$count]['violations'] = array();
+					
+					// store violations in format
+					foreach ($temp[$count] as $violate)
+					{
+						$reports[$count]['violations'][] = $violate['categoryname'];
+					}
+
+					$count++;
 				}
+				/* para san to?
+				if(!$this->form_validation->run())
+					$this->index();
+				*/
 
-				$count++;
+
+				// generate vehicle risk
+				$risk = $this->report_model->generate_risk($reports);
+
+				//get most frequent location
+				$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
+
+				
+				$array = array('platenum' => $platenum,
+					'violations' => $violations,
+					'nViolation' => $totalViolation,
+					'nReport' => $nReport,
+					'reports' => $reports,
+					'risk' => $risk,
+					'frequentLocation' => $frequentLocation);
+
+				$this->load->view('safetrip/view', $array);
 			}
-			// generate vehicle risk
-			$risk = $this->report_model->generate_risk($reports);
 
-			//get most frequent location
-			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
-
-			
-			$array = array('platenum' => $platenum,
-				'violations' => $violations,
-				'nViolation' => $totalViolation,
-				'nReport' => $nReport,
-				'reports' => $reports,
-				'risk' => $risk,
-				'frequentLocation' => $frequentLocation);
-			//$this->load->view('safetrip/view', $array);
+			// if the plate num is not inside the database, do this				
+			else 
+			{ 
+				echo "<script>
+				alert('There are no fields to generate a report');				
+				</script>";
+				$this->index();
+			}
 		}
-			
+		
+		// maybe will remove this later
 		else
 		{
 		     echo 'search ay '.$this->input->post('plateNum');;
-		}
-
-		if(!$this->form_validation->run())
-			$this->index();
-
-			
+		}		
 	}
 }
 

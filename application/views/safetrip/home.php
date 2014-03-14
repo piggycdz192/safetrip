@@ -33,7 +33,7 @@
 
           		echo validation_errors();
           		echo form_open("home/validate");
-          		
+              
           		$data = array(
                 'id' => 'txt',
           			'type' => 'text',
@@ -54,9 +54,16 @@
                 $data = array(
                     'class'=>"btn btn-primary btn-lg",
                     'name' => "search"
+                    // 'class'=>"button",
+                    // 'name' => "search",
+                    // 'button type' => "button",
+                    // 'data-dismiss' => "alert",
+                    // 'aria-hidden' => "true"
                     );
                   //<span class="glyphicon glyphicon-search"></span>
                   echo form_submit($data,'Search');
+
+                    
 
                   $data = array(
                     'class' => "btn btn-danger btn-lg btnSize",
@@ -65,13 +72,10 @@
                     );
 
                   echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
-
                   
-
                   echo form_close();
 
                 ?>
-
               </p>
           </div>
           </p>
@@ -92,7 +96,6 @@
         });
     </script>
     
-    <?php print_r($plateList);?>
 
     <script src="<?php echo(JS.'jquery-1.10.2.js'); ?>"></script>
     <script src="<?php echo(JS.'jquery-ui-1.10.4.custom.js'); ?>"></script>
