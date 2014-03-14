@@ -39,6 +39,7 @@
 */
 
 $route['create'] = "home/create";
+$route['demo'] = "home/demo";
 $route['view'] = "home/view";
 $route['statistics'] = "home/statistics";
 $route['index'] = "home/index";

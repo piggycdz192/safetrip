@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo(CSS.'bootstrap-datetimepicker.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo(CSS.'font-awesome.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo(CSS.'webapps.css'); ?>">
+    <link rel="stylesheet" href="<?php echo(CSS.'jquery-ui-1.10.4.custom.css'); ?>">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,8 +35,11 @@
           		echo form_open("home/validate");
           		
           		$data = array(
+                'id' => 'txt',
           			'type' => 'text',
+                'style' => "text-transform:uppercase",
           			'name' => 'plateNum',
+                'maxlength' => "6",
           			'class' => "form-control",
           			'placeholder' => "Example: TXI123"
           		);
@@ -87,6 +91,19 @@
             $('#datetimepickerincident').datetimepicker();
         });
     </script>
+    
+    <?php print_r($plateList);?>
+
+    <script src="<?php echo(JS.'jquery-1.10.2.js'); ?>"></script>
+    <script src="<?php echo(JS.'jquery-ui-1.10.4.custom.js'); ?>"></script>
+    <script>
+        $(function() {
+          var availableTaxi = <?php echo json_encode($plateList); ?>;
+            $( "#txt" ).autocomplete({
+               source: availableTaxi
+              });
+        });
+    </script> 
   </body>
 </html>
 

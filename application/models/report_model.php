@@ -32,6 +32,18 @@ class Report_model extends CI_Model {
 
 	}
 
+	public function get_all_platenum(){
+		$this->db->SELECT('distinct(platenumber) as platenum');
+		$this->db->FROM('report');
+		$query = $this->db->get()->result_array();
+		 
+		$result = array();
+		foreach ($query as $value) {
+			$result[] = $value['platenum'];
+		}
+		return $result;
+	}
+
 	public function get_most_frequence_location($platenum){
 		$this->db->SELECT('upper(max(location)) as location');
 		$this->db->FROM('report');

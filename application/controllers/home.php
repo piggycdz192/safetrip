@@ -19,8 +19,15 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('safetrip/home');
+		$this->load->model('report_model');
+		$array['plateList'] = $this->report_model->get_all_platenum();
+		$this->load->view('safetrip/home', $array);
 	}
+	// test
+	public function demo(){
+		$this->load->view('safetrip/demo');
+	}
+
 	public function create()
 	{
 		$this->load->view('safetrip/filereport');
@@ -43,8 +50,8 @@ class Home extends CI_Controller {
 		if ($this->input->post("search"))
 		{
 			$this->load->model("report_model");
-			$platenum = $this->input->post('plateNum');
-
+			$platenum = strtoupper($this->input->post('plateNum'));
+			
 		/*  get violations	*/
 
 			$violations = $this->report_model->get_violation_count($platenum);
@@ -82,18 +89,6 @@ class Home extends CI_Controller {
 			//get most frequent location
 			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
 
-			/*
-			if($report != null)
-			{
-				foreach ($result as $value) {
-					echo $value['report']. '<br>';
-					echo $value['datetime']. '<br>';
-					echo $value['drivername']. '<br>';
-					echo $value['company']. '<br>';
-					echo $value['location']. '<br>';
-					echo $value['picture'];
-				}
-			}*/
 			
 			$array = array('platenum' => $platenum,
 				'violations' => $violations,
@@ -102,7 +97,7 @@ class Home extends CI_Controller {
 				'reports' => $reports,
 				'risk' => $risk,
 				'frequentLocation' => $frequentLocation);
-			$this->load->view('safetrip/view', $array);
+			//$this->load->view('safetrip/view', $array);
 		}
 			
 		else
