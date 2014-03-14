@@ -31,16 +31,67 @@ class Report extends CI_Controller {
 		else
 		{
 			if (!$this->upload->do_upload("picture")) {
-				$this->load->view('safetrip/success');
+
+				$upload_data = $this->upload->data();
+				if(strlen($upload_data['file_name']) == 0)
+					$this->report_model->add_report(null);
+				$this->load_view(strtoupper($this->input->post('platenumber')));
 			}
 
-			$upload_data = $this->upload->data();
-			if(strlen($upload_data['file_name']) == 0)
-				$this->report_model->add_report(null);
 			else $this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
 			// $this->load->view('safetrip/success');
 		}
 
+	}
+
+	public function load_view($platenum){
+		    $this->load->model("report_model");
+
+		// get total reports of a vehicle
+			$nReport = $this->report_model->getTotalReport($platenum);
+
+			$violations = $this->report_model->get_violation_count($platenum);
+			$totalViolation = 0;
+
+			// get total violations of a vehicle
+			foreach ($violations as $value)
+				$totalViolation += $value['count'];
+			
+			//  get report detail of a vehicle
+			$reports = $this->report_model->get_report($platenum);
+
+			//	get violation detail of each report
+			$count = 0;
+			foreach ($reports as $value) 
+			{
+				$temp[$count] = $this->report_model->get_violation_detail($value['id']);
+				$reports[$count]['violations'] = array();
+				
+				// store violations in format
+				foreach ($temp[$count] as $violate)
+				{
+					$reports[$count]['violations'][] = $violate['categoryname'];
+				}
+
+				$count++;
+			}
+
+			// generate vehicle risk
+			$risk = $this->report_model->generate_risk($reports);
+
+			//get most frequent location
+			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
+
+			
+			$array = array('platenum' => $platenum,
+				'violations' => $violations,
+				'nViolation' => $totalViolation,
+				'nReport' => $nReport,
+				'reports' => $reports,
+				'risk' => $risk,
+				'frequentLocation' => $frequentLocation);
+
+			$this->load->view('safetrip/view', $array);
 	}
 
 

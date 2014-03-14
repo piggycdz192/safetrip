@@ -56,18 +56,31 @@ class Home extends CI_Controller {
 
 			$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
 
-			$violations = $this->report_model->get_violation_count($platenum);
-			$totalViolation = 0;
+			$this->process_searching($platenum);
+		}
+		
+		// maybe will remove this later
+		else
+		{
+		     echo 'search ay '.$this->input->post('plateNum');;
+		}		
+	}
 
-			// get total violations of a vehicle
-			foreach ($violations as $value)
-				$totalViolation += $value['count'];
-				
-			// get total reports of a vehicle
+
+	public function process_searching($platenum){
+
+		// get total reports of a vehicle
 			$nReport = $this->report_model->getTotalReport($platenum);
 
 			if($nReport > 0)
 			{
+
+				$violations = $this->report_model->get_violation_count($platenum);
+				$totalViolation = 0;
+
+				// get total violations of a vehicle
+				foreach ($violations as $value)
+					$totalViolation += $value['count'];
 				
 				//  get report detail of a vehicle
 				$reports = $this->report_model->get_report($platenum);
@@ -119,13 +132,6 @@ class Home extends CI_Controller {
 				</script>";
 				$this->index();
 			}
-		}
-		
-		// maybe will remove this later
-		else
-		{
-		     echo 'search ay '.$this->input->post('plateNum');;
-		}		
 	}
 }
 

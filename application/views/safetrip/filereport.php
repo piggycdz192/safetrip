@@ -47,11 +47,11 @@
               <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ><?php echo set_value('report');?></textarea>
               <?php echo form_error('report','<div class="error">', '</div>') ?>
             </div>
-            <div class="form-group form-narrower">
-              <label for="platenumber">Plate Number <span class="required">*</span></label>
-              <input type="text" class="form-control" name="platenumber" maxlength="6" style='text-transform:uppercase' placeholder="Example: TXI123" value="<?php echo set_value('platenumber');?>">
-              <?php echo form_error('platenumber','<div class="error">', '</div>') ?>
-            </div>
+              <div class="form-group form-narrower">
+                <label for="platenumber">Plate Number <span class="required">*</span></label>
+                <input type="text" class="form-control" name="platenumber" maxlength="6" style='text-transform:uppercase' placeholder="Example: TXI123" value="<?php echo set_value('platenumber');?>">
+                <?php echo form_error('platenumber','<div class="error">', '</div>') ?>
+              </div>
             <div class="form-group form-narrow">
               <label>Type of Vehicle <span class="required">*</span></label>
               <div class="row">

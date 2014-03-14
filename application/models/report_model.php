@@ -92,6 +92,7 @@ class Report_model extends CI_Model {
 		$this->db->SELECT('id, report, drivername, company, location, datetime, picture');
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $condition);
+		$this->db->order_by('id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
