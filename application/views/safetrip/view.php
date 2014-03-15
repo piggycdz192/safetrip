@@ -79,7 +79,7 @@
             <tfoot>
               <tr>
                 <td>
-                  <button onclick="post('<?php echo $platenum ?>','Quezon City (dummy location)');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
+                  <button onclick="post('<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
                 </td>
               </tr>
             </tfoot>
@@ -167,7 +167,7 @@
 
     <script type="text/javascript">
 
-            function post(platenum, location) {
+            function post(platenum, location, risk) {
                   FB.ui(
                       {
                         method: 'feed',
@@ -175,7 +175,7 @@
                         link: 'http://localhost',
                         picture: 'http://localhost',
                         caption: 'Most Frequent Location: ' + location,
-                        description: 'This vehicle has commited a number of violations.',
+                        description: 'Level of risk for this vehicle: ' + risk,
                         message: ''
                       });
             }
