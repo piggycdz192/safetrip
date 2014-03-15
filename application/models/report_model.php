@@ -123,7 +123,7 @@ class Report_model extends CI_Model {
 		// insert vehicle 
 		
 		$data = array(
-			'platenumber' => $this->input->post('platenumber'),
+			'platenumber' => strtoupper($this->input->post('platenumber')),
 			'idvehicletype' => $this->input->post('vehicletype'),
 		);
 
@@ -137,7 +137,7 @@ class Report_model extends CI_Model {
 		
 		$data1 = array(
 			'report' => $this->input->post('report'),
-			'platenumber' => $this->input->post('platenumber'),
+			'platenumber' => strtoupper($this->input->post('platenumber')),
 			'datetime' => $this->input->post('datetime'),
 			'location' => $this->input->post('location'),
 			'drivername' => $driver,
