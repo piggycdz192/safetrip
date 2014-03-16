@@ -32,12 +32,18 @@
 				<ul class="list-inline">
 					<li><h1>Statistics</h1></li>
 					<li class="pull-right violate-dropdown">
-						<select class="form-control" id="selectform" onChange="document.location = this.value" value="GO">
-							<option value="<?php echo site_url('/statistics/taxi_violation') ?>">by Taxi Violation</option>
-							<option value="<?php echo site_url('/statistics/bus_violation') ?>">by Bus Violation</option>
-							<option value="<?php echo site_url('/statistics/taxi_company') ?>">by Taxi Company</option>
-							<option value="<?php echo site_url('/statistics/bus_company') ?>">by Bus Company</option>
-						</select>
+						<?php
+              $this->load->helper('url');
+              $this->load->helper('form');
+              $options = array(
+  							site_url('/statistics/taxi_violation') => 'by Taxi Violation',
+  							site_url('/statistics/bus_violation') => 'by Bus Violation',
+  							site_url('/statistics/taxi_company') => 'by Taxi Company',
+  							site_url('/statistics/bus_company') => 'by Bus Company'
+              );
+              $attr = 'class="form-control" id="selectform" onChange="document.location = this.value" value="GO"';
+              echo form_dropdown('selectform', $options, site_url('/statistics/'.$selected), $attr)
+						?>
 					</li>
 				</ul>
 				<table class="table">

@@ -142,10 +142,11 @@ class Home extends CI_Controller {
 		$this->load->model('report_model');
 
 		if ($selected === false || $selected == 'taxi_violation') {
-			$data['rows'] = $this->report_model->stat_taxi_violations();
+			$selected = 'taxi_violation';
+			$data['rows'] = $this->report_model->stat_violations();
 		}
 		else if ($selected == 'bus_violation') {
-			//$data['rows'] = $this->report_model->stat_bus_violations();
+			$data['rows'] = $this->report_model->stat_violations('Bus');
 		}
 		else if ($selected == 'taxi_company') {
 			//$data['rows'] = $this->report_model->stat_taxi_companies();
@@ -153,6 +154,7 @@ class Home extends CI_Controller {
 		else if ($selected == 'bus_company') {
 			//$data['rows'] = $this->report_model->stat_bus_companies();
 		}
+		$data['selected'] = $selected;
 		$data['nrow'] = 0;
 		$this->load->view('safetrip/statistics', $data);
 	}
