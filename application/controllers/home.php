@@ -1,5 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Store into the constant 'IS_AJAX' whether the request was made via AJAX or not
+ * http://phpsblog.agustinvillalba.com/sending-forms-ajax-codeigniter/
+ */
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+
 class Home extends CI_Controller {
 
 	/**
@@ -32,13 +38,6 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('safetrip/filereport');
 	}
-	public function statistics()
-	{
-		$this->load->model('report_model');
-		$data['rows'] = $this->report_model->stat_taxi_violations();
-		$data['nrow'] = 0;
-		$this->load->view('safetrip/statistics', $data);
-	}
 	public function view()
 	{
 		$this->load->view('safetrip/view');
@@ -65,7 +64,7 @@ class Home extends CI_Controller {
 		// maybe will remove this later
 		else
 		{
-		     echo 'search ay '.$this->input->post('plateNum');;
+			 echo 'search ay '.$this->input->post('plateNum');;
 		}		
 	}
 
@@ -135,6 +134,27 @@ class Home extends CI_Controller {
 				</script>";
 				$this->index();
 			}
+	}
+
+
+	public function statistics($selected = false)
+	{
+		$this->load->model('report_model');
+
+		if ($selected === false || $selected == 'taxi_violation') {
+			$data['rows'] = $this->report_model->stat_taxi_violations();
+		}
+		else if ($selected == 'bus_violation') {
+			//$data['rows'] = $this->report_model->stat_bus_violations();
+		}
+		else if ($selected == 'taxi_company') {
+			//$data['rows'] = $this->report_model->stat_taxi_companies();
+		}
+		else if ($selected == 'bus_company') {
+			//$data['rows'] = $this->report_model->stat_bus_companies();
+		}
+		$data['nrow'] = 0;
+		$this->load->view('safetrip/statistics', $data);
 	}
 }
 

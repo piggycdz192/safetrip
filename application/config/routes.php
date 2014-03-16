@@ -42,6 +42,7 @@ $route['create'] = "home/create";
 $route['demo'] = "home/demo";
 $route['view'] = "home/view";
 $route['statistics'] = "home/statistics";
+$route['statistics/(:any)'] = "home/statistics/$1";
 $route['index'] = "home/index";
 $route['default_controller'] = "home";
 $route['404_override'] = '';
