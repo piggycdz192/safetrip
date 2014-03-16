@@ -11,8 +11,8 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right pull-left-mobile">
-            <!-- <li><a href ="<?php echo base_url('index.php/statistics');?>">Statistics</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href ="<?php echo base_url('index.php/statistics');?>">Statistics</a></li>
+            <!-- li><a href="#about">About</a></li>
             <li><a href="#contact">Contact Us</a></li>
             <li><a href="#contact">FAQs</a></li> -->
           </ul>
