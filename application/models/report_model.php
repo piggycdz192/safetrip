@@ -6,6 +6,26 @@ class Report_model extends CI_Model {
 		$this->load->database();
 	}
 
+	/* This returns the statistics for taxi violations from highest to lowest */
+	public function stat_taxi_violations() {
+		$str_query =
+			'SELECT `categoryname`, COUNT(*) AS `categorycount` '.
+			'FROM `category` '.
+			'INNER JOIN `report_category` ON `category`.`id` = `report_category`.`idcategory` '.
+			'WHERE `idreport` IN '.
+				'(SELECT `id` FROM `report` '.
+				'WHERE platenumber IN '.
+					'(SELECT `platenumber` FROM `vehicle` '.
+					'WHERE `idvehicletype` = '.
+						'(SELECT `id` FROM `vehicletype` '.
+						'WHERE `typename` = "Taxi"))) '.
+			'GROUP BY `category`.`id` '.
+			'ORDER BY `categorycount` DESC';
+		$query = $this->db->query($str_query);
+		$result = $query->result_array();
+		return $result;
+	}
+
 	public function generate_risk($reports){
 		$mid = FALSE;
 		$high = FALSE;

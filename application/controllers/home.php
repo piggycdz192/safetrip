@@ -34,7 +34,10 @@ class Home extends CI_Controller {
 	}
 	public function statistics()
 	{
-		$this->load->view('safetrip/statistics');
+		$this->load->model('report_model');
+		$data['rows'] = $this->report_model->stat_taxi_violations();
+		$data['nrow'] = 0;
+		$this->load->view('safetrip/statistics', $data);
 	}
 	public function view()
 	{

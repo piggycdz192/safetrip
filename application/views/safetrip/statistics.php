@@ -24,6 +24,8 @@
 
    <?php include 'header.php'; ?>
 
+
+
     <div class="statistics-page">
       <div class="container">
         <ul class="list-inline">
@@ -47,46 +49,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Overcharging</td>
-              <td>3</td>
+            <?php foreach ($rows as $row): ?>
+              <tr>
+              <td><?php echo ++$nrow ?></td>
+              <td><?php echo $row['categoryname'] ?></td>
+              <td><?php echo $row['categorycount'] ?></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Contracting</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Rude Behavior</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Sexual Harassment</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Kidnapping</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Left Behind Items</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Refused Boarding</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Choosing Passengers</td>
-              <td>1</td>
-            </tr>
+            <?php endforeach ?>
           </tbody>
         </table>
       </div>
