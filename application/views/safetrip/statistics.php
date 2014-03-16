@@ -31,13 +31,20 @@
         <ul class="list-inline">
           <li><h1>Statistics</h1></li>
           <li class="pull-right violate-dropdown">
-            <select class="form-control">
-              <option>By taxi violations</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <?php
+              $this->load->helper('form');
+              $form_attr = 'id="byform"';
+              echo form_open('home/process_stat', $form_attr);
+              $options = array(
+                  'taxi_violation' => 'by Taxi Violation',
+                  'bus_violation' => 'by Bus Violation',
+                  'taxi_company' => 'by Taxi Company',
+                  'bus_company' => 'by Bus Company'
+                );
+              $op_attr = 'class="form-control" onChange="selectitem()"';
+              echo form_dropdown('selectform', $options, 'taxi_violation', $op_attr);
+              echo form_close();
+            ?>
           </li>
         </ul>
         <table class="table">
@@ -61,6 +68,8 @@
       </div>
     </div>
 
+    <!-- Script for changing dropdowns -->
+    <script src="<?php echo(JS.'safetrip-stats.js'); ?>"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
