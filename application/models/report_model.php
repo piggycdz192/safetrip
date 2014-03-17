@@ -208,7 +208,7 @@ class Report_model extends CI_Model
 				'SELECT `id` '.
 				'FROM category '.
 				'WHERE categoryname = ?';
-			$query = $this->db->query($str_query, array($violations[$i]));
+			$query = $this->db->query($str_query, $violations[$i]);
 	        $result = $query->row()->id;
 			$data2[$i] = array(
 	           'idreport' => $reportID,
