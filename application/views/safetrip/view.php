@@ -132,12 +132,12 @@
                       <!-- driver name -->
                       <!-- location -->
                       <p class="no-bottom-margin"><small><strong>Driver:</strong> <?php echo $value['drivername']; ?></small></p>
-                      <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['company']; ?></small></p>
+                      <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['location']; ?></small></p>
                     </td>
                     <td class="no-border">
-                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo $value['report'] ?>', 
+                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9. ]/", "", $value['report']) ?>', 
                         '<?php echo $value['drivername']; ?>', '<?php echo $value['company']; ?>',
-                        '<?php echo(UPLOAD.$value['picture']); ?>');" 
+                        '<?php echo(UPLOAD.$value['picture']); ?>', '<?php echo $value['location']; ?>');" 
                         type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
                     </td>
                   </tr>
@@ -160,12 +160,6 @@
     <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
 
     <script type="text/javascript">
-        $(function () {
-            $('#datetimepickerincident').datetimepicker();
-        });
-    </script>
-
-    <script type="text/javascript">
 
             function post(platenum, location, risk) {
                   FB.ui(
@@ -180,14 +174,14 @@
                       });
             }
 
-            function postit(platenum, report, driver, company, photo) {
+            function postit(platenum, report, driver, company, photo, location) {
                   FB.ui(
                       {
                         method: 'feed',
                         name: platenum,
                         link: 'http://localhost',
                         picture: photo,
-                        caption: 'Driver: ' + driver + ' Company: ' + company,
+                        caption: 'Driver: ' + driver + '<center></center> Company: ' + company + '<center></center> Location: ' + location,
                         description: report,
                         message: ''
                       });
