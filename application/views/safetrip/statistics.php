@@ -50,7 +50,7 @@
 					<thead>
 						<tr>
 							<th>Rank</th>
-							<th>Violation</th>
+							<th><?php echo $head ?></th>
 							<th>Number</th>
 						</tr>
 					</thead>
@@ -58,8 +58,8 @@
 						<?php foreach ($rows as $row): ?>
 							<tr>
 							<td><?php echo ++$nrow ?></td>
-							<td><?php echo $row['categoryname'] ?></td>
-							<td><?php echo $row['categorycount'] ?></td>
+							<td><?php echo $row['name'] ?></td>
+							<td><?php echo $row['count'] ?></td>
 						</tr>
 						<?php endforeach ?>
 					</tbody>

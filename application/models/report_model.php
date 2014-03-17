@@ -9,7 +9,7 @@ class Report_model extends CI_Model {
 	/* This returns the statistics for taxi violations from highest to lowest */
 	public function stat_violations($data = 'Taxi') {
 		$str_query =
-			'SELECT `categoryname`, COUNT(*) AS `categorycount` '.
+			'SELECT `categoryname` AS `name`, COUNT(*) AS `count` '.
 			'FROM `category` '.
 			'INNER JOIN `report_category` ON `category`.`id` = `report_category`.`idcategory` '.
 			'WHERE `idreport` IN '.
@@ -18,12 +18,28 @@ class Report_model extends CI_Model {
 					'(SELECT `platenumber` FROM `vehicle` '.
 					'WHERE `idvehicletype` = '.
 						'(SELECT `id` FROM `vehicletype` '.
-						'WHERE `typename` = "'.$data.'"))) '.
+						'WHERE `typename` = ?))) '.
 			'GROUP BY `category`.`id` '.
-			'ORDER BY `categorycount` DESC';
-		$query = $this->db->query($str_query);
-		$result = $query->result_array();
-		return $result;
+			'ORDER BY `count` DESC';
+		$query = $this->db->query($str_query, $data);
+		return $query->result_array();
+	}
+
+	public function stat_companies($data = 'Taxi') {
+		$str_query =
+			'SELECT `company` AS `name`, COUNT(*) AS `count` '.
+			'FROM `report` '.
+			'WHERE `platenumber` IN '.
+				'(SELECT `platenumber` '.
+				'FROM `vehicle` '.
+				'WHERE `idvehicletype` = '.
+					'(SELECT `id` '.
+					'FROM `vehicletype` '.
+					'WHERE `typename` = ?)) '.
+			'GROUP BY `company` '.
+			'ORDER BY `count` DESC';
+		$query = $this->db->query($str_query, array($data));
+		return $query->result_array();
 	}
 
 	public function generate_risk($reports){

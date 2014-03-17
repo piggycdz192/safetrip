@@ -143,16 +143,20 @@ class Home extends CI_Controller {
 
 		if ($selected === false || $selected == 'taxi_violation') {
 			$selected = 'taxi_violation';
+			$data['head'] = 'Taxi Violation';
 			$data['rows'] = $this->report_model->stat_violations();
 		}
 		else if ($selected == 'bus_violation') {
+			$data['head'] = 'Bus Violation';
 			$data['rows'] = $this->report_model->stat_violations('Bus');
 		}
 		else if ($selected == 'taxi_company') {
-			//$data['rows'] = $this->report_model->stat_taxi_companies();
+			$data['head'] = 'Taxi Company';
+			$data['rows'] = $this->report_model->stat_companies();
 		}
 		else if ($selected == 'bus_company') {
-			//$data['rows'] = $this->report_model->stat_bus_companies();
+			$data['head'] = 'Bus Company';
+			$data['rows'] = $this->report_model->stat_companies('Bus');
 		}
 		$data['selected'] = $selected;
 		$data['nrow'] = 0;
