@@ -1,5 +1,7 @@
 <?php
-class Report_model extends CI_Model {
+
+class Report_model extends CI_Model
+{
 
 	public function __construct()
 	{
@@ -7,7 +9,8 @@ class Report_model extends CI_Model {
 	}
 
 	/* This returns the statistics for taxi violations from highest to lowest */
-	public function stat_violations($data = 'Taxi') {
+	public function stat_violations($data = 'Taxi')
+	{
 		$str_query =
 			'SELECT `categoryname` AS `name`, COUNT(*) AS `count` '.
 			'FROM `category` '.
@@ -25,7 +28,8 @@ class Report_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function stat_companies($data = 'Taxi') {
+	public function stat_companies($data = 'Taxi')
+	{
 		$str_query =
 			'SELECT `company` AS `name`, COUNT(*) AS `count` '.
 			'FROM `report` '.
@@ -42,7 +46,8 @@ class Report_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function generate_risk($reports){
+	public function generate_risk($reports)
+	{
 		$mid = FALSE;
 		$high = FALSE;
 		foreach ($reports as $value)
@@ -68,7 +73,8 @@ class Report_model extends CI_Model {
 
 	}
 
-	public function get_all_platenum(){
+	public function get_all_platenum()
+	{
 		$this->db->SELECT('distinct(platenumber) as platenum');
 		$this->db->FROM('report');
 		$query = $this->db->get()->result_array();
@@ -80,7 +86,8 @@ class Report_model extends CI_Model {
 		return $result;
 	}
 
-	public function get_most_frequence_location($platenum){
+	public function get_most_frequence_location($platenum)
+	{
 		$this->db->SELECT('upper(max(location)) as location');
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $platenum);
@@ -91,7 +98,8 @@ class Report_model extends CI_Model {
 		return $location;
 	}
 
-	public function get_violation_count($condition){
+	public function get_violation_count($condition)
+	{
 		$this->db->SELECT('categoryname, COUNT(*) AS count');
 		$this->db->FROM('category');
 		$this->db->JOIN('report_category', 'report_category.idcategory = category.id');
@@ -105,7 +113,8 @@ class Report_model extends CI_Model {
 
 	}
 
-	public function getTotalReport($condition){
+	public function getTotalReport($condition)
+	{
 		$this->db->SELECT('count(*) AS count');
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $condition);
@@ -113,7 +122,8 @@ class Report_model extends CI_Model {
 		return $query->row()->count;
 	}
 
-	public function get_violation_detail($reportID){
+	public function get_violation_detail($reportID)
+	{
 		$this->db->SELECT('categoryname');
 		$this->db->FROM('category');
 		$this->db->JOIN('report_category', 'report_category.idcategory = category.id');
