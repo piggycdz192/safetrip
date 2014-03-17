@@ -69,71 +69,68 @@ class Home extends CI_Controller {
 	}
 
 
-	public function process_searching($platenum){
-
+	public function process_searching($platenum)
+	{
 		// get total reports of a vehicle
-			$nReport = $this->report_model->getTotalReport($platenum);
+		$nReport = $this->report_model->getTotalReport($platenum);
 
-			if($nReport > 0)
+		if($nReport > 0)
+		{
+			$violations = $this->report_model->get_violation_count($platenum);
+			$totalViolation = 0;
+
+			// get total violations of a vehicle
+			foreach ($violations as $value)
+				$totalViolation += $value['count'];
+			
+			//  get report detail of a vehicle
+			$reports = $this->report_model->get_report($platenum);
+
+			//	get violation detail of each report
+			$count = 0;
+			foreach ($reports as $value) 
 			{
-
-				$violations = $this->report_model->get_violation_count($platenum);
-				$totalViolation = 0;
-
-				// get total violations of a vehicle
-				foreach ($violations as $value)
-					$totalViolation += $value['count'];
+				$temp[$count] = $this->report_model->get_violation_detail($value['id']);
+				$reports[$count]['violations'] = array();
 				
-				//  get report detail of a vehicle
-				$reports = $this->report_model->get_report($platenum);
-
-				//	get violation detail of each report
-				$count = 0;
-				foreach ($reports as $value) 
+				// store violations in format
+				foreach ($temp[$count] as $violate)
 				{
-					$temp[$count] = $this->report_model->get_violation_detail($value['id']);
-					$reports[$count]['violations'] = array();
-					
-					// store violations in format
-					foreach ($temp[$count] as $violate)
-					{
-						$reports[$count]['violations'][] = $violate['categoryname'];
-					}
-
-					$count++;
+					$reports[$count]['violations'][] = $violate['categoryname'];
 				}
-				/* para san to?
-				if(!$this->form_validation->run())
-					$this->index();
-				*/
 
-
-				// generate vehicle risk
-				$risk = $this->report_model->generate_risk($reports);
-
-				//get most frequent location
-				$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
-
-				
-				$array = array('platenum' => $platenum,
-					'violations' => $violations,
-					'nViolation' => $totalViolation,
-					'nReport' => $nReport,
-					'reports' => $reports,
-					'risk' => $risk,
-					'frequentLocation' => $frequentLocation);
-
-				$this->load->view('safetrip/view', $array);
+				$count++;
 			}
-
-			// if the plate num is not inside the database, do this				
-			else 
-			{ 
-				echo "<script>
-				alert('There are no fields to generate a report');				
-				</script>";
+			/* para san to?
+			if(!$this->form_validation->run())
 				$this->index();
-			}
+			*/
+
+			// generate vehicle risk
+			$risk = $this->report_model->generate_risk($reports);
+
+			//get most frequent location
+			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
+			
+			$array = array('platenum' => $platenum,
+				'violations' => $violations,
+				'nViolation' => $totalViolation,
+				'nReport' => $nReport,
+				'reports' => $reports,
+				'risk' => $risk,
+				'frequentLocation' => $frequentLocation);
+
+			$this->load->view('safetrip/view', $array);
+		}
+
+		// if the plate num is not inside the database, do this				
+		else 
+		{ 
+			echo "<script>
+			alert('There are no fields to generate a report');				
+			</script>";
+			$this->index();
+		}
 	}
 
 
@@ -141,20 +138,24 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('report_model');
 
-		if ($selected === false || $selected == 'taxi_violation') {
+		if ($selected === false || $selected == 'taxi_violation')
+		{
 			$selected = 'taxi_violation';
 			$data['head'] = 'Taxi Violation';
 			$data['rows'] = $this->report_model->stat_violations();
 		}
-		else if ($selected == 'bus_violation') {
+		else if ($selected == 'bus_violation')
+		{
 			$data['head'] = 'Bus Violation';
 			$data['rows'] = $this->report_model->stat_violations('Bus');
 		}
-		else if ($selected == 'taxi_company') {
+		else if ($selected == 'taxi_company')
+		{
 			$data['head'] = 'Taxi Company';
 			$data['rows'] = $this->report_model->stat_companies();
 		}
-		else if ($selected == 'bus_company') {
+		else if ($selected == 'bus_company')
+		{
 			$data['head'] = 'Bus Company';
 			$data['rows'] = $this->report_model->stat_companies('Bus');
 		}

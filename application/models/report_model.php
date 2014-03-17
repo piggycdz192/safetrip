@@ -66,7 +66,7 @@ class Report_model extends CI_Model
 			return 'High Risk';
 
 		else if($mid)
-			return 'Mid Risk';
+			return 'Medium Risk';
 
 		else
 			return 'Low Risk';
