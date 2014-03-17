@@ -38,7 +38,7 @@ class Report_model extends CI_Model {
 					'WHERE `typename` = ?)) '.
 			'GROUP BY `company` '.
 			'ORDER BY `count` DESC';
-		$query = $this->db->query($str_query, array($data));
+		$query = $this->db->query($str_query, $data);
 		return $query->result_array();
 	}
 
@@ -193,9 +193,12 @@ class Report_model extends CI_Model {
 
 		for($i = 0; $i < sizeof($violations); $i++)
 		{
-
 			//get category id from db
-			$query = $this->db->query("SELECT id FROM category WHERE categoryname = '".$violations[$i]."'");
+			$str_query =
+				'SELECT `id` '.
+				'FROM `category` '.
+				'WHERE `categoryname` = ?';
+			$query = $this->db->query($str_query, $violations[$i]);
 	        $result = $query->row()->id;
 			$data2[$i] = array(
 	           'idreport' => $reportID,
