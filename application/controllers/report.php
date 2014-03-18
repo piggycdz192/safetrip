@@ -82,8 +82,11 @@ class Report extends CI_Controller {
 			//get most frequent location
 			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
 
-			
+			//get type of vehicle
+			$type = $this->report_model->get_vehicle_type($platenum);
+			echo $type;
 			$array = array('platenum' => $platenum,
+				'type' => $type,
 				'violations' => $violations,
 				'nViolation' => $totalViolation,
 				'nReport' => $nReport,

@@ -26,8 +26,8 @@
             <thead>
               <tr>
                 <th colspan="2">
-                  <span class="glyphicon glyphicon-warning-sign icon-yellow"></span>
-                  <?php echo $risk; ?>
+                  <!-- <span class="glyphicon glyphicon-warning-sign icon-yellow"></span> -->
+                  <?php echo "This is a ". $risk ." ".$type. "."; ?>
                 </th>
               </tr>
             </thead>

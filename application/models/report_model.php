@@ -42,6 +42,7 @@ class Report_model extends CI_Model {
 		return $query->result_array();
 	}
 
+
 	public function generate_risk($reports){
 		$mid = FALSE;
 		$high = FALSE;
@@ -58,13 +59,13 @@ class Report_model extends CI_Model {
 		}
 
 		if($high)
-			return 'High Risk';
+			return 'HIGH RISK';
 
 		else if($mid)
-			return 'Mid Risk';
+			return 'MID RISK';
 
 		else
-			return 'Low Risk';
+			return 'LOW RISK';
 
 	}
 
@@ -78,6 +79,16 @@ class Report_model extends CI_Model {
 			$result[] = $value['platenum'];
 		}
 		return $result;
+	}
+
+	public function get_vehicle_type($platenum){
+		$this->db->SELECT('lower(typename) as typename');
+		$this->db->FROM('vehicle');
+		$this->db->JOIN('vehicletype', 'vehicle.idvehicletype = vehicletype.id');
+		$this->db->WHERE('platenumber', $platenum);
+		$query = $this->db->get();
+		return $query->row()->typename;
+
 	}
 
 	public function get_most_frequence_location($platenum){
