@@ -81,9 +81,12 @@ class Report_model extends CI_Model {
 	}
 
 	public function get_most_frequence_location($platenum){
-		$this->db->SELECT('upper(max(location)) as location');
+		$this->db->SELECT('upper(location) as location');
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $platenum);
+		$this->db->group_by('location');
+		$this->db->order_by('count(location)', 'desc');
+		$this->db->limit(1);
 		$query = $this->db->get();
 		$location = $query->row()->location;
 		if($location == null)
