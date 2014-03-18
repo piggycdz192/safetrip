@@ -1,36 +1,5 @@
 <?php $this->load->helper("form"); ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Safe Trip</title>
-
-    <!-- Bootstrap -->
-
-    <link rel="stylesheet" href="<?php echo(CSS.'bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo(CSS.'bootstrap-datetimepicker.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo(CSS.'font-awesome.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo(CSS.'webapps.css'); ?>">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <style>
-      .required {
-        color: #ff0000;
-      }
-    </style>
-  </head>
-  <body>
-
-  <?php include 'header.php'; ?>
+<?php include 'header.php'; ?>
 
     
 
@@ -217,6 +186,5 @@
       });
     </script>
   </body>
-</html>
 
 
