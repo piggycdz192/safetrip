@@ -45,18 +45,19 @@
                 </tr>
             <?php endforeach;?>
 
-              <tr>
-                <td colspan="2">
-                  <strong>Location with the most violations:</strong> <?php echo $frequentLocation; ?>
-                </td>
-              </tr>
+                <tr>
+                  <td colspan="2">
+                    <strong>Location with the most violations:</strong> <?php echo $frequentLocation; ?>
+                  </td>
+                </tr>
             </tbody>
             <tfoot>
-              <tr>
-                <td>
-                  <button onclick="post('<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
-                </td>
-              </tr>
+                <tr>
+                  <td></td>
+                  <td align = "right">
+                    <button onclick="post('<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
+                  </td>
+                </tr>
             </tfoot>
           </table>
         </div>
