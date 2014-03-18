@@ -79,7 +79,7 @@
                     <td colspan="2">
                       <div>
                       <!-- time  -->
-                        <small><?php $value['datetime']; ?></small>
+                        <small><?php echo $value['datetime']; ?></small>
                       </div>
                       <div>
                       <!-- violation -->

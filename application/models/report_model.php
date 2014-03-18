@@ -139,10 +139,10 @@ class Report_model extends CI_Model {
 
 	public function get_report($condition)
 	{
-		$this->db->SELECT('id, report, drivername, company, location, datetime, picture');
+		$this->db->SELECT("id, report, drivername, company, location, DATE_FORMAT(datetime,('%b %d %Y %h:%i %p')) as datetime, picture");
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $condition);
-		$this->db->order_by('id', 'desc');
+		$this->db->order_by('datetime', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
