@@ -47,7 +47,7 @@
 
               <tr>
                 <td colspan="2">
-                  <strong>Most Frequent Location:</strong> <?php echo $frequentLocation; ?>
+                  <strong>Location with the most violations:</strong> <?php echo $frequentLocation; ?>
                 </td>
               </tr>
             </tbody>
