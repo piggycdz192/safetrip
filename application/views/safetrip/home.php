@@ -1,5 +1,4 @@
-<body>
-    <?php include 'header.php'; ?>
+<?php include 'header.php'; ?>
 
     <div class="search-page">
       <div class="container">
@@ -39,7 +38,7 @@
                     // 'aria-hidden' => "true"
                     );
                   //<span class="glyphicon glyphicon-search"></span>
-                  echo form_submit($data,'Search');
+                  echo form_submit($data,'View Report');
 
                     
 
@@ -49,7 +48,7 @@
                     'onclick' => "this.form.submit()"
                     );
 
-                  echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
+                  echo anchor("create",'<span class=""></span> File a Report',$data);
                   
                   echo form_close();
 
