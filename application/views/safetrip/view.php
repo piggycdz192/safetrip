@@ -20,7 +20,7 @@
 
     <div class="results-page">
       <div class="container">
-        <h1><?php echo $platenum; ?> <small><?php echo 'Replace this with a company' ?></small></h1>
+        <h1><?php echo $platenum; ?> <small><?php echo $company; ?> Company</small></h1>
         <div class="well well-sm form-narrow">
           <table class="table table-borderless no-bottom-margin">
             <thead>
@@ -67,7 +67,9 @@
         <table class="table">
           <thead>
             <tr>
-              <th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>
+              <!--<th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>-->
+              <th colspan="2" class="text-center">Filed Reports</th>
+
             </tr>
           </thead>
           <tbody>
@@ -103,12 +105,13 @@
                     <td class="no-border">
                       <!-- driver name -->
                       <!-- location -->
-                      <p class="no-bottom-margin"><small><strong>Driver:</strong> <?php echo $value['drivername']; ?></small></p>
+                      <p class="no-bottom-margin"><small><strong>Driver Name:</strong> <?php echo ($value['drivername'] == null) ? 'Not specified' : 
+                      $value['drivername'] ?></small></p>
                       <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['location']; ?></small></p>
                      <p class="no-bottom-margin"><small><strong>Date & Time of Incident:</strong> <?php echo $value['datetime']; ?></small></p>
                     </td>
                     <td class="no-border">
-                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9. ]/", "", $value['report']) ?>', 
+                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9.!@#$%^&*()_+-=;:,<>? ]/", "", $value['report']) ?>', 
                         '<?php echo $value['drivername']; ?>', '<?php echo $value['company']; ?>',
                         '<?php echo(UPLOAD.$value['picture']); ?>', '<?php echo $value['location']; ?>');" 
                         type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>

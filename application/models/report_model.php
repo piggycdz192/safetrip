@@ -62,7 +62,7 @@ class Report_model extends CI_Model {
 			return 'HIGH RISK';
 
 		else if($mid)
-			return 'MID RISK';
+			return 'MEDIUM RISK';
 
 		else
 			return 'LOW RISK';
@@ -147,17 +147,26 @@ class Report_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_company($condition)
+	{
+		$this->db->SELECT('distinct(company) as company');
+		$this->db->FROM('report');
+		$this->db->WHERE('platenumber', $condition);
+		$query = $this->db->get();
+		return $query->row()->company;
+	}
+
 	public function add_report($picture_full_path)
 	{
 		$this->load->helper('url');
 
 		if(empty($this->input->post('driver')))
-			$driver = 'N/A';
+			$driver = null;
 		else if(!empty($this->input->post('driver')))
 			$driver = $this->input->post('driver');
 
 		if(empty($this->input->post('company')))
-			$company = 'N/A';
+			$company = null;
 		else if(!empty($this->input->post('company')))
 			$company = $this->input->post('company');
 

@@ -117,8 +117,15 @@ class Home extends CI_Controller {
 				//get type of vehicle
 				$type = $this->report_model->get_vehicle_type($platenum);
 
+				//get company name
+				$company = $this->report_model->get_company($platenum);
+
+				if($company == null)
+					$company = "No Listed";
+
 				$array = array('platenum' => $platenum,
 					'type' => $type,
+					'company' => $company,
 					'violations' => $violations,
 					'nViolation' => $totalViolation,
 					'nReport' => $nReport,
