@@ -20,7 +20,7 @@
 
     <div class="results-page">
       <div class="container">
-        <h1><?php echo $platenum; ?> <small>(Red Company)</small></h1>
+        <h1><?php echo $platenum; ?> <small><?php echo 'Replace this with a company' ?></small></h1>
         <div class="well well-sm form-narrow">
           <table class="table table-borderless no-bottom-margin">
             <thead>
@@ -79,10 +79,6 @@
                   <tr>
                     <td colspan="2">
                       <div>
-                      <!-- time  -->
-                        <small><?php echo $value['datetime']; ?></small>
-                      </div>
-                      <div>
                       <!-- violation -->
                       <!-- remove ul -->
                         <?php foreach($value['violations'] as $item): ?>
@@ -109,6 +105,7 @@
                       <!-- location -->
                       <p class="no-bottom-margin"><small><strong>Driver:</strong> <?php echo $value['drivername']; ?></small></p>
                       <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['location']; ?></small></p>
+                     <p class="no-bottom-margin"><small><strong>Date & Time of Incident:</strong> <?php echo $value['datetime']; ?></small></p>
                     </td>
                     <td class="no-border">
                       <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9. ]/", "", $value['report']) ?>', 
