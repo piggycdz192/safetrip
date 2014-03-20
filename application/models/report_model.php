@@ -63,13 +63,13 @@ class Report_model extends CI_Model
 		}
 
 		if($high)
-			return 'High Risk';
+			return 'HIGH RISK';
 
 		else if($mid)
-			return 'Medium Risk';
+			return 'MEDIUM RISK';
 
 		else
-			return 'Low Risk';
+			return 'LOW RISK';
 
 	}
 
@@ -86,11 +86,24 @@ class Report_model extends CI_Model
 		return $result;
 	}
 
-	public function get_most_frequence_location($platenum)
+	public function get_vehicle_type($platenum)
 	{
-		$this->db->SELECT('upper(max(location)) as location');
+		$this->db->SELECT('lower(typename) as typename');
+		$this->db->FROM('vehicle');
+		$this->db->JOIN('vehicletype', 'vehicle.idvehicletype = vehicletype.id');
+		$this->db->WHERE('platenumber', $platenum);
+		$query = $this->db->get();
+		return $query->row()->typename;
+
+	}
+
+	public function get_most_frequence_location($platenum){
+		$this->db->SELECT('upper(location) as location');
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $platenum);
+		$this->db->group_by('location');
+		$this->db->order_by('count(location)', 'desc');
+		$this->db->limit(1);
 		$query = $this->db->get();
 		$location = $query->row()->location;
 		if($location == null)
@@ -135,12 +148,21 @@ class Report_model extends CI_Model
 
 	public function get_report($condition)
 	{
-		$this->db->SELECT('id, report, drivername, company, location, datetime, picture');
+		$this->db->SELECT("id, report, drivername, company, location, DATE_FORMAT(datetime,('%b %d %Y %h:%i %p')) as datetime, picture");
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $condition);
-		$this->db->order_by('id', 'desc');
+		$this->db->order_by('datetime', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+	public function get_company($condition)
+	{
+		$this->db->SELECT('distinct(company) as company');
+		$this->db->FROM('report');
+		$this->db->WHERE('platenumber', $condition);
+		$query = $this->db->get();
+		return $query->row()->company;
 	}
 
 	public function add_report($picture_full_path)
@@ -148,12 +170,12 @@ class Report_model extends CI_Model
 		$this->load->helper('url');
 
 		if(empty($this->input->post('driver')))
-			$driver = 'N/A';
+			$driver = null;
 		else if(!empty($this->input->post('driver')))
 			$driver = $this->input->post('driver');
 
 		if(empty($this->input->post('company')))
-			$company = 'N/A';
+			$company = null;
 		else if(!empty($this->input->post('company')))
 			$company = $this->input->post('company');
 

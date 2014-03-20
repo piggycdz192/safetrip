@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Safe Trip</title>
-
-    <!-- Bootstrap -->
-
-    <link rel="stylesheet" href="<?php echo(CSS.'bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo(CSS.'bootstrap-datetimepicker.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo(CSS.'font-awesome.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo(CSS.'webapps.css'); ?>">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+<?php include 'header.php'; ?>
     <div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
@@ -39,20 +17,17 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    
-
-    <?php include 'header.php'; ?>
 
     <div class="results-page">
       <div class="container">
-        <h1><?php echo $platenum; ?> <small>(Red Company)</small></h1>
+        <h1><?php echo $platenum; ?> <small><?php echo $company; ?> Company</small></h1>
         <div class="well well-sm form-narrow">
           <table class="table table-borderless no-bottom-margin">
             <thead>
               <tr>
                 <th colspan="2">
-                  <span class="glyphicon glyphicon-warning-sign icon-yellow"></span>
-                  <?php echo $risk; ?>
+                  <!-- <span class="glyphicon glyphicon-warning-sign icon-yellow"></span> -->
+                  <?php echo "This is a ". $risk ." ".$type. "."; ?>
                 </th>
               </tr>
             </thead>
@@ -70,18 +45,19 @@
                 </tr>
             <?php endforeach;?>
 
-              <tr>
-                <td colspan="2">
-                  <strong>Most Frequent Location:</strong> <?php echo $frequentLocation; ?>
-                </td>
-              </tr>
+                <tr>
+                  <td colspan="2">
+                    <strong>Location with the most violations:</strong> <?php echo $frequentLocation; ?>
+                  </td>
+                </tr>
             </tbody>
             <tfoot>
-              <tr>
-                <td>
-                  <button onclick="post('<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
-                </td>
-              </tr>
+                <tr>
+                  <td></td>
+                  <td align = "right">
+                    <button onclick="post('<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
+                  </td>
+                </tr>
             </tfoot>
           </table>
         </div>
@@ -91,7 +67,9 @@
         <table class="table">
           <thead>
             <tr>
-              <th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>
+              <!--<th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>-->
+              <th colspan="2" class="text-center">Filed Reports</th>
+
             </tr>
           </thead>
           <tbody>
@@ -102,10 +80,6 @@
                    
                   <tr>
                     <td colspan="2">
-                      <div>
-                      <!-- time  -->
-                        <small><?php $value['datetime']; ?></small>
-                      </div>
                       <div>
                       <!-- violation -->
                       <!-- remove ul -->
@@ -131,11 +105,13 @@
                     <td class="no-border">
                       <!-- driver name -->
                       <!-- location -->
-                      <p class="no-bottom-margin"><small><strong>Driver:</strong> <?php echo $value['drivername']; ?></small></p>
+                      <p class="no-bottom-margin"><small><strong>Driver Name:</strong> <?php echo ($value['drivername'] == null) ? 'Not specified' : 
+                      $value['drivername'] ?></small></p>
                       <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['location']; ?></small></p>
+                     <p class="no-bottom-margin"><small><strong>Date & Time of Incident:</strong> <?php echo $value['datetime']; ?></small></p>
                     </td>
                     <td class="no-border">
-                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9. ]/", "", $value['report']) ?>', 
+                      <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9.!@#$%^&*()_+-=;:,<>? ]/", "", $value['report']) ?>', 
                         '<?php echo $value['drivername']; ?>', '<?php echo $value['company']; ?>',
                         '<?php echo(UPLOAD.$value['picture']); ?>', '<?php echo $value['location']; ?>');" 
                         type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
@@ -189,4 +165,3 @@
 
     </script>  
   </body>
-</html>
