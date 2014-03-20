@@ -38,6 +38,7 @@
                     // 'aria-hidden' => "true"
                     );
                   //<span class="glyphicon glyphicon-search"></span>
+                //echo form_button($data,'<span class="glyphicon glyphicon-search"> View Report </span>');
                   echo form_submit($data,'View Report');
 
                     
@@ -49,6 +50,7 @@
                     );
 
                   echo anchor("create",'<span class=""></span> File a Report',$data);
+                  // echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
                   
                   echo form_close();
 
