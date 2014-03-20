@@ -109,6 +109,9 @@ class Home extends CI_Controller {
 			// generate vehicle risk
 			$risk = $this->report_model->generate_risk($reports);
 
+			//get most frequent location
+			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
+
 			//get type of vehicle
 			$type = $this->report_model->get_vehicle_type($platenum);
 
