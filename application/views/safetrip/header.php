@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="font-family: 'Lemon', cursive;" href="/safetrip">SAFETRIP</a>
+          <a class="navbar-brand" href="/safetrip"><img src="<?php echo(IMG.'safetrip_logo.png'); ?>" style="margin: 0px; height: 100%" /></a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right pull-left-mobile">
