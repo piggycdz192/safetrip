@@ -98,7 +98,8 @@
                     </td>
                     <td class="no-border">
                       <!--  image -->
-                      <img class="attachment-small" src="<?php echo(UPLOAD.$value['picture']); ?>" />
+                      <!-- TODO: FIX THE PHP CONDITION HERE -->
+                      <img class="attachment-small" src="<?php if ($value['picture'] == './uploads/' || $value['picture'] == null) echo(IMG.'noimage.jpg'); else echo(UPLOAD.$value['picture']); ?>" />
                     </td>
                   </tr>
                   <tr>
