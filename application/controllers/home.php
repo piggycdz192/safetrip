@@ -45,6 +45,7 @@ class Home extends CI_Controller {
 
 	public function validate(){
 		
+		// when search is clicked
 		if ($this->input->post("search"))
 		{
 			$this->load->model("report_model");
@@ -61,10 +62,11 @@ class Home extends CI_Controller {
 			$this->process_searching($platenum);
 		}
 		
-		// maybe will remove this later
-		else
+		// when file report is clicked
+		elseif ($this->input->post("report"))
 		{
-			 echo 'search ay '.$this->input->post('plateNum');;
+			$array = array('platenum' => $this->input->post('plateNum'));
+			$this->load->view('safetrip/filereport', $array);
 		}		
 	}
 
