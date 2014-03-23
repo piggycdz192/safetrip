@@ -128,7 +128,7 @@ class Home extends CI_Controller {
 				'company' => $company,
 				'violations' => $violations,
 				'nViolation' => $totalViolation,
-				'nReport' => $nReport,
+				'nreport' => $nReport,
 				'reports' => $reports,
 				'risk' => $risk,
 				'frequentLocation' => $frequentLocation);

@@ -71,7 +71,7 @@
           <thead>
             <tr>
               <!--<th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>-->
-              <th colspan="2" class="text-center">Filed Reports</th>
+              <th colspan="2" class="text-center">Reports Filed: <?php echo($nreport); ?></th>
 
             </tr>
           </thead>
