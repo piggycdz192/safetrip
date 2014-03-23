@@ -22,6 +22,18 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript"> 
+
+      function stopRKey(evt) { 
+        var evt = (evt) ? evt : ((event) ? event : null); 
+        var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+        if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+      } 
+
+      document.onkeypress = stopRKey; 
+
+    </script>
+
     <div class="navbar navbar-inverse navbar-maincolor navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">

@@ -19,8 +19,11 @@
     </script>
 
     <div class="results-page">
+      <center>
       <div class="container">
+        <div class = "view-plate">
         <h1><?php echo $platenum; ?> <small><?php echo $company; ?> Company</small></h1>
+        </div>
         <div class="well well-sm form-narrow">
           <table class="table table-borderless no-bottom-margin">
             <thead>
@@ -68,7 +71,7 @@
           <thead>
             <tr>
               <!--<th colspan="2" class="text-center"><?php echo $nReport; ?> reports found</th>-->
-              <th colspan="2" class="text-center">Filed Reports</th>
+              <th colspan="2" class="text-center">Reports Filed: <?php echo($nreport); ?></th>
 
             </tr>
           </thead>
@@ -127,6 +130,7 @@
           </tbody>
         </table>
       </div>
+    </center>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

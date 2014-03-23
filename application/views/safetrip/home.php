@@ -38,10 +38,11 @@
                     // 'aria-hidden' => "true"
                     );
                   //<span class="glyphicon glyphicon-search"></span>
+                //echo form_button($data,'<span class="glyphicon glyphicon-search"> View Report </span>');
                   echo form_submit($data,'View Report');
 
                     
-
+                  /*
                   $data = array(
                     'class' => "btn btn-danger btn-lg btnSize",
                     'name' => 'report',
@@ -49,7 +50,14 @@
                     );
 
                   echo anchor("create",'<span class=""></span> File a Report',$data);
-                  
+                  // echo anchor("create",'<span class="glyphicon glyphicon-exclamation-sign"></span> File a Report',$data);
+                  */
+                  $data = array(
+                    'class' => "btn btn-danger btn-lg btnSize",
+                    'name' => 'report',
+                    );
+
+                  echo form_submit($data,'File Report');
                   echo form_close();
 
                 ?>
