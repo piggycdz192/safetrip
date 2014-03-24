@@ -34,14 +34,14 @@ class Home extends CI_Controller {
 		$this->load->view('safetrip/demo');
 	}
 
-	public function view($platenum)
+	public function view($platenum = FALSE)
 	{
 		$this->load->model("report_model");
 
 		// get total reports of a vehicle
 		$nReport = $this->report_model->getTotalReport($platenum);
 
-		if($nReport > 0)
+		if($nReport > 0 && $platenum !== FALSE)
 		{
 			$violations = $this->report_model->get_violation_count($platenum);
 			$totalViolation = 0;
@@ -112,16 +112,11 @@ class Home extends CI_Controller {
 
 	public function validate()
 	{
+		$platenum = strtoupper($this->input->post('plateNum'));
+
 		// when search is clicked
 		if ($this->input->post("search"))
 		{
-			$this->load->model("report_model");
-			$platenum = strtoupper($this->input->post('plateNum'));
-			
-		/*  get violations	*/
-
-			 // if the plate num is in the database, do this
-
 			$this->load->library("form_validation");
 
 			$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
@@ -132,8 +127,7 @@ class Home extends CI_Controller {
 		// when file report is clicked
 		elseif ($this->input->post("report"))
 		{
-			$array = array('platenum' => $this->input->post('plateNum'));
-			redirect('report/'.$array['platenum']);
+			redirect('report/'.$platenum);
 		}		
 	}
 
