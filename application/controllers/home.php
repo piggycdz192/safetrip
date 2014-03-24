@@ -101,12 +101,18 @@ class Home extends CI_Controller {
 
 			$this->load->view('safetrip/view', $array);
 		}
-
+		elseif ($platenum == "") {
+			$array['plateList'] = $this->report_model->get_all_platenum();
+			$array['loadModal'] = TRUE;
+			$array['error'] = 'Please enter a plate number.';
+			$this->load->view('safetrip/home', $array);
+		}
 		// if the plate num is not inside the database, do this				
 		else 
 		{
 			$array['plateList'] = $this->report_model->get_all_platenum();
 			$array['loadModal'] = TRUE;
+			$array['error'] = 'This plate number does not have any existing reports.';
 			$this->load->view('safetrip/home', $array);
 		}
 	}

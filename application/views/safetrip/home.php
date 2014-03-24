@@ -5,7 +5,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <p>This plate number is not in the database.</p>
+            <p><?php echo $error; ?></p>
           </div>
         </div>
       </div>
