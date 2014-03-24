@@ -27,7 +27,7 @@
 						<tr>
 							<th>Rank</th>
 							<th><?php echo $head ?></th>
-							<th>Number</th>
+							<th>Number of Violations</th>
 						</tr>
 					</thead>
 					<tbody>

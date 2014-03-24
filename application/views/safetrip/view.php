@@ -30,23 +30,23 @@
               <tr>
                 <th colspan="2">
                   <!-- <span class="glyphicon glyphicon-warning-sign icon-yellow"></span> -->
-                  <?php echo "This is a ". $risk ." ".$type. "."; ?>
+                  <center><?php echo "This is a ". $risk ." ".$type. "."; ?></center>
                 </th>
+              </tr>
+              <tr>
+                  <th>Violation</th>
+                  <th>Number of Violations</th>
               </tr>
             </thead>
             <tbody>
-
+           
             <!-- summary of violations -->
-            <?php foreach ($violations as $value):?>
-                <tr>
-                  <td class="nowrap"><strong><?php echo $value['categoryname'];?></strong></td>
-                  <td>
-                    <div class="progress progress-dark no-bottom-margin">
-                      <div class="progress-bar progress-bar-danger progress-bar-text-left" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=<?php echo "'width:".$value['count']/$nViolation*100 ."%'"?>> <?php echo $value['count'];?></div>
-                    </div>
-                  </td>
-                </tr>
-            <?php endforeach;?>
+                <?php foreach ($violations as $value):?>
+                  <tr>
+                    <td><?php echo $value['categoryname'];?></td>
+                    <td><?php echo $value['count'];?></td>
+                  </tr>
+                <?php endforeach;?>
 
                 <tr>
                   <td colspan="2">
