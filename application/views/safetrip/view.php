@@ -168,5 +168,6 @@
                       });
             }
 
-    </script>  
+    </script>
+    <script id="showModal"></script>
   </body>

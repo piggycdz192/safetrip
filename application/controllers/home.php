@@ -27,6 +27,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('report_model');
 		$array['plateList'] = $this->report_model->get_all_platenum();
+		$array['loadModal'] = FALSE;
 		$this->load->view('safetrip/home', $array);
 	}
 	// test
@@ -103,10 +104,10 @@ class Home extends CI_Controller {
 
 		// if the plate num is not inside the database, do this				
 		else 
-		{ 
-			echo "<script>
-			alert('This plate number is not in the database.');				
-			</script>";
+		{
+			$array['plateList'] = $this->report_model->get_all_platenum();
+			$array['loadModal'] = TRUE;
+			$this->load->view('safetrip/home', $array);
 		}
 	}
 

@@ -1,4 +1,15 @@
 <?php include 'header.php'; ?>
+    
+    <!-- MODAL -->
+    <div class="modal fade" id="modalNoPlateNumber" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>This plate number is not in the database.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="search-page">
       <div class="container">
@@ -71,19 +82,13 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
+    <script src="<?php echo(JS.'jquery-1.10.2.js'); ?>"></script>
+    <script src="<?php echo(JS.'jquery-ui-1.10.4.custom.js'); ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo(JS.'bootstrap.min.js'); ?>"></script>
     <script src="<?php echo(JS.'moment-2.4.0.js'); ?>"></script>
     <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepickerincident').datetimepicker();
-        });
-    </script>
     
-
-    <script src="<?php echo(JS.'jquery-1.10.2.js'); ?>"></script>
-    <script src="<?php echo(JS.'jquery-ui-1.10.4.custom.js'); ?>"></script>
     <script>
         $(function() {
           var availableTaxi = <?php echo json_encode($plateList); ?>;
@@ -91,7 +96,12 @@
                source: availableTaxi
               });
         });
-    </script> 
+    </script>
+
+    <?php
+      if ($loadModal)
+        echo "<script>$('#modalNoPlateNumber').modal('show');</script>";
+    ?>
   </body>
 
 
