@@ -1,8 +1,6 @@
 <?php $this->load->helper("form"); ?>
 <?php include 'header.php'; ?>
 
-    
-
   <div class="file-report-page">
       <div class="container">
         <h1>File a Report</h1>
@@ -13,12 +11,12 @@
           <?php echo form_open_multipart('report/create') ?>
             <div class="form-group form-narrow">
               <label for="report">Report <span class="required">*</span></label>
-              <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ><?php echo set_value('report');?></textarea>
+              <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ></textarea>
               <?php echo form_error('report','<div class="error">', '</div>') ?>
             </div>
               <div class="form-group form-narrower">
                 <label for="platenumber">Plate Number <span class="required">*</span></label>
-                <input type="text" class="form-control" name="platenumber" maxlength="6" style='text-transform:uppercase' placeholder="Example: TXI123" value="<?php echo $platenum;?>">
+                <input type="text" class="form-control" name="platenumber" maxlength="6" style='text-transform:uppercase' placeholder="Example: TXI123" value="<?php if ($platenum != NULL) echo $platenum; ?>">
                 <?php echo form_error('platenumber','<div class="error">', '</div>') ?>
               </div>
             <div class="form-group form-narrow">

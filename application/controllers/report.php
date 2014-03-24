@@ -7,7 +7,7 @@ class Report extends CI_Controller {
 		$this->load->model('report_model');
 	}
 
-	public function create()
+	public function create($platenum = NULL)
 	{
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -26,7 +26,8 @@ class Report extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('safetrip/filereport');
+			$data['platenum'] = $platenum;
+			$this->load->view('safetrip/filereport', $data);
 		}
 		else
 		{
@@ -43,66 +44,5 @@ class Report extends CI_Controller {
 		}
 
 	}
-
-	public function load_view($platenum){
-		    $this->load->model("report_model");
-
-		// get total reports of a vehicle
-			$nReport = $this->report_model->getTotalReport($platenum);
-
-			$violations = $this->report_model->get_violation_count($platenum);
-			$totalViolation = 0;
-
-			// get total violations of a vehicle
-			foreach ($violations as $value)
-				$totalViolation += $value['count'];
-			
-			//  get report detail of a vehicle
-			$reports = $this->report_model->get_report($platenum);
-
-			//	get violation detail of each report
-			$count = 0;
-			foreach ($reports as $value) 
-			{
-				$temp[$count] = $this->report_model->get_violation_detail($value['id']);
-				$reports[$count]['violations'] = array();
-				
-				// store violations in format
-				foreach ($temp[$count] as $violate)
-				{
-					$reports[$count]['violations'][] = $violate['categoryname'];
-				}
-
-				$count++;
-			}
-
-			// generate vehicle risk
-			$risk = $this->report_model->generate_risk($reports);
-
-			//get most frequent location
-			$frequentLocation = $this->report_model->get_most_frequence_location($platenum);
-
-			//get type of vehicle
-			$type = $this->report_model->get_vehicle_type($platenum);
-
-			//get company name
-			$company = $this->report_model->get_company($platenum);
-
-			if($company == null)
-				$company = "No Listed";
-
-			$array = array('platenum' => $platenum,
-				'type' => $type,
-				'company' => $company,
-				'violations' => $violations,
-				'nViolation' => $totalViolation,
-				'nreport' => $nReport,
-				'reports' => $reports,
-				'risk' => $risk,
-				'frequentLocation' => $frequentLocation);
-
-			$this->load->view('safetrip/view', $array);
-	}
-
 
 }

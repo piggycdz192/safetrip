@@ -38,7 +38,8 @@
 |
 */
 
-$route['create'] = "home/create";
+$route['report'] = "report/create";
+$route['report/(:any)'] = "report/create/$1";
 $route['demo'] = "home/demo";
 $route['view/(:any)'] = "home/view/$1";
 $route['view'] = "home/view";

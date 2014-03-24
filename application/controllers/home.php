@@ -34,11 +34,6 @@ class Home extends CI_Controller {
 		$this->load->view('safetrip/demo');
 	}
 
-	public function create()
-	{
-		$this->load->view('safetrip/filereport');
-	}
-	
 	public function view($platenum)
 	{
 		$this->load->model("report_model");
@@ -112,7 +107,6 @@ class Home extends CI_Controller {
 			echo "<script>
 			alert('This plate number is not in the database.');				
 			</script>";
-			redirect('');
 		}
 	}
 
@@ -139,7 +133,7 @@ class Home extends CI_Controller {
 		elseif ($this->input->post("report"))
 		{
 			$array = array('platenum' => $this->input->post('plateNum'));
-			$this->load->view('safetrip/filereport', $array);
+			redirect('report/'.$array['platenum']);
 		}		
 	}
 
