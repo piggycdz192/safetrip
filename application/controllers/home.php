@@ -38,41 +38,11 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('safetrip/filereport');
 	}
-	public function view()
+	
+	public function view($platenum)
 	{
-		$this->load->view('safetrip/view');
-	}
+		$this->load->model("report_model");
 
-	public function validate(){
-		
-		// when search is clicked
-		if ($this->input->post("search"))
-		{
-			$this->load->model("report_model");
-			$platenum = strtoupper($this->input->post('plateNum'));
-			
-		/*  get violations	*/
-
-			 // if the plate num is in the database, do this
-
-			$this->load->library("form_validation");
-
-			$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
-
-			$this->process_searching($platenum);
-		}
-		
-		// when file report is clicked
-		elseif ($this->input->post("report"))
-		{
-			$array = array('platenum' => $this->input->post('plateNum'));
-			$this->load->view('safetrip/filereport', $array);
-		}		
-	}
-
-
-	public function process_searching($platenum)
-	{
 		// get total reports of a vehicle
 		$nReport = $this->report_model->getTotalReport($platenum);
 
@@ -140,12 +110,38 @@ class Home extends CI_Controller {
 		else 
 		{ 
 			echo "<script>
-			alert('There are no fields to generate a report');				
+			alert('This plate number is not in the database.');				
 			</script>";
-			$this->index();
+			redirect('');
 		}
 	}
 
+	public function validate()
+	{
+		// when search is clicked
+		if ($this->input->post("search"))
+		{
+			$this->load->model("report_model");
+			$platenum = strtoupper($this->input->post('plateNum'));
+			
+		/*  get violations	*/
+
+			 // if the plate num is in the database, do this
+
+			$this->load->library("form_validation");
+
+			$this->form_validation->set_rules("plateNum", "Plate number", "required|xss_clean");
+
+			redirect('view/'.$platenum);
+		}
+		
+		// when file report is clicked
+		elseif ($this->input->post("report"))
+		{
+			$array = array('platenum' => $this->input->post('plateNum'));
+			$this->load->view('safetrip/filereport', $array);
+		}		
+	}
 
 	public function statistics($selected = false)
 	{

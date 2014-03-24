@@ -35,7 +35,7 @@ class Report extends CI_Controller {
 				$upload_data = $this->upload->data();
 				if(strlen($upload_data['file_name']) == 0)
 					$this->report_model->add_report(null);
-				$this->load_view(strtoupper($this->input->post('platenumber')));
+				redirect('view/'.strtoupper($this->input->post('platenumber')));
 			}
 
 			else $this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
@@ -96,7 +96,7 @@ class Report extends CI_Controller {
 				'company' => $company,
 				'violations' => $violations,
 				'nViolation' => $totalViolation,
-				'nReport' => $nReport,
+				'nreport' => $nReport,
 				'reports' => $reports,
 				'risk' => $risk,
 				'frequentLocation' => $frequentLocation);

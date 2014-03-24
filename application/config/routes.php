@@ -40,6 +40,7 @@
 
 $route['create'] = "home/create";
 $route['demo'] = "home/demo";
+$route['view/(:any)'] = "home/view/$1";
 $route['view'] = "home/view";
 $route['statistics'] = "home/statistics";
 $route['statistics/(:any)'] = "home/statistics/$1";
