@@ -25,9 +25,9 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Rank</th>
+							<th style="width: 80px;">Rank</th>
 							<th><?php echo $head ?></th>
-							<th>Number of Violations</th>
+							<th style="width: 30%;">Number of Violations</th>
 						</tr>
 					</thead>
 					<tbody>
