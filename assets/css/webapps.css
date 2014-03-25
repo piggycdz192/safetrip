@@ -5,6 +5,10 @@ html, body {
   min-width: 320px;
 }
 
+.required {
+  color: #f00;
+}
+
 .navbar {
   width: 100%;
 }
