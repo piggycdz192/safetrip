@@ -33,10 +33,10 @@
 					<tbody>
 						<?php foreach ($rows as $row): ?>
 							<tr>
-							<td><?php echo ++$nrow ?></td>
-							<td><?php echo $row['name'] ?></td>
-							<td><?php echo $row['count'] ?></td>
-						</tr>
+								<td><?php echo ++$nrow ?></td>
+								<td><?php echo $row['name'] ?></td>
+								<td><?php echo $row['count'] ?></td>
+							</tr>
 						<?php endforeach ?>
 					</tbody>
 				</table>

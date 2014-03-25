@@ -31,7 +31,8 @@ class Home extends CI_Controller {
 		$this->load->view('safetrip/home', $array);
 	}
 	// test
-	public function demo(){
+	public function demo()
+	{
 		$this->load->view('safetrip/demo');
 	}
 
@@ -157,11 +158,13 @@ class Home extends CI_Controller {
 		{
 			$data['head'] = 'Taxi Company';
 			$data['rows'] = $this->report_model->stat_companies();
+			$data = $this->report_model->removeNull($data);
 		}
 		else if ($selected == 'bus_company')
 		{
 			$data['head'] = 'Bus Company';
 			$data['rows'] = $this->report_model->stat_companies('Bus');
+			$data = $this->report_model->removeNull($data);
 		}
 		$data['selected'] = $selected;
 		$data['nrow'] = 0;

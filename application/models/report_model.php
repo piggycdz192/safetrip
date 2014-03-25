@@ -8,6 +8,20 @@ class Report_model extends CI_Model
 		$this->load->database();
 	}
 
+	/* This removes null companies from the array */
+	public function removeNull($data = FALSE)
+	{
+		if ($data === FALSE)
+			return;
+		
+		for ($i = 0; $i <= sizeof($data['rows']); $i++)
+		{
+			if ($data['rows'][$i]['name'] === NULL)
+				unset($data['rows'][$i]);
+		}
+		return $data;
+	}
+
 	/* This returns the statistics for taxi violations from highest to lowest */
 	public function stat_violations($data = 'Taxi')
 	{
