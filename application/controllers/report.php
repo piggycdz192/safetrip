@@ -5,14 +5,15 @@ class Report extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('report_model');
+		$this->load->helper(array('form', 'url'));
 	}
 
 	public function create($platenum = NULL)
 	{
+		$fieldname = 'picture';
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 
-		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('upload', $config);
  
@@ -23,7 +24,6 @@ class Report extends CI_Controller {
 		$this->form_validation->set_rules('location', 'Location', 'required');
 		$this->form_validation->set_rules('category[]', 'Violations', 'required');
 
-
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data['platenum'] = $platenum;
@@ -31,15 +31,22 @@ class Report extends CI_Controller {
 		}
 		else
 		{
-			if (!$this->upload->do_upload("picture")) {
-
+			if ($this->upload->do_upload($fieldname))
+			{
+				// Upload successful
 				$upload_data = $this->upload->data();
 				if(strlen($upload_data['file_name']) == 0)
 					$this->report_model->add_report(null);
+				else
+					$this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
 				redirect('view/'.strtoupper($this->input->post('platenumber')));
 			}
-
-			else $this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
+			else
+			{
+				// Upload failed
+				$data['platenum'] = $platenum;
+				$this->load->view('safetrip/filereport', $data);
+			}
 			// $this->load->view('safetrip/success');
 		}
 
