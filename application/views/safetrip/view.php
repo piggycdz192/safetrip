@@ -24,7 +24,10 @@
   <center>
     <div class="container">
 
-      <h1><?php echo $platenum; ?> <small><?php echo $company; ?> Company</small></h1>
+      <h1>
+        <?php echo $platenum; ?><br />
+        <small><?php echo $company; ?> Company</small>
+      </h1>
 
       <div class="well well-sm form-narrow">
         <table class="table table-borderless no-bottom-margin">
