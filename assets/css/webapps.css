@@ -5,7 +5,7 @@ html, body {
   min-width: 320px;
 }
 
-div.error {
+div.search-page-error {
   margin-top: 5px;
   color: #d00;
   font-weight: bold;

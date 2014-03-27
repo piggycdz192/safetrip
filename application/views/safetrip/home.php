@@ -27,7 +27,7 @@
           		echo form_input($data);
 
               if ($loadError)
-                echo '<div class="error">'.$error.'</div>';
+                echo '<div class="search-page-error">'.$error.'</div>';
             ?>
 
           		 <p class="text-center">
