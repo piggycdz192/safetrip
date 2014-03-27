@@ -146,7 +146,7 @@
               </div>
             </div>
             <div class="form-group  form-narrow">
-             <label for="file">Attach a Photo of the Incident</label>
+             <label for="file">Attach a Photo of the Vehicle or the Incident</label>
               <br>
               <input id="file" placeholder="  Choose Photo" disabled="disabled"/>
               <div class="fileUpload btn btn-info">
