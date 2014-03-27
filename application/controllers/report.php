@@ -24,30 +24,49 @@ class Report extends CI_Controller {
 		$this->form_validation->set_rules('location', 'Location', 'required');
 		$this->form_validation->set_rules('category[]', 'Violations', 'required');
 
+		// A required field is not filled
 		if ($this->form_validation->run() === FALSE)
 		{
-			$data['platenum'] = $platenum;
+			if ($this->input->post('platenumber') === FALSE)
+				$data['platenum'] = $platenum;
+			else
+				$data['platenum'] = strtoupper($this->input->post('platenumber'));
+
 			$this->load->view('safetrip/filereport', $data);
 		}
+
+		// All required fields are filled
 		else
 		{
-			if ($this->upload->do_upload($fieldname))
+			// No file is set for upload
+			if ($this->input->post('picture') === FALSE)
 			{
-				// Upload successful
-				$upload_data = $this->upload->data();
-				if(strlen($upload_data['file_name']) == 0)
-					$this->report_model->add_report(null);
-				else
-					$this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
-				redirect('view/'.strtoupper($this->input->post('platenumber')));
-			}
-			else
-			{
-				// Upload failed
-				$data['platenum'] = $platenum;
+				$this->report_model->add_report(NULL);
 				$this->load->view('safetrip/filereport', $data);
 			}
-			// $this->load->view('safetrip/success');
+
+			// A file is set for upload
+			else
+			{
+				// Upload is successful
+				if ($this->upload->do_upload($fieldname))
+				{
+					$upload_data = $this->upload->data();
+					if(strlen($upload_data['file_name']) == 0)
+						$this->report_model->add_report(NULL);
+					else
+						$this->report_model->add_report($config['upload_path'] . $upload_data['file_name']);
+					redirect('view/'.strtoupper($this->input->post('platenumber')));
+				}
+
+				// Upload failed
+				else
+				{
+					// TODO: Upload failed
+					if ($platenum === 'CREATE')
+						$platenum = strtoupper($this->input->post('platenumber'));
+				}
+			}
 		}
 
 	}

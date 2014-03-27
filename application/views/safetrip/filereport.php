@@ -11,7 +11,7 @@
           <?php echo form_open_multipart('report/create') ?>
             <div class="form-group form-narrow">
               <label for="report">Report <span class="required">*</span></label>
-              <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident" ></textarea>
+              <textarea name="report" class="form-control" rows="3" placeholder="Describe the incident"><?php echo set_value('report');?></textarea>
               <?php echo form_error('report','<div class="error">', '</div>') ?>
             </div>
               <div class="form-group form-narrower">
