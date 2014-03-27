@@ -35,6 +35,10 @@ div.search-page-error {
   width: 100%;
 }
 
+hr {
+  border-top-color: #ccc;
+}
+
 body {
   padding-top: 50px;
   background-color: #EBEFF0;
