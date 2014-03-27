@@ -1,16 +1,5 @@
 <?php include 'header.php'; ?>
     
-    <!-- MODAL -->
-    <div class="modal fade" id="modalNoPlateNumber" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <p><?php echo $error; ?></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="search-page">
       <div class="container">
         <div class="jumbotron transparent narrow-container">
@@ -32,8 +21,15 @@
           			'placeholder' => "Example: TXI123"
           		);
 
+              if ($loadError)
+                $data['class'] = $data['class'].' decoratedErrorField';
+
           		echo form_input($data);
-          	?>
+
+              if ($loadError)
+                echo '<div class="error">'.$error.'</div>';
+            ?>
+
           		 <p class="text-center">
           		 <!-- creates two buttons -->
               	<br>
@@ -50,7 +46,7 @@
                     );
                   //<span class="glyphicon glyphicon-search"></span>
                 //echo form_button($data,'<span class="glyphicon glyphicon-search"> View Report </span>');
-                  echo form_submit($data,'View Report');
+                  echo form_submit($data,'View Reports');
 
                     
                   /*
@@ -97,11 +93,6 @@
               });
         });
     </script>
-
-    <?php
-      if ($loadModal)
-        echo "<script>$('#modalNoPlateNumber').modal('show');</script>";
-    ?>
   </body>
 
 

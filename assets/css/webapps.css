@@ -5,8 +5,30 @@ html, body {
   min-width: 320px;
 }
 
+div.error {
+  margin-top: 5px;
+  color: #d00;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.decoratedErrorField {
+    border: 2px solid #e00;
+    background-color: papayawhip;
+}
+
+.search-page {
+  min-height: 100%;
+  padding-top: 157px;
+  padding-bottom: 157px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/search-page-bg.jpg");
+}
+
 .required {
-  color: #f00;
+  color: red;
 }
 
 .navbar {
@@ -44,15 +66,6 @@ body {
   .jumbotron-title-mobile {
     font-size: 20px!important;
   }
-}
-
-.search-page {
-  min-height: 100%;
-  padding-top: 157px;
-  padding-bottom: 157px;
-  background-size: cover;
-  background-position: center;
-  background-image: url("../images/search-page-bg.jpg");
 }
 
 .jumbotron.transparent {

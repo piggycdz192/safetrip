@@ -27,7 +27,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('report_model');
 		$array['plateList'] = $this->report_model->get_all_platenum();
-		$array['loadModal'] = FALSE;
+		$array['loadError'] = FALSE;
 		$this->load->view('safetrip/home', $array);
 	}
 	// test
@@ -104,7 +104,7 @@ class Home extends CI_Controller {
 		}
 		elseif ($platenum == "") {
 			$array['plateList'] = $this->report_model->get_all_platenum();
-			$array['loadModal'] = TRUE;
+			$array['loadError'] = TRUE;
 			$array['error'] = 'Please enter a plate number.';
 			$this->load->view('safetrip/home', $array);
 		}
@@ -112,7 +112,7 @@ class Home extends CI_Controller {
 		else 
 		{
 			$array['plateList'] = $this->report_model->get_all_platenum();
-			$array['loadModal'] = TRUE;
+			$array['loadError'] = TRUE;
 			$array['error'] = 'This plate number does not have any existing reports.';
 			$this->load->view('safetrip/home', $array);
 		}
