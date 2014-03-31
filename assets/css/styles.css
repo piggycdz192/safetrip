@@ -189,7 +189,7 @@ nav a:hover {
 }
 
 .serv_icon1 {
-	background: url(../img/report.png) no-repeat;
+	background: url(../img/report.jpg) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -197,7 +197,7 @@ nav a:hover {
 }
 
 .serv_icon2 {
-	background: url(../img/search.png) no-repeat;
+	background: url(../img/search.jpg) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -205,7 +205,7 @@ nav a:hover {
 }
 
 .serv_icon3 {
-	background: url(../img/detailed.png) no-repeat;
+	background: url(../img/detailed.jpg) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -213,7 +213,7 @@ nav a:hover {
 }
 
 .serv_icon4 {
-	background: url(../img/statistics.png) no-repeat;
+	background: url(../img/statistics.jpg) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
