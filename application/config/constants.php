@@ -45,5 +45,4 @@ define('IMG',URL.'assets/images/');
 define('CSS',URL.'assets/css/');
 define('JS',URL.'assets/js/');
 define('UPLOAD',URL.'');
-define('IMG2',URL.'assets/img/');
 define('FANCY',URL.'assets/fancybox/');

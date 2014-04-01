@@ -3,7 +3,7 @@
 
 
 body {
-	background: url(../img/search-page-bg.jpg) no-repeat fixed center;
+	background: url(../images/search-page-bg.jpg) no-repeat fixed center;
 	background-size: cover;
 }
 
@@ -66,7 +66,7 @@ a:link {
 
 
 #intro {
-	background: url(../img/search-page-bg.jpg) no-repeat fixed center;
+	background: url(../images/search-page-bg.jpg) no-repeat fixed center;
 	height: 100%;
 	width: 100%;
 	background-size: cover;
@@ -110,7 +110,7 @@ span.amp {
 	font-style: italic;
 }
 span.intro_line {
-	background: url(../img/intro_line.png) no-repeat;
+	background: url(../images/landing_page/intro_line.png) no-repeat;
 	width: 254px;
 	height: 8px;
 	display: inline-block;
@@ -189,7 +189,7 @@ nav a:hover {
 }
 
 .serv_icon1 {
-	background: url(../img/report.jpg) no-repeat;
+	background: url(../images/landing_page/features1.png) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -197,7 +197,7 @@ nav a:hover {
 }
 
 .serv_icon2 {
-	background: url(../img/search.jpg) no-repeat;
+	background: url(../images/landing_page/features2.png) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -205,7 +205,7 @@ nav a:hover {
 }
 
 .serv_icon3 {
-	background: url(../img/detailed.jpg) no-repeat;
+	background: url(../images/landing_page/features3.png) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -213,7 +213,7 @@ nav a:hover {
 }
 
 .serv_icon4 {
-	background: url(../img/statistics.jpg) no-repeat;
+	background: url(../images/landing_page/features4.png) no-repeat;
 	width: 128px;
 	height: 128px;
 	text-align: center;
@@ -222,7 +222,7 @@ nav a:hover {
 
 
 .services_bg_bottom {
-	background: url(../img/services_bg_bottom.png) repeat-x;
+	background: url(../images/landing_page/services_bg_bottom.png) repeat-x;
 	width: 100%;
 	height: 13px;
 	position: relative;
@@ -237,7 +237,7 @@ nav a:hover {
 
 #screenshots, #team {
 	margin-top: -7px;
-	background: url(../img/work_bg.png) repeat;
+	background: url(../images/landing_page/work_bg.png) repeat;
 	width: 100%;
 	position: relative;
 	z-index: 400;
@@ -261,7 +261,7 @@ nav a:hover {
 }
 
 .subheader_line {
-	background: url(../img/subheader_line.png) no-repeat;
+	background: url(../images/landing_page/subheader_line.png) no-repeat;
 	width: 348px;
 	height: 8px;
 	margin: 0 10px 5px 10px;
@@ -269,7 +269,7 @@ nav a:hover {
 }
 
 .subheader_line2 {
-	background: url(../img/subheader_line2.png) no-repeat;
+	background: url(../images/landing_page/subheader_line2.png) no-repeat;
 	width: 280px;
 	height: 6px;
 	margin: 0 10px 5px 10px;
@@ -292,84 +292,63 @@ span.ss_text {
 }
 
 .screenshot1 {
-	background: url(../img/home.jpg) no-repeat;
+	background: url(../images/landing_page/home.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot2 {
-	background: url(../img/file.jpg) no-repeat;
+	background: url(../images/landing_page/file.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot3 {
-	background: url(../img/result.jpg) no-repeat;
-	width: 280px;
-	height: 180px;
-	background-size: cover;
-}
-
-.screenshot4 {
-	background: url(../img/result.png) no-repeat;
-	width: 280px;
-	height: 180px;
-	background-size: cover;
-}
-
-.screenshot5 {
-	background: url(../img/file2.png) no-repeat;
-	width: 280px;
-	height: 180px;
-	background-size: cover;
-}
-
-.screenshot6 {
-	background: url(../img/taxireport.png) no-repeat;
+	background: url(../images/landing_page/result.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot7 {
-	background: url(../img/carol.jpg) no-repeat;
+	background: url(../images/team/carol.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot8 {
-	background: url(../img/sharmaine.jpg) no-repeat;
+	background: url(../images/team/sharmaine.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot9 {
-	background: url(../img/oliver.jpg) no-repeat;
+	background: url(../images/team/oliver.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot10 {
-	background: url(../img/peigen.jpg) no-repeat;
+	background: url(../images/team/peigen.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot11 {
-	background: url(../img/briane.jpg) no-repeat;
+	background: url(../images/team/briane.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
 }
 
 .screenshot12 {
-	background: url(../img/ralph.jpg) no-repeat;
+	background: url(../images/team/ralph.jpg) no-repeat;
 	width: 280px;
 	height: 180px;
 	background-size: cover;
@@ -398,7 +377,7 @@ span.ss_text {
 
 
 .work_bg_bottom {
-	background: url(../img/work_bg_bottom.png) repeat-x;
+	background: url(../images/landing_page/work_bg_bottom.png) repeat-x;
 	background-color: #fff;
 	width: 100%;
 	height: 14px;
@@ -513,7 +492,7 @@ span.address {
 
 
 .contact_bg_bottom {
-	background: url(../img/services_bg_bottom.png) repeat-x;
+	background: url(../images/landing_page/services_bg_bottom.png) repeat-x;
 	width: 100%;
 	height: 13px;
 	position: relative;

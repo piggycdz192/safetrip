@@ -278,11 +278,11 @@
       <div class="contact_info">
         <h4>Contact Information</h4>
         <div class="grid_4 alpha">
-          <p><img src="<?php echo(IMG2.'icn_phone.png'); ?>" alt="" /> +639123456789</p>
-          <p><img src="<?php echo(IMG2.'icn_mail.png'); ?>" alt="" /> safetrip@yahoo.com</p>
+          <p><img src="<?php echo(IMG.'landing_page/icn_phone.png'); ?>" alt="" /> +639123456789</p>
+          <p><img src="<?php echo(IMG.'landing_page/icn_mail.png'); ?>" alt="" /> safetrip@yahoo.com</p>
         </div>
         <div class="grid_4 omega">
-          <p><img src="<?php echo(IMG2.'icn_address.png'); ?>" alt="" /> De La Salle University<br />
+          <p><img src="<?php echo(IMG.'landing_page/icn_address.png'); ?>" alt="" /> De La Salle University<br />
           <span class="address">2401 Taft Ave</span><br />
           <span class="address">Manila, Philippines 1004</span></p>
         </div>
