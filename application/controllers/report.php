@@ -42,7 +42,7 @@ class Report extends CI_Controller {
 			if ($this->input->post('picture') === FALSE)
 			{
 				$this->report_model->add_report(NULL);
-				$this->load->view('safetrip/filereport', $data);
+				redirect('view/'.strtoupper($this->input->post('platenumber')));
 			}
 
 			// A file is set for upload
