@@ -29,10 +29,6 @@ class Home extends CI_Controller {
 		$array['plateList'] = $this->report_model->get_all_platenum();
 		$array['loadError'] = FALSE;
 
-		// controller for search company 
-		$data['company'] ='XU';
-		
-		//$this->load->view('safetrip/company', $data);
 		$this->load->view('safetrip/home', $array);
 	}
 	// test
@@ -75,10 +71,6 @@ class Home extends CI_Controller {
 
 				$count++;
 			}
-			/* para san to?
-			if(!$this->form_validation->run())
-				$this->index();
-			*/
 
 			// generate vehicle risk
 			$risk = $this->report_model->generate_risk($reports);
