@@ -34,7 +34,7 @@
 						<?php foreach ($rows as $row): ?>
 							<tr>
 								<td><?php echo ++$nrow ?></td>
-								<td><a href="<?php echo site_url();?>/company/index/<?php echo $row['name'];?>"> <?php echo $row['name'];?></td>
+								<td><?php echo $row['name'] ?></td>
 								<td><?php echo $row['count'] ?></td>
 							</tr>
 						<?php endforeach ?>

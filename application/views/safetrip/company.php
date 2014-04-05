@@ -22,22 +22,14 @@
           </thead>
           <tbody>
 
-              <tr>
-                <td><a href ="<?php echo base_url('index.php/view/TXT111');?>"><?php echo 'TXT111';?></a></td>
-                <td><?php echo 'Overcharging, contracting, refusing';?></td>
-              </tr>
-              <tr>
-                <td><a href ="<?php echo base_url('index.php/view/TXI123');?>"><?php echo 'TXI123';?></a></td>
-                <td><?php echo 'Murder';?></td>
-              </tr>
-              <tr>
-                <td><a href ="<?php echo base_url('index.php/view/UHG113');?>"><?php echo 'UHG113';?></a></td>
-                <td><?php echo 'Contracting';?></td>
-              </tr>
-              <tr>
-                <td><a href ="<?php echo base_url('index.php/view/JUN908');?>"><?php echo 'JUN908';?></a></td>
-                <td><?php echo 'Overcharging, contracting, refusing';?></td>
-              </tr>
+              <?php 
+              for($i=0; $i < sizeof($platenum); $i++){?>
+                <tr>
+                  <td><a href ="<?php echo base_url();?>index.php/view/<?php echo $platenum[$i]->platenum; ?>"> <?php echo $platenum[$i]->platenum;?></a></td>
+                  <td><?php echo $violation[$i];?></td>
+                </tr>
+              <?php }?>
+
         </tbody>
       </table>
     </div>

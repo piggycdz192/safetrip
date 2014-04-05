@@ -26,8 +26,8 @@
 
       <h1>
         <?php echo $platenum; ?><br />
-        <small>
-          <a href="<?php echo site_url();?>/company/index/<?php echo $company;?>"> <?php echo $company;?> </a>
+        <small style = "color:black;">
+          Company: <a href="<?php echo site_url();?>/company/index/<?php echo $company;?>"> <?php echo $company;?> </a>
         </small>
       </h1>
 

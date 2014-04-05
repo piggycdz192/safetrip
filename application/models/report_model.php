@@ -8,12 +8,25 @@ class Report_model extends CI_Model
 		$this->load->database();
 	}
 
+	public function get_vehicle_mostviolation($platenumber)
+	{
+		$this->db->SELECT('categoryname');
+		$this->db->FROM('category');
+		$this->db->JOIN('report_category','category.id = report_category.idcategory');
+		$this->db->JOIN('report','report.id = report_category.idreport');
+		$this->db->where('platenumber', $platenumber);
+		$this->db->group_by('categoryname');
+		$this->db->order_by('count(categoryname)', 'desc');
+		$this->db->limit(1);
+
+		return $this->db->get()->row()->categoryname;
+	}
 
 	public function get_company_vehicle($companyname){
 		$this->db->SELECT('distinct(platenumber) as platenum');
 		$this->db->FROM('report');
 		$this->db->WHERE('company',$companyname);
-		return $query = $this->db->get()->result_array();
+		return $query = $this->db->get()->result();
 	}
 
 	/* This removes null companies from the array */
