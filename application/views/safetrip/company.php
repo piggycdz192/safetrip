@@ -7,7 +7,9 @@
     <div class="container">
 
       <h1>
-        <small><?php echo 'JMC'; ?> Company</small>
+        <small>
+        <a href="<?php echo site_url();?>/company/index/<?php echo $company; ?>"> <?php echo $company;?> </a>
+        </small>
       </h1>
 
       <div class="well well-sm form-narrow">
@@ -21,7 +23,7 @@
           <tbody>
 
               <tr>
-                <td><a href ="<?php echo base_url('index.php/view/12DWEF');?>"><?php echo '12DWEF';?></a></td>
+                <td><a href ="<?php echo base_url('index.php/view/TXT111');?>"><?php echo 'TXT111';?></a></td>
                 <td><?php echo 'Overcharging, contracting, refusing';?></td>
               </tr>
               <tr>

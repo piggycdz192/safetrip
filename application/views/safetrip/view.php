@@ -26,7 +26,9 @@
 
       <h1>
         <?php echo $platenum; ?><br />
-        <small><?php echo $company; ?> Company</small>
+        <small>
+          <a href="<?php echo site_url();?>/company/index/<?php echo $company;?>"> <?php echo $company;?> </a>
+        </small>
       </h1>
 
       <div class="well well-sm form-narrow">

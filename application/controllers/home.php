@@ -28,6 +28,11 @@ class Home extends CI_Controller {
 		$this->load->model('report_model');
 		$array['plateList'] = $this->report_model->get_all_platenum();
 		$array['loadError'] = FALSE;
+
+		// controller for search company 
+		$data['company'] ='XU';
+		
+		//$this->load->view('safetrip/company', $data);
 		$this->load->view('safetrip/home', $array);
 	}
 	// test

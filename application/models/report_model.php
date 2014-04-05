@@ -8,6 +8,14 @@ class Report_model extends CI_Model
 		$this->load->database();
 	}
 
+
+	public function get_company_vehicle($companyname){
+		$this->db->SELECT('distinct(platenumber) as platenum');
+		$this->db->FROM('report');
+		$this->db->WHERE('company',$companyname);
+		return $query = $this->db->get()->result_array();
+	}
+
 	/* This removes null companies from the array */
 	public function removeNull($data = FALSE)
 	{
