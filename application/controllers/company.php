@@ -17,8 +17,6 @@ class Company extends CI_Controller {
 			$data['violation'][] = $this->report_model->get_vehicle_mostviolation($vehicle->platenum);
 		
 		
-		echo (sizeof($data['platenum']));
-
 		$this->load->view('safetrip/company', $data);
 	}
 }
