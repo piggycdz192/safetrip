@@ -7,9 +7,7 @@
     <div class="container">
 
       <h1>
-        <small>
-        <a href="<?php echo site_url();?>/company/index/<?php echo $company; ?>"> <?php echo $company;?> </a>
-        </small>
+        <?php echo $company;?>
       </h1>
 
       <div class="well well-sm form-narrow">
