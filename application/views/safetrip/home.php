@@ -1,25 +1,31 @@
 <?php include 'header.php'; ?>
 
-<style>
+    <style>
 
-#landing {
-  display: block;
-}
+    #landing {
+      display: block;
+    }
 
-@media (max-width : 480px) {
-  #landing {
-    display: none;
-  }
-}
+    @media (max-width : 480px) {
+      #landing {
+        display: none;
+      }
+    }
 
-</style>
+    </style>
+
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'bootstrap.min.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'bootstrap-datetimepicker.min.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'font-awesome.min.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'webapps.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'jquery-ui-1.10.4.custom.css'); ?>">
 
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:700,900|Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
   
-    <link href="<?php echo(CSS.'reset.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo(CSS.'960.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo(CSS.'styles.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo(FANCY.'jquery.fancybox-1.3.4.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(CSS.'reset.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(CSS.'960.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(CSS.'styles.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(FANCY.'jquery.fancybox-1.3.4.css'); ?>" rel="stylesheet" type="text/css" />
 
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
