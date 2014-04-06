@@ -29,7 +29,7 @@
         <small style = "color:black;">
           Company:
           <?php
-            if ($company !== 'No Listed')
+            if ($company !== 'Not Specified')
               echo '<a href="'.site_url().'/company/index/'.$company.'">'.$company.'</a>';
             else
               echo $company;
