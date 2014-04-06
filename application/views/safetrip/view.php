@@ -65,7 +65,7 @@
           <tr>
             <td></td>
             <td align = "right">
-              <button onclick="post('<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
+              <button onclick="post('<?php echo $type ?>','<?php echo $platenum ?>','<?php echo $frequentLocation; ?>', '<?php echo $risk; ?>');" type="button" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Share</button>
             </td>
           </tr>
         </tfoot>
@@ -124,7 +124,7 @@
             </td>
             <td class="no-border">
               <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9.!@#$%^&*()_+-=;:,<>? ]/", "", $value['report']) ?>', 
-                '<?php echo $value['drivername']; ?>', '<?php echo $value['company']; ?>',
+                '<?php echo ($value['drivername'] == null) ? 'Not specified' : $value['drivername'] ?>', '<?php echo $company;?>',
                 '<?php echo(UPLOAD.$value['picture']); ?>', '<?php echo $value['location']; ?>');" 
                 type="button" class="btn btn-primary pull-right"><i class="fa fa-facebook-square"></i> Share</button>
               </td>
@@ -151,15 +151,14 @@
 <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
 
 <script type="text/javascript">
-  function post(platenum, location, risk) {
+  function post(type, platenum, location, risk) {
     FB.ui(
     {
       method: 'feed',
       name: platenum,
-      link: 'http://localhost',
-      picture: 'http://localhost',
+      link: 'http://localhost/safetrip/index.php/view/' + platenum,
       caption: 'Most Frequent Location: ' + location,
-      description: 'Level of risk for this vehicle: ' + risk,
+      description: 'Level of risk for this ' + type + ': ' + risk,
       message: ''
     });
   }
@@ -169,8 +168,7 @@
     {
       method: 'feed',
       name: platenum,
-      link: 'http://localhost',
-      picture: photo,
+      link: 'http://localhost/safetrip/index.php/view/' + platenum,
       caption: 'Driver: ' + driver + '<center></center> Company: ' + company + '<center></center> Location: ' + location,
       description: report,
       message: ''
