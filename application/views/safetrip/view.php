@@ -122,7 +122,7 @@
               <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['location']; ?></small></p>
               <p class="report-bottom"><small><strong>Date & Time of Incident:</strong> <?php echo $value['datetime']; ?></small></p>
             </td>
-            <td class="no-border">
+            <td class="no-border" id="share-pos">
               <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9.!@#$%^&*()_+-=;:,<>? ]/", "", $value['report']) ?>', 
                 '<?php echo ($value['drivername'] == null) ? 'Not specified' : $value['drivername'] ?>', '<?php echo $company;?>',
                 '<?php echo(UPLOAD.$value['picture']); ?>', '<?php echo $value['location']; ?>');" 
