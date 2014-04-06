@@ -85,7 +85,7 @@ class Home extends CI_Controller {
 			$company = $this->report_model->get_company($platenum);
 
 			if($company == null)
-				$company = "No Listed";
+				$company = "Not Specified";
 
 			$array = array('platenum' => $platenum,
 				'type' => $type,
