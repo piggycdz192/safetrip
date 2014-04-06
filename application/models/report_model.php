@@ -22,11 +22,20 @@ class Report_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 
-	public function get_company_vehicle($companyname){
+	public function get_company_vehicle($companyname)
+	{
 		$this->db->SELECT('distinct(platenumber) as platenum');
 		$this->db->FROM('report');
 		$this->db->WHERE('company',$companyname);
 		return $query = $this->db->get()->result();
+	}
+
+	public function get_vehicletype($platenumber)
+	{
+		$this->db->select('idvehicletype');
+		$this->db->from('vehicle');
+		$this->db->where('platenumber', $platenumber);
+		return $this->db->get()->result();
 	}
 
 	/* This removes null companies from the array */
@@ -196,10 +205,12 @@ class Report_model extends CI_Model
 		$this->db->SELECT('distinct(company) as company');
 		$this->db->FROM('report');
 		$this->db->WHERE('platenumber', $condition);
-		$this->db->WHERE('company is not null', NULL, FALSE);
+		$this->db->WHERE('company is not null', null, false);
 		$this->db->ORDER_BY('datetime', 'desc');
 		$query = $this->db->get();
-		return $query->row()->company;
+		if ($query->row())
+			return $query->row()->company;
+		return null;
 	}
 
 	public function add_report($picture_full_path)
