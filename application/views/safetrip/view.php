@@ -27,7 +27,13 @@
       <h1>
         <?php echo $platenum; ?><br />
         <small style = "color:black;">
-          Company: <a href="<?php echo site_url();?>/company/index/<?php echo $company;?>"> <?php echo $company;?> </a>
+          Company:
+          <?php
+            if ($company !== 'No Listed')
+              echo '<a href="'.site_url().'/company/index/'.$company.'">'.$company.'</a>';
+            else
+              echo $company;
+          ?>
         </small>
       </h1>
 
