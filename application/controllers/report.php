@@ -38,15 +38,8 @@ class Report extends CI_Controller {
 		// All required fields are filled
 		else
 		{
-			// No file is set for upload
-			if ($this->input->post('picture') === FALSE)
-			{
-				$this->report_model->add_report(NULL);
-				redirect('view/'.strtoupper($this->input->post('platenumber')));
-			}
-
 			// A file is set for upload
-			else
+			if (isset($_FILES[$fieldname]) && $_FILES[$fieldname]['size'] > 0)
 			{
 				// Upload is successful
 				if ($this->upload->do_upload($fieldname))
@@ -62,10 +55,20 @@ class Report extends CI_Controller {
 				// Upload failed
 				else
 				{
-					// TODO: Upload failed
-					if ($platenum === 'CREATE')
-						$platenum = strtoupper($this->input->post('platenumber'));
+					if ($this->input->post('platenumber') === FALSE)
+						$data['platenum'] = $platenum;
+					else
+						$data['platenum'] = strtoupper($this->input->post('platenumber'));
+
+					$this->load->view('safetrip/filereport', $data);
 				}
+			}
+
+			// No file is set for upload
+			else
+			{
+				$this->report_model->add_report(NULL);
+				redirect('view/'.strtoupper($this->input->post('platenumber')));
 			}
 		}
 
