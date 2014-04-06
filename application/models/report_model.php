@@ -17,9 +17,9 @@ class Report_model extends CI_Model
 		$this->db->where('platenumber', $platenumber);
 		$this->db->group_by('categoryname');
 		$this->db->order_by('count(categoryname)', 'desc');
-		$this->db->limit(1);
+		$this->db->limit(3);
 
-		return $this->db->get()->row()->categoryname;
+		return $this->db->get()->result_array();
 	}
 
 	public function get_company_vehicle($companyname){

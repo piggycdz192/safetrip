@@ -14,18 +14,21 @@
         <table class="table table-borderless no-bottom-margin">
           <thead>
             <tr>
-              <th>Taxi/Bus</th>
-              <th style="width: 70%;">Most Commited Violation/s</th>
+              <th style="width: 20% ;">Taxi/Bus</th>
+              <th style="width: 35% ;">Number of Report</th>
+              <th style="width: 70% ;">Most Commited Violation/s</th>
             </tr>
           </thead>
           <tbody>
 
-              <?php 
-              for($i=0; $i < sizeof($platenum); $i++){?>
-                <tr>
-                  <td><a href ="<?php echo base_url();?>index.php/view/<?php echo $platenum[$i]->platenum; ?>"> <?php echo $platenum[$i]->platenum;?></a></td>
-                  <td><?php echo $violation[$i];?></td>
-                </tr>
+              <?php for($i=0; $i < sizeof($platenum); $i++){?>
+                  <tr>
+                      <td><a href ="<?php echo base_url();?>index.php/view/<?php echo $platenum[$i]->platenum; ?>"> <?php echo $platenum[$i]->platenum;?></a></td>
+                      <td><?php echo $nReport[$i];?></td>
+                      <td><?php foreach ($violation[$i] as $vio): ?>
+                                <?php echo $vio['categoryname']."<br>";?>
+                           <?php endforeach ?>
+                  </tr>
               <?php }?>
 
         </tbody>

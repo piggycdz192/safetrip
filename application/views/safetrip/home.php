@@ -1,11 +1,31 @@
 <?php include 'header.php'; ?>
 
+    <style>
+
+    #landing {
+      display: block;
+    }
+
+    @media (max-width : 480px) {
+      #landing {
+        display: none;
+      }
+    }
+
+    </style>
+
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'bootstrap.min.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'bootstrap-datetimepicker.min.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'font-awesome.min.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'webapps.css'); ?>">
+    <link media="(max-width : 480px)" rel="stylesheet" href="<?php echo(CSS.'jquery-ui-1.10.4.custom.css'); ?>">
+
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:700,900|Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
   
-    <link href="<?php echo(CSS.'reset.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo(CSS.'960.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo(CSS.'styles.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo(FANCY.'jquery.fancybox-1.3.4.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(CSS.'reset.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(CSS.'960.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(CSS.'styles.css'); ?>" rel="stylesheet" type="text/css" />
+    <link media="(min-width : 480px)" href="<?php echo(FANCY.'jquery.fancybox-1.3.4.css'); ?>" rel="stylesheet" type="text/css" />
 
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -52,7 +72,7 @@
     <div class="search-page">
       <div class="container">
         <div class="jumbotron transparent narrow-container">
-          <p class="jumbotron-title jumbotron-title-mobile text-center">Search or report a plate number:</p>
+          <p class="jumbotron-title jumbotron-title-mobile text-center"><b>Search or report a plate number:</b></p>
           <div class="form-group">
           	<?php
           		$this->load->helper("form");
@@ -107,7 +127,7 @@
         </div>
       </div>
     </div>
-
+<div id="landing">
 <div id="features">
   <div class="container_16">
   
@@ -284,7 +304,7 @@
 <footer>
   <p>&copy; 2014 All rights reserved</p>
 </footer>
-
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <script src="<?php echo(JS.'jquery-1.10.2.js'); ?>"></script>
