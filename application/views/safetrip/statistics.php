@@ -34,7 +34,12 @@
 						<?php foreach ($rows as $row): ?>
 							<tr>
 								<td><?php echo ++$nrow ?></td>
-								<td><?php echo $row['name'] ?></td>
+								<td><?php if (strpos($head,'Company') !== false): ?>
+    											<a href="<?php echo site_url();?>/company/index/<?php echo $row['name']?>"> <?php echo $row['name']?></a>
+    								<?php else: ?>
+		    									<?php echo $row['name'] ?>
+		    						<?php endif; ?>
+								</td>
 								<td><?php echo $row['count'] ?></td>
 							</tr>
 						<?php endforeach ?>
