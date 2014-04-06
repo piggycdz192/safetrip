@@ -68,7 +68,7 @@ CREATE TABLE `report` (
   `platenumber` varchar(6) NOT NULL,
   `report` text NOT NULL,
   `datetime` datetime NOT NULL,
-  `location` varchar(45) DEFAULT NULL,
+  `location` varchar(100) DEFAULT NULL,
   `drivername` varchar(50) DEFAULT NULL,
   `company` varchar(75) DEFAULT NULL,
   `picture` varchar(200),
