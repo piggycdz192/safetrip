@@ -53,7 +53,7 @@
             </div>
             <div class="form-group form-narrower">
               <label for="location">Location of Incident <span class="required">*</span></label>
-              <input type="text" class="form-control" name="location" placeholder="Example: Quezon City" value="<?php echo set_value('location');?>">
+              <input id = "loc" type="text" class="form-control" name="location" placeholder="Example: Quezon City" value="<?php echo set_value('location');?>">
               <?php echo form_error('location','<div class="error">', '</div>') ?>
             </div>
             <div class="form-group form-narrow">
@@ -161,7 +161,7 @@
       </div>
     </div>    
 </form>
-
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -182,6 +182,18 @@
             document.getElementById("file").value = this.value;
         };
       });
+    </script>
+
+     <script>
+          function initialize() {
+            var input = document.getElementById('loc'));
+
+            var options = {
+              componentRestrictions: {country: 'ph'}
+            };
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
+          }
+          initialize();
     </script>
   </body>
 
