@@ -174,3 +174,15 @@ margin-top: 20px;
 .view-plate {
   margin-left: -240px;
 }
+
+.report-adjustment {
+  padding-top: 30px;
+}
+
+.report-bottom {
+  padding-bottom: 30px;
+}
+
+#font-size-fix {
+  font-size: 17px;
+}

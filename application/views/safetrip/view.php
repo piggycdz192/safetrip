@@ -74,7 +74,7 @@
   </center>
   <!-- END SUMMARY -->
 
-  <div class="container">
+  <div class="container" id="font-size-fix">
     <div class="row">
       <!-- total report -->
       <table class="table">
@@ -92,7 +92,7 @@
 
           <tr>
             <td colspan="2">
-              <div>
+              <div class="report-adjustment">
                 <!-- violation -->
                 <!-- remove ul -->
                 <?php foreach($value['violations'] as $item): ?>
@@ -120,7 +120,7 @@
               <p class="no-bottom-margin"><small><strong>Driver Name:</strong> <?php echo ($value['drivername'] == null) ? 'Not specified' : 
               $value['drivername'] ?></small></p>
               <p class="no-bottom-margin"><small><strong>Location:</strong> <?php echo $value['location']; ?></small></p>
-              <p class="no-bottom-margin"><small><strong>Date & Time of Incident:</strong> <?php echo $value['datetime']; ?></small></p>
+              <p class="report-bottom"><small><strong>Date & Time of Incident:</strong> <?php echo $value['datetime']; ?></small></p>
             </td>
             <td class="no-border">
               <button onclick="postit('<?php echo $platenum ?>', '<?php echo preg_replace("/[^A-Za-z0-9.!@#$%^&*()_+-=;:,<>? ]/", "", $value['report']) ?>', 
