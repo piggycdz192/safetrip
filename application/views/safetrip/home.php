@@ -3,13 +3,13 @@
 <style>
 
 #landing {
-  display:block;
+  display: block;
 }
 
-@media all and (max-device-width : 480px) {
-#landing {
-display: none
-}
+@media (max-width : 480px) {
+  #landing {
+    display: none;
+  }
 }
 
 </style>
