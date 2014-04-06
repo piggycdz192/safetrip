@@ -1,7 +1,11 @@
 <?php
 class Company extends CI_Controller {
 
-	public function index($company){
+	public function index($company)
+	{
+		// Replace '%20' with ' '
+		$company = str_replace('%20', ' ', $company);
+
 		// controller for search company 
 		$this->load->model('report_model');
 		$array['loadError'] = FALSE;
