@@ -1,5 +1,19 @@
 <?php include 'header.php'; ?>
 
+<style>
+
+#landing {
+  display:block;
+}
+
+@media all and (max-device-width : 480px) {
+#landing {
+display: none
+}
+}
+
+</style>
+
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:700,900|Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
   
     <link href="<?php echo(CSS.'reset.css'); ?>" rel="stylesheet" type="text/css" />
@@ -107,7 +121,7 @@
         </div>
       </div>
     </div>
-
+<div id="landing">
 <div id="features">
   <div class="container_16">
   
@@ -284,7 +298,7 @@
 <footer>
   <p>&copy; 2014 All rights reserved</p>
 </footer>
-
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <script src="<?php echo(JS.'jquery-1.10.2.js'); ?>"></script>
