@@ -15,11 +15,14 @@ class Company extends CI_Controller {
 		//get vehicle list
 		$data['platenum'] = $this->report_model->get_company_vehicle($company);
 		$data['violation'] = array();
+		$data['nReport'] = array();
 
 		//get most frequent violation of each vehicle
 		foreach ($data['platenum'] as $vehicle) 
+		{
 			$data['violation'][] = $this->report_model->get_vehicle_mostviolation($vehicle->platenum);
-		
+			$data['nReport'][] = $this->report_model->getTotalReport($vehicle->platenum);
+		}
 		
 		$this->load->view('safetrip/company', $data);
 	}
