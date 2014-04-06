@@ -72,7 +72,7 @@
     <div class="search-page">
       <div class="container">
         <div class="jumbotron transparent narrow-container">
-          <p class="jumbotron-title jumbotron-title-mobile text-center">Search or report a plate number:</p>
+          <p class="jumbotron-title jumbotron-title-mobile text-center"><b>Search or report a plate number:</b></p>
           <div class="form-group">
           	<?php
           		$this->load->helper("form");
