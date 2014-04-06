@@ -35,7 +35,7 @@ class Report_model extends CI_Model
 		if ($data === FALSE)
 			return;
 		
-		for ($i = 0; $i <= sizeof($data['rows']); $i++)
+		for ($i = 0; $i < sizeof($data['rows']); $i++)
 		{
 			if ($data['rows'][$i]['name'] === NULL)
 				unset($data['rows'][$i]);
