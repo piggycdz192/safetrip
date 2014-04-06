@@ -1,6 +1,5 @@
 <?php $this->load->helper("form"); ?>
 <?php include 'header.php'; ?>
-
   <div class="file-report-page">
       <div class="container">
         <h1>File a Report</h1>
@@ -161,7 +160,6 @@
       </div>
     </div>    
 </form>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo(JS.'jquery.min.js'); ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -184,17 +182,20 @@
       });
     </script>
 
-     <script>
-          function initialize() {
-            var input = document.getElementById('loc'));
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 
-            var options = {
-              componentRestrictions: {country: 'ph'}
-            };
+    <script>
+          function initialize() {
+            var input = document.getElementById('loc');
+             var options = {
+               componentRestrictions: {country: 'ph'}
+             };
             var autocomplete = new google.maps.places.Autocomplete(input, options);
           }
+
           initialize();
     </script>
+
   </body>
 
 
