@@ -20,6 +20,17 @@
 
 <div class="results-page">
 
+  <!-- modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p><?php echo $riskdescription; ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- SUMMARY -->
   <center>
     <div class="container">
@@ -43,7 +54,7 @@
             <tr>
               <th colspan="2">
                 <!-- <span class="glyphicon glyphicon-warning-sign icon-yellow"></span> -->
-                <center><?php echo "This is a ". $risk ." ".$type. "."; ?></center>
+                <center><?php echo 'This is a <a href="#"  data-toggle="modal" data-target="#myModal">'. $risk .'</a> '.$type. '.'; ?></center>
               </th>
             </tr>
             <tr>

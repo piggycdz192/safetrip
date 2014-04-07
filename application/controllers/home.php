@@ -87,6 +87,16 @@ class Home extends CI_Controller {
 			if($company == null)
 				$company = "Not Specified";
 
+			// describe risk
+			$riskdescription = 'Riding a <strong>'.$risk.'</strong> '.$type;
+			
+			if ($risk === 'HIGH RISK')
+				$riskdescription = $riskdescription.' may put you in life-threatening situations, and should be avoided as much as possible.';
+			else if ($risk === 'MEDIUM RISK')
+				$riskdescription = $riskdescription.' may cause you major discomfort and may potentially put you in a vehicular accident.';
+			else if ($risk === 'LOW RISK')
+				$riskdescription = $riskdescription.' may cause you minor discomfort.';
+
 			$array = array('platenum' => $platenum,
 				'type' => $type,
 				'company' => $company,
@@ -95,6 +105,7 @@ class Home extends CI_Controller {
 				'nreport' => $nReport,
 				'reports' => $reports,
 				'risk' => $risk,
+				'riskdescription' => $riskdescription,
 				'frequentLocation' => $frequentLocation);
 
 			$this->load->view('safetrip/view', $array);
