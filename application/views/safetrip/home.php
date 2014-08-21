@@ -44,26 +44,37 @@
             <div class="container">
                 <div class="jumbotron transparent narrow-container">
                     <!-- <p class="jumbotron-title jumbotron-title-mobile text-center"><b>SafeTrip</b></p> -->
-<<<<<<< HEAD
                     <!-- <form role="form"> -->
 
                     <?php echo form_open_multipart('') ?>                    
                         <div class="form-group">
                             <label for="user">Username</label>
                             <input type="text" class="form-control" id="user" placeholder="Username"><?php echo set_value('user');?>
-                             <?php echo form_error('user','<div class="error">', '</div>') ?>
+                             <?php 
+                                 if ($loadError)
+                                    $data['class'] = $data['class'].' decoratedErrorField'; 
+                                    echo form_input($data);
+
+                                if ($loadError)
+                                    echo '<div class="user-page-error">'.$error.'</div>';
+                             ?>
                         </div>
                         <div class="form-group">
                             <label for="pass">Password</label>
                             <input type="password" class="form-control" id="pass" placeholder="Password"><?php echo set_value('pass');?>
-                            <?php echo form_error('pass','<div class="error">', '</div>') ?>
+                            <?php 
+                                if ($loadError1)
+                                    $data['class'] = $data['class'].' decoratedErrorField'; 
+                                echo form_input($data);
+
+                                if ($loadError1)
+                                     echo '<div class="pass-page-error">'.$error1.'</div>';
+                            ?>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg pull-right">Sign In</button>
                      <?php echo form_close(); ?>
                         <br/><br/>
-                    <!-- </form>  -->  
-=======
-                    
+                    <!-- </form>  -->                      
                         <div class="form-group">
                             <label for="user">Username</label>
 							<?php

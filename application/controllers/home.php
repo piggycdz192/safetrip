@@ -41,57 +41,19 @@ class Home extends CI_Controller {
 		$this->load->view('safetrip/demo');
 	}
 	
-	public function login()
-	{   
-	    
-	    $user = $this->session->flashdata('user');
-		$pass = $this->session->flashdata('pass');
-		if($user=="" && $pass==""){
-		$array1['loadError'] = TRUE;
-		$array1['error'] = 'Missing Username.';
-		$array1['loadError1'] = TRUE;
-		$array1['error1'] = 'Missing Password.';
-		$this->load->view('safetrip/home', $array1);
-		}
-		elseif($user==""){
-		$array1['loadError'] = TRUE;
-		$array1['error'] = 'Missing Username.';
-		$array1['loadError1'] = FALSE;
-		$array1['error1'] = 'Missing Password.';
-		$this->load->view('safetrip/home', $array1);
-		}
-		elseif($pass==""){
-		$array1['loadError'] = FALSE;
-		$array1['error'] = 'Missing Username.';
-		$array1['loadError1'] = TRUE;
-		$array1['error1'] = 'Missing Password.';
-		$this->load->view('safetrip/home', $array1);
-		}
-		else{
-		$this->load->model('user_model');
-		$match = $this->user_model->get_user_match($this->user_model->hash_password($pass));
-		if($match== FALSE){
-		$array1['loadError'] = TRUE;
-		$array1['error'] = 'Username does not exist.';
-		$array1['loadError1'] = FALSE;
-		$array1['error1'] = 'Missing Password.';
-		$this->load->view('safetrip/home', $array1);
-		}
-		else{
-		$array['plateList'] = $this->report_model->get_all_platenum();
-		$array['loadError'] = FALSE;
-		$this->load->view('safetrip/home3', $array);
-		}
-		
-		}
-	}
 		
 	public function signup()
 	{
 		$this->load->view('safetrip/signup');
 		$this->load->model('user_model');
 
+		
+	}
+
+	public function signin()
+	{
 		// when sign in is clicked
+
 		if ($this->input->post("signin"))
 		{   
 		
@@ -104,8 +66,9 @@ class Home extends CI_Controller {
 			$this->session->set_flashdata('pass', $pass);
 			
 			redirect('login/');	
-
+		}
 	}
+
 	public function view($platenum = FALSE)
 	{
 		$this->load->model("report_model");
