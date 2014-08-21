@@ -23,6 +23,8 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	
+	 
 	public function index()
 	{
 		$this->load->model('report_model');
@@ -38,6 +40,52 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('safetrip/demo');
 	}
+	
+	public function login()
+	{   
+	    
+	    $user = $this->session->flashdata('user');
+		$pass = $this->session->flashdata('pass');
+		if($user=="" && $pass==""){
+		$array1['loadError'] = TRUE;
+		$array1['error'] = 'Missing Username.';
+		$array1['loadError1'] = TRUE;
+		$array1['error1'] = 'Missing Password.';
+		$this->load->view('safetrip/home', $array1);
+		}
+		elseif($user==""){
+		$array1['loadError'] = TRUE;
+		$array1['error'] = 'Missing Username.';
+		$array1['loadError1'] = FALSE;
+		$array1['error1'] = 'Missing Password.';
+		$this->load->view('safetrip/home', $array1);
+		}
+		elseif($pass==""){
+		$array1['loadError'] = FALSE;
+		$array1['error'] = 'Missing Username.';
+		$array1['loadError1'] = TRUE;
+		$array1['error1'] = 'Missing Password.';
+		$this->load->view('safetrip/home', $array1);
+		}
+		else{
+		$this->load->model('user_model');
+		$match = $this->user_model->get_user_match($this->user_model->hash_password($pass));
+		if($match== FALSE){
+		$array1['loadError'] = TRUE;
+		$array1['error'] = 'Username does not exist.';
+		$array1['loadError1'] = FALSE;
+		$array1['error1'] = 'Missing Password.';
+		$this->load->view('safetrip/home', $array1);
+		}
+		else{
+		$array['plateList'] = $this->report_model->get_all_platenum();
+		$array['loadError'] = FALSE;
+		$this->load->view('safetrip/home3', $array);
+		}
+		
+		}
+	}
+		
 	public function signup()
 	{
 		$this->load->view('safetrip/signup');
@@ -167,7 +215,25 @@ class Home extends CI_Controller {
 			redirect('report/'.$platenum);
 		}		
 	}
+		public function validate2()
+	{
+		$user = $this->input->post('user');
+		$pass = $this->input->post('pass');
+		// when sign in is clicked
+		if ($this->input->post("signin"))
+		{   
+			$this->load->library("form_validation");
 
+			$this->form_validation->set_rules("user", "Username", "required|xss_clean");
+			$this->form_validation->set_rules("pass", "Password", "required|xss_clean");
+			
+			$this->session->set_flashdata('user', $user);
+			$this->session->set_flashdata('pass', $pass);
+			
+			redirect('login/');	
+		}
+				
+	}
 	public function statistics($selected = false)
 	{
 		$this->load->model('report_model');

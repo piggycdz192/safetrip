@@ -44,6 +44,7 @@
             <div class="container">
                 <div class="jumbotron transparent narrow-container">
                     <!-- <p class="jumbotron-title jumbotron-title-mobile text-center"><b>SafeTrip</b></p> -->
+<<<<<<< HEAD
                     <!-- <form role="form"> -->
 
                     <?php echo form_open_multipart('') ?>                    
@@ -61,6 +62,71 @@
                      <?php echo form_close(); ?>
                         <br/><br/>
                     <!-- </form>  -->  
+=======
+                    
+                        <div class="form-group">
+                            <label for="user">Username</label>
+							<?php
+							$this->load->helper("form");
+
+							echo validation_errors();
+							echo form_open("home/validate2");
+              
+							$data = array(
+							'type' => 'text',
+							'name' => 'user',
+							'class' => "form-control",
+							'placeholder' => "Username please."
+							);
+							if ($loadError)
+							$data['class'] = $data['class'].' decoratedErrorField';
+
+							echo form_input($data);
+
+							if ($loadError)
+							echo '<div class="user-page-error">'.$error.'</div>';
+												
+							?>
+						</div>
+                        <div class="form-group">
+                            <label for="pass">Password</label>
+							<?php
+							$this->load->helper("form");
+
+							echo validation_errors();
+							
+              
+							$data = array(
+							'type' => 'password',
+							'name' => 'pass',
+							'class' => "form-control",
+							'placeholder' => "Password please."
+							);
+							if ($loadError1)
+							$data['class'] = $data['class'].' decoratedErrorField';
+
+							echo form_input($data);
+
+							if ($loadError1)
+							echo '<div class="pass-page-error">'.$error1.'</div>';
+												
+							?>
+						</div>
+						<?php
+
+                        $data = array(
+                        'class'=>"btn btn-primary btn-lg pull-right",
+						'name' => "signin"
+						);
+						echo form_submit($data,'Sign In');
+						
+                        echo form_close();
+
+                        ?>
+                       
+                        <br/><br/>
+                      
+>>>>>>> 5453b6da270eb8ddf4f5e04b533273d1128060d0
                     <!-- </p> -->
                 </div>
                 <div>
