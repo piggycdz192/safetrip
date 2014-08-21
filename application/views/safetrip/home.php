@@ -28,7 +28,9 @@
         <link media="(min-width : 480px)" href="<?php echo(CSS.'styles.css'); ?>" rel="stylesheet" type="text/css" />
         <link media="(min-width : 480px)" href="<?php echo(FANCY.'jquery.fancybox-1.3.4.css'); ?>" rel="stylesheet" type="text/css" />
     </head>
+
     <body>
+        <?php $this->load->helper("form"); ?>
         <div class="container">
             <div class="navbar navbar-inverse navbar-maincolor navbar-fixed-top" role="navigation">
                 <div class="container">
@@ -42,24 +44,29 @@
             <div class="container">
                 <div class="jumbotron transparent narrow-container">
                     <!-- <p class="jumbotron-title jumbotron-title-mobile text-center"><b>SafeTrip</b></p> -->
-                    <form role="form">
+                    <!-- <form role="form"> -->
+
+                    <?php echo form_open_multipart('') ?>                    
                         <div class="form-group">
                             <label for="user">Username</label>
-                            <input type="text" class="form-control" id="user" placeholder="Username">
+                            <input type="text" class="form-control" id="user" placeholder="Username"><?php echo set_value('user');?>
+                             <?php echo form_error('user','<div class="error">', '</div>') ?>
                         </div>
                         <div class="form-group">
                             <label for="pass">Password</label>
-                            <input type="password" class="form-control" id="pass" placeholder="Password">
+                            <input type="password" class="form-control" id="pass" placeholder="Password"><?php echo set_value('pass');?>
+                            <?php echo form_error('pass','<div class="error">', '</div>') ?>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg pull-right">Sign In</button>
+                     <?php echo form_close(); ?>
                         <br/><br/>
-                    </form>   
+                    <!-- </form>  -->  
                     <!-- </p> -->
                 </div>
                 <div>
-                    <!-- <div class = "col-xs-12 col-sm-12 hidden-md hidden-lg" style = "padding: 0; margin-bottom: 20px;">
-                        <a type="button" class="btn btn-warning btn-lg" href ="<?php //echo site_url('signup');?>">Sign Up</a>
-                    </div> -->
+                    <div class = "col-xs-12 col-sm-12 hidden-md hidden-lg" style = "padding: 0; margin-bottom: 20px;">
+                        // <a type="button" class="btn btn-warning btn-lg" href ="<?php echo site_url('signup'); ?>">Sign Up</a>
+                    </div>
                     <div class = "col-md-12 col-lg-12 hidden-xs hidden-sm" style = "margin: 0 0 20px 100px;">
                         <a type="button" class="btn btn-warning btn-lg" href ="<?php echo site_url('signup'); ?>">Sign Up</a>
                     </div>
