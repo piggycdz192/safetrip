@@ -57,9 +57,14 @@
 							'class' => "form-control",
 							'placeholder' => "Username please."
 							);
-							
+							if ($loadError)
+							$data['class'] = $data['class'].' decoratedErrorField';
+
 							echo form_input($data);
-					
+
+							if ($loadError)
+							echo '<div class="user-page-error">'.$error.'</div>';
+												
 							?>
 						</div>
                         <div class="form-group">
@@ -76,9 +81,14 @@
 							'class' => "form-control",
 							'placeholder' => "Password please."
 							);
-							
+							if ($loadError1)
+							$data['class'] = $data['class'].' decoratedErrorField';
+
 							echo form_input($data);
-					
+
+							if ($loadError1)
+							echo '<div class="pass-page-error">'.$error1.'</div>';
+												
 							?>
 						</div>
 						<?php
@@ -97,7 +107,14 @@
                       
                     <!-- </p> -->
                 </div>
-                
+                <div>
+                    <!-- <div class = "col-xs-12 col-sm-12 hidden-md hidden-lg" style = "padding: 0; margin-bottom: 20px;">
+                        <a type="button" class="btn btn-warning btn-lg" href ="<?php //echo site_url('signup');?>">Sign Up</a>
+                    </div> -->
+                    <div class = "col-md-12 col-lg-12 hidden-xs hidden-sm" style = "margin: 0 0 20px 100px;">
+                        <a type="button" class="btn btn-warning btn-lg" href ="<?php echo site_url('signup'); ?>">Sign Up</a>
+                    </div>
+                </div>
             </div>
             <footer class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p style = "margin: 0 auto; color:white;">&copy; 2014 All rights reserved</p>
