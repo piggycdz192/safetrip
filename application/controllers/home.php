@@ -36,7 +36,10 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('safetrip/demo');
 	}
-
+	public function signup()
+	{
+		$this->load->view('safetrip/signup');
+	}
 	public function view($platenum = FALSE)
 	{
 		$this->load->model("report_model");
@@ -114,7 +117,7 @@ class Home extends CI_Controller {
 			$array['plateList'] = $this->report_model->get_all_platenum();
 			$array['loadError'] = TRUE;
 			$array['error'] = 'Please enter a plate number.';
-			$this->load->view('safetrip/home', $array);
+			$this->load->view('safetrip/home3', $array);
 		}
 		// if the plate num is not inside the database, do this				
 		else 
@@ -122,7 +125,7 @@ class Home extends CI_Controller {
 			$array['plateList'] = $this->report_model->get_all_platenum();
 			$array['loadError'] = TRUE;
 			$array['error'] = 'This plate number does not have any existing reports.';
-			$this->load->view('safetrip/home', $array);
+			$this->load->view('safetrip/home3', $array);
 		}
 	}
 

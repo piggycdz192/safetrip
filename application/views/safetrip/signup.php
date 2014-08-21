@@ -41,8 +41,12 @@
         <div class="search-page">
             <div class="container">
                 <div class="jumbotron transparent narrow-container">
-                    <!-- <p class="jumbotron-title jumbotron-title-mobile text-center"><b>SafeTrip</b></p> -->
+                <!-- <p class="jumbotron-title jumbotron-title-mobile text-center"><b>SafeTrip</b></p> -->
                     <form role="form">
+                        <div class="form-group">
+                            <label for="emailadd">Email Address</label>
+                            <input type="email" class="form-control" id="emailadd" placeholder="Input Email Address">
+                        </div> 
                         <div class="form-group">
                             <label for="user">Username</label>
                             <input type="text" class="form-control" id="user" placeholder="Username">
@@ -51,17 +55,17 @@
                             <label for="pass">Password</label>
                             <input type="password" class="form-control" id="pass" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg pull-right">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-lg pull-right">Sign Up</button>
                         <br/><br/>
-                    </form>   
-                    <!-- </p> -->
+                    </form>
+                <!-- </p> -->
                 </div>
                 <div>
                     <!-- <div class = "col-xs-12 col-sm-12 hidden-md hidden-lg" style = "padding: 0; margin-bottom: 20px;">
-                        <a type="button" class="btn btn-warning btn-lg" href ="<?php //echo site_url('signup');?>">Sign Up</a>
+                        <a type="button" class="btn btn-warning btn-lg" href ="<?php //echo base_url('index.php/loggedin');?>">Sign In</a>
                     </div> -->
                     <div class = "col-md-12 col-lg-12 hidden-xs hidden-sm" style = "margin: 0 0 20px 100px;">
-                        <a type="button" class="btn btn-warning btn-lg" href ="<?php echo site_url('signup'); ?>">Sign Up</a>
+                        <a type="button" class="btn btn-warning btn-lg" href ="<?php echo base_url('');?>">Sign In</a>
                     </div>
                 </div>
             </div>
@@ -86,4 +90,7 @@
         <script src="<?php echo(JS.'bootstrap-datetimepicker.min.js'); ?>"></script>
     </body>
 </html>
+
+
+
 

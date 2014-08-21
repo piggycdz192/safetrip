@@ -37,18 +37,16 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
 $route['report'] = "report/create";
 $route['report/(:any)'] = "report/create/$1";
 $route['demo'] = "home/demo";
 $route['view/(:any)'] = "home/view/$1";
 $route['view'] = "home/view";
+$route['signup'] = "home/signup";
 $route['statistics'] = "home/statistics";
 $route['statistics/(:any)'] = "home/statistics/$1";
 $route['index'] = "home/index";
 $route['default_controller'] = "home";
 $route['404_override'] = '';
-
-
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
