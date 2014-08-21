@@ -29,7 +29,9 @@ class Home extends CI_Controller {
 		$array['plateList'] = $this->report_model->get_all_platenum();
 		$array['loadError'] = FALSE;
 
-		$this->load->view('safetrip/home', $array);
+		$array1['loadError']= FALSE;
+		$array1['loadError1']= FALSE;
+		$this->load->view('safetrip/home', $array1);
 	}
 	// test
 	public function demo()
@@ -39,6 +41,22 @@ class Home extends CI_Controller {
 	public function signup()
 	{
 		$this->load->view('safetrip/signup');
+		$this->load->model('user_model');
+
+		// when sign in is clicked
+		if ($this->input->post("signin"))
+		{   
+		
+			$this->load->library("form_validation");
+
+			$this->form_validation->set_rules("user", "Username", "required|xss_clean");
+			$this->form_validation->set_rules("pass", "Password", "required|xss_clean");
+			
+			$this->session->set_flashdata('user', $user);
+			$this->session->set_flashdata('pass', $pass);
+			
+			redirect('login/');	
+
 	}
 	public function view($platenum = FALSE)
 	{
@@ -180,6 +198,51 @@ class Home extends CI_Controller {
 		$data['selected'] = $selected;
 		$data['nrow'] = 0;
 		$this->load->view('safetrip/statistics', $data);
+	}
+
+	public function login()
+	{   
+	    
+	    $user = $this->session->flashdata('user');
+		$pass = $this->session->flashdata('pass');
+		
+		if($user=="" && $pass==""){
+			$array1['loadError'] = TRUE;
+			$array1['error'] = 'Missing Username.';
+			$array1['loadError1'] = TRUE;
+			$array1['error1'] = 'Missing Password.';
+			$this->load->view('safetrip/home', $array1);
+		}
+		elseif($user==""){
+			$array1['loadError'] = TRUE;
+			$array1['error'] = 'Missing Username.';
+			$array1['loadError1'] = FALSE;
+			$array1['error1'] = 'Missing Password.';
+			$this->load->view('safetrip/home', $array1);
+		}
+		elseif($pass==""){
+			$array1['loadError'] = FALSE;
+			$array1['error'] = 'Missing Username.';
+			$array1['loadError1'] = TRUE;
+			$array1['error1'] = 'Missing Password.';
+			$this->load->view('safetrip/home', $array1);
+		}
+		else{
+			$this->load->model('user_model');
+			$match = $this->user_model->get_user_match($this->user_model->hash_password($pass));
+			if($match== FALSE){
+				$array1['loadError'] = TRUE;
+				$array1['error'] = 'Username does not exist.';
+				$array1['loadError1'] = FALSE;
+				$array1['error1'] = 'Missing Password.';
+				$this->load->view('safetrip/home', $array1);
+			}
+			else{
+				$array['plateList'] = $this->report_model->get_all_platenum();
+				$array['loadError'] = FALSE;
+				$this->load->view('safetrip/home3', $array);
+			}
+		}
 	}
 }
 
