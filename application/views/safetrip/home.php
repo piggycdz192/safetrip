@@ -42,28 +42,62 @@
             <div class="container">
                 <div class="jumbotron transparent narrow-container">
                     <!-- <p class="jumbotron-title jumbotron-title-mobile text-center"><b>SafeTrip</b></p> -->
-                    <form role="form">
+                    
                         <div class="form-group">
                             <label for="user">Username</label>
-                            <input type="text" class="form-control" id="user" placeholder="Username">
-                        </div>
+							<?php
+							$this->load->helper("form");
+
+							echo validation_errors();
+							echo form_open("home/validate2");
+              
+							$data = array(
+							'type' => 'text',
+							'name' => 'user',
+							'class' => "form-control",
+							'placeholder' => "Username please."
+							);
+							
+							echo form_input($data);
+					
+							?>
+						</div>
                         <div class="form-group">
                             <label for="pass">Password</label>
-                            <input type="password" class="form-control" id="pass" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg pull-right">Sign In</button>
+							<?php
+							$this->load->helper("form");
+
+							echo validation_errors();
+							
+              
+							$data = array(
+							'type' => 'password',
+							'name' => 'pass',
+							'class' => "form-control",
+							'placeholder' => "Password please."
+							);
+							
+							echo form_input($data);
+					
+							?>
+						</div>
+						<?php
+
+                        $data = array(
+                        'class'=>"btn btn-primary btn-lg pull-right",
+						'name' => "signin"
+						);
+						echo form_submit($data,'Sign In');
+						
+                        echo form_close();
+
+                        ?>
+                       
                         <br/><br/>
-                    </form>   
+                      
                     <!-- </p> -->
                 </div>
-                <div>
-                    <!-- <div class = "col-xs-12 col-sm-12 hidden-md hidden-lg" style = "padding: 0; margin-bottom: 20px;">
-                        <a type="button" class="btn btn-warning btn-lg" href ="<?php //echo site_url('signup');?>">Sign Up</a>
-                    </div> -->
-                    <div class = "col-md-12 col-lg-12 hidden-xs hidden-sm" style = "margin: 0 0 20px 100px;">
-                        <a type="button" class="btn btn-warning btn-lg" href ="<?php echo site_url('signup'); ?>">Sign Up</a>
-                    </div>
-                </div>
+                
             </div>
             <footer class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p style = "margin: 0 auto; color:white;">&copy; 2014 All rights reserved</p>

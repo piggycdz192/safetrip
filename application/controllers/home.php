@@ -36,6 +36,15 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('safetrip/demo');
 	}
+	
+	public function login($array = FALSE)
+	{
+		$this->load->model('report_model');
+		    $array['plateList'] = $this->report_model->get_all_platenum();
+		    $array['loadError'] = FALSE;
+			$this->load->view('safetrip/home3', $array);	
+	}
+		
 	public function signup()
 	{
 		$this->load->view('safetrip/signup');
@@ -149,7 +158,25 @@ class Home extends CI_Controller {
 			redirect('report/'.$platenum);
 		}		
 	}
+		public function validate2()
+	{
+		$user = $this->input->post('user');
+		$pass = $this->input->post('pass');
+		// when sign in is clicked
+		if ($this->input->post("signin"))
+		{   
+		$this->load->library("form_validation");
 
+			$this->form_validation->set_rules("user", "Username", "required|xss_clean");
+			$this->form_validation->set_rules("pass", "Password", "required|xss_clean");
+			
+			$array['user'] = $user;
+			$array['pass'] = $pass;
+			
+			redirect('login/'.$array);	
+		}
+				
+	}
 	public function statistics($selected = false)
 	{
 		$this->load->model('report_model');
